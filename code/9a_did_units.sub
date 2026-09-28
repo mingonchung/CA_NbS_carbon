@@ -1,0 +1,100 @@
+#!/bin/bash
+#SBATCH --job-name=ca_9a_units
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=64G
+#SBATCH --time=04:00:00
+#SBATCH --output=/home/mich9173/log/9a_units_%j.qlog
+
+
+# ONE TASK, NOT AN ARRAY.
+#
+# Six pairings, each reading a matched parquet of at most 600,000 rows plus a
+# filtered scan of the three stage 6 groups files. No carbon is read. The whole
+# loop is minutes, so an array would cost more in queue time than it saves.
+#
+# Check the selection resolves before submitting. This prints the arm and
+# config ca_match$selected names for each pairing and exits, and it is the one
+# place a missing or misspelled entry surfaces cheaply.
+#
+#   Rscript $HOME/9a_did_units.R tasks
+#
+# The run.
+#
+#   sbatch 9a_did_units.sub
+#
+# A subset, when one pairing's matching has been rerun.
+#
+#   sbatch --export=ALL,CA_PAIRINGS=FP_UP,CA_OVERWRITE=1 9a_did_units.sub
+#
+# Note that sbatch splits --export on commas, so a list of pairings has to be
+# exported first or separated with a colon.
+#
+#   export CA_PAIRINGS="UP_UNP:TP_UP"
+#   sbatch --export=ALL 9a_did_units.sub
+#
+# Archive once every pairing has written, from a login node. This archives the
+# whole did directory, so run it after stage 9b rather than here if both are
+# going in the same pass.
+#
+#   Rscript $HOME/9a_did_units.R archive
+#
+# WHAT TO READ IN THE LOG
+#
+# Three lines per pairing decide whether stage 10 can proceed.
+#
+#   the modal shift between the stage 6 cohort year and the stage 8 level year.
+#   Expect 0 for UP_UNP, ONP_UNP, FP_UP, and FNP_UNP, and +1 for TP_UP and
+#   TNP_UNP, which is ca_pretrt$event_drop["thin"] showing up as designed. Any
+#   other value is a bug rather than a design consequence.
+#
+#   subclasses not holding exactly two rows. Should be zero. A non-zero count
+#   means two CA_LEVELS ranges overlapped at stage 8 and the matched files were
+#   stacked twice.
+#
+#   pct_always_treated in the summary, measured against the 1985 panel opening
+#   rather than 1990. Non-zero for UP_UNP alone, and it is the share of the PA
+#   treated sample att_gt() will drop as already treated in the first period.
+#   Everything it drops is still estimated by etwfe with emfx type calendar,
+#   which is the split ca_did$emfx_type records.
+
+# Environment. The pinned module string is gone from Alpine, so the module name
+# comes from CA_CONDA_MODULE if the site renames it again, and a direct source
+# of conda.sh is the fallback. The block fails loudly rather than running R from
+# the system path in the wrong environment.
+
+module purge
+module load "${CA_CONDA_MODULE:-anaconda}" 2>/dev/null || \
+  echo "Module load skipped, falling back to a direct conda.sh source"
+
+if ! command -v conda >/dev/null 2>&1; then
+  for CONDA_HOME in "$HOME/miniconda3" "$HOME/anaconda3" "$HOME/miniforge3" \
+                    "$HOME/mambaforge" /curc/sw/anaconda3/latest; do
+    if [ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]; then
+      source "$CONDA_HOME/etc/profile.d/conda.sh"
+      break
+    fi
+  done
+fi
+
+command -v conda >/dev/null 2>&1 || {
+  echo "conda not found. Run 'module -t avail' and 'conda info --base' on a"
+  echo "login node and set CA_CONDA_MODULE or add the base path above."
+  exit 1
+}
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+command -v Rscript >/dev/null 2>&1 || {
+  echo "Rscript not on PATH after activating MC0617"
+  exit 1
+}
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+Rscript "$HOME/9a_did_units.R" ${CA_MODE:-run}

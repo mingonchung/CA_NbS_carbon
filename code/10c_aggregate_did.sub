@@ -1,0 +1,110 @@
+#!/bin/bash
+#SBATCH --job-name=ca_10c_agg
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=32G
+#SBATCH --time=02:00:00
+#SBATCH --output=/home/mich9173/log/10c_agg_%j.qlog
+
+
+# THE CONDA NOISE IS HARMLESS
+#
+# The module block prints "CondaError: Run 'conda init' before 'conda
+# deactivate'" twice before R starts. That is module purge and module load
+# arguing over an already-active environment. Nothing downstream is affected.
+#
+# WHAT THIS RUNS
+#
+# Not an array. One process reads every file 10a and 10b wrote and produces
+# three tables in meta/. It is the last thing that has to happen on Alpine.
+# Stage 11 reads did_results.csv.gz on the laptop.
+#
+# THE CHECK IS THE DEFAULT AND COSTS NOTHING
+#
+# Run it on a login node while the array is still draining. It opens every
+# output file to confirm the gzip is not truncated and reads squeue so a task
+# in flight is not handed back for resubmission.
+#
+#   Rscript $HOME/10c_aggregate_did.R
+#
+# It prints a class table per estimator and tier and an sbatch array string
+# per tier for whatever is still todo. Feed those straight back to 10b.
+#
+#   sbatch --time=24:00:00 --mem=240G --array=<printed string> 10b_did_etwfe.sub
+#
+# and for anything that died on memory rather than on wall clock:
+#
+#   sbatch --partition=amem --qos=mem-long --time=2-00:00:00 --mem=950G \
+#          --array=<printed string> 10b_did_etwfe.sub
+#
+# THE AGGREGATE
+#
+#   sbatch 10c_aggregate_did.sub
+#
+# or on a login node if the array is small enough to have mostly landed. It
+# runs on partial output by design, so it is worth running now and again after
+# the large tier finishes rather than waiting for a complete stage 10.
+#
+# OUTPUTS, all in /projects/mich9173/CA_carbon/meta/
+#
+#   did_results.csv.gz          every estimate from both estimators, one row
+#                               per term, back-transformed where log1p
+#   did_results_coverage.csv    completeness by estimator and treatment arm at
+#                               the moment the results table was written
+#   did_results_missing.csv     the runs that are todo, error, or still queued
+#
+# RERUNNING. Delete before rerunning rather than relying on overwrite. The
+# results table is rebuilt from scratch every time and nothing downstream
+# caches it.
+#
+#   rm /projects/mich9173/CA_carbon/meta/did_results*.csv*
+#   sbatch 10c_aggregate_did.sub
+#
+# MEMORY AND TIME. Roughly 1,400 files at a few hundred rows each. The bind is
+# a few hundred thousand rows and holds in well under a gigabyte. The 32 GB and
+# two hours here are margin for a stage 10 that grows, not a measurement.
+#
+# WHAT COMES BACK DOWN. One file.
+#
+#   scp mich9173@login.rc.colorado.edu:/projects/mich9173/CA_carbon/meta/did_results*.csv* .
+#
+# AFTER THIS
+#
+# Nothing else in the pipeline needs Alpine except the Figure 1 raster inputs,
+# which are a separate script.
+
+module purge
+module load "${CA_CONDA_MODULE:-anaconda}" 2>/dev/null || \
+  echo "Module load skipped, falling back to a direct conda.sh source"
+
+if ! command -v conda >/dev/null 2>&1; then
+  for CONDA_HOME in "$HOME/miniconda3" "$HOME/anaconda3" "$HOME/miniforge3" \
+                    "$HOME/mambaforge" /curc/sw/anaconda3/latest; do
+    if [ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]; then
+      source "$CONDA_HOME/etc/profile.d/conda.sh"
+      break
+    fi
+  done
+fi
+
+command -v conda >/dev/null 2>&1 || {
+  echo "conda not found. Run 'module -t avail' and 'conda info --base' on a"
+  echo "login node and set CA_CONDA_MODULE or add the base path above."
+  exit 1
+}
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+command -v Rscript >/dev/null 2>&1 || {
+  echo "Rscript not on PATH after activating MC0617"
+  exit 1
+}
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+Rscript "$HOME/10c_aggregate_did.R" ${CA_MODE:-aggregate}

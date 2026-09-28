@@ -1,0 +1,292 @@
+#!/bin/bash
+#SBATCH --job-name=ca_10a_attgt
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=64G
+#SBATCH --time=04:00:00
+#SBATCH --array=1-1
+#SBATCH --output=/home/mich9173/log/10a_attgt_%A_%a.qlog
+
+
+# THE CONDA NOISE IS HARMLESS
+#
+# The module block prints "CondaError: Run 'conda init' before 'conda
+# deactivate'" twice before R starts. That is module purge and module load
+# arguing over an already-active environment. Nothing downstream is affected.
+#
+#
+# WHAT THIS RUNS
+#
+# att_gt then aggte("simple") and aggte("dynamic"), plus aggte("calendar") on
+# the PA arm. This is the SI comparison against etwfe and the parallel trends
+# evidence. The headline estimates come from 10b.
+#
+# ONE TASK IS A STATEWIDE CELL AND EVERY ECOREGION INSIDE IT
+#
+# 146 tasks, 1245 cells, from the 2026-08-15 tasks run. The cell set is now
+# identical to 10b's. What differs is the distribution across array tasks. 10b
+# submits one task per cell and re-reads the panel each time. 10a submits one
+# task per statewide cell, reads the panel once, and fits that cell and its
+# ecoregions from the one copy in memory.
+#
+#   small   1-40     40 tasks    200 cells    5 to 6 cells per task
+#   medium  41-64    24 tasks    168 cells    7 cells per task
+#   large   65-146   82 tasks    877 cells    7 to 12 cells per task
+#
+# A cell whose output already exists is skipped, so a resubmitted task fills
+# its gaps rather than refitting what it already has. CA_OVERWRITE=1 turns
+# that off, which is what a respecification needs.
+#
+#
+# BEFORE SUBMITTING
+#
+# meta/did_subset_levels.csv must exist. Built once by the other script.
+#
+#   Rscript $HOME/10b_did_etwfe.R levels
+#   Rscript $HOME/10a_did_attgt.R tasks
+#
+# THE MANIFEST COLUMN SET CHANGED ON 2026-08-16. att_group and se_group became
+# att_simple and se_simple, and a task column was added. The append path stops
+# rather than mixing column sets, so move the old manifest aside first.
+#
+#   mv /projects/mich9173/CA_carbon/meta/did_attgt_manifest.csv \
+#      /projects/mich9173/CA_carbon/meta/did_attgt_manifest_pre0816.csv
+#
+#
+# SUBMISSION. Three tiers, all on cpu-normal.
+#
+#   sbatch --time=01:00:00 --mem=32G --export=ALL,CA_OVERWRITE=1 --array=1-40 10a_did_attgt.sub
+#	sbatch --time=01:00:00 --mem=32G --export=ALL,CA_OVERWRITE=1 --array=41-64 10a_did_attgt.sub
+#	sbatch --time=02:00:00 --mem=64G --export=ALL,CA_OVERWRITE=1 --array=65-146 10a_did_attgt.sub
+#
+# WITH CA_OVERWRITE, which is what the 2026-08-16 respecification needs, since
+# every existing attgt file predates the ecoregion cells, the calendar
+# aggregation, and the simple-for-group swap.
+#
+#   sbatch --export=ALL,CA_OVERWRITE=1 --time=12:00:00 --mem=100G \
+#          --array=65-146 10a_did_attgt.sub
+#
+# NOT cpu-long. That QoS rejects anything at or under 24 hours with
+# "Error 19: The requested runtime of the cpu-long QoS must be greater than
+# 24 hour(s)". Nothing in this stage needs it.
+#
+#
+# WHY THE MEMORY DOES NOT FOLLOW THE TIER
+#
+# The tiers are ordered on est_cost, which is rows times cohorts, and that is
+# a wall clock quantity. Memory follows est_rows alone, and the two disagree.
+# The medium tier tops out at 2,034,424 rows against the small tier's
+# 2,487,142, because the medium cells carry 35 to 36 cohorts where the ONP_UNP
+# cells carry 7. So small and medium take the same 64G and only the large tier,
+# which reaches 7,982,946 rows, needs more.
+#
+#   small   max 2,487,142 rows    64G
+#   medium  max 2,034,424 rows    64G
+#   large   max 7,982,946 rows    100G
+#
+# The loop holds the task panel for the whole task, not just the current fit,
+# which is the new memory cost against the pre-loop version. On the largest
+# cell that is roughly 300 MB against a 100G request, so it does not move the
+# number.
+#
+#
+# WHY 12 HOURS ON THE LARGE TIER
+#
+# MEASURED, before the loop existed.
+#
+#   FNP_UNP agb_lemma Moderate severity, 2,919,078 rows after the cohort
+#   filter, 108,114 units, 27 cohorts, 676 group-time cells. att_gt 2 minutes,
+#   aggte 22 and 42 seconds, 3 minutes total. The heaviest cells seen run 15
+#   to 20 minutes inside 100 GB.
+#
+# A task is now roughly twice its statewide cell, because the ecoregions
+# partition the same units and their fits sum to about one more statewide fit.
+# So the heaviest task is on the order of 40 minutes, not 20, and 12 hours is
+# margin rather than an estimate. The UP_UNP tasks, 65 to 74, carry a third
+# aggregation and 12 cells each and are the slowest in the array.
+#
+#
+# ONE TASK FIRST, TWO OF THEM
+#
+#   sbatch --time=04:00:00 --mem=100G --array=76 10a_did_attgt.sub
+#   sbatch --time=04:00:00 --mem=100G --array=65 10a_did_attgt.sub
+#
+# Task 76 is FP_UP agb_almanac log1p Low severity, the highest cost in the
+# array at 287,386,056 across 12 cells. Task 65 is UP_UNP agb_almanac log1p,
+# 12 cells and the only arm that also runs aggte("calendar"). Between them they
+# time the two things the loop changed. Read the per-cell wall_min column in
+# the manifest before committing the tier.
+#
+#
+# IF A LARGE TASK WILL NOT FINISH
+#
+# Raise the wall clock and resubmit that task. It skips the cells it already
+# wrote and resumes at the first one missing, so a second attempt costs only
+# what is left. Do not subsample. The submitted 50,000 subclass draw at
+# 10_2 L69 is the thing this revision removed, and reintroducing it would put
+# the fire arm back on a sample size rule no other arm uses.
+#
+#
+# WHAT THE MANIFEST CARRIES, ONE ROW PER CELL
+#
+#   task               the array task that computed this cell
+#   ecoregion          empty for the statewide cell
+#   wall_min           per cell, so the loop can be timed cell by cell
+#   n_pre              pre-treatment event times in the dynamic aggregation
+#   n_pre_sig          how many of them have a simultaneous band excluding zero
+#   max_abs_pre        the largest pre-treatment estimate in absolute value
+#   n_gt_na            group-time cells removed by na.rm = TRUE
+#   n_unbalanced_drop  units removed to balance the panel
+#   n_cohorts_dropped  cohorts starting after the last year of this outcome
+#   att_simple         the overall ATT, which the submitted pipeline never had
+#   wald_pval          NA by construction, see the script header
+#
+#   Rscript -e 'm <- read.csv("/projects/mich9173/CA_carbon/meta/did_attgt_manifest.csv"); table(m$status, m$ecoregion == "")'
+#
+#
+# WHAT DID NOT FINISH
+#
+#   Rscript $HOME/10a_did_attgt.R missing
+#
+# prints an sbatch array string of the TASKS holding a cell with no output
+# file, one string per tier. Feed it back with a longer wall clock.
+#
+#
+# 10a AND 10b RUN IN PARALLEL. They read the same panels, write to different
+# files, and hold different manifest locks.
+#
+#
+# AFTER THE ARRAY
+#
+#   Rscript $HOME/10a_did_attgt.R archive
+
+module purge and module load
+# arguing over an already-active environment. Nothing downstream is affected.
+#
+# WHAT THIS RUNS
+#
+# att_gt then aggte("simple") and aggte("dynamic"), plus aggte("calendar") on
+# the PA arm. This is the SI comparison against etwfe and the parallel trends
+# evidence. The headline estimates come from 10b.
+#
+# ONE TASK IS A STATEWIDE CELL AND EVERY ECOREGION INSIDE IT
+#
+# The task count is unchanged, roughly 150 against 10b's thousand, but each
+# task now writes one output file per ecoregion as well as the statewide one.
+# The panel is read once per task and subset in memory, so the ecoregions cost
+# fits and nothing else. One task per ecoregion would have spent more
+# scheduler time than estimator time, which is why they ride inside.
+#
+# A cell whose output already exists is skipped, so a resubmitted task fills
+# its gaps rather than refitting what it already has. CA_OVERWRITE=1 turns
+# that off, which is what a full respecification needs.
+#
+# BEFORE SUBMITTING
+#
+# meta/did_subset_levels.csv must exist. It is built once by the other script.
+#
+#   Rscript $HOME/10b_did_etwfe.R levels
+#   Rscript $HOME/10a_did_attgt.R tasks
+#
+# Take the array size and the tier ranges from the tasks mode.
+#
+# SUBMISSION. Two tiers, both on cpu-normal. Take the ranges from tasks mode,
+# which now prints a cells column beside each task.
+#
+#   sbatch --time=08:00:00 --mem=64G  --array=1-70    10a_did_attgt.sub
+#   sbatch --time=1-00:00:00 --mem=100G --array=71-146 10a_did_attgt.sub
+#
+# NOT cpu-long. That QoS rejects anything at or under 24 hours with
+# "Error 19: The requested runtime of the cpu-long QoS must be greater than
+# 24 hour(s)". Nothing in this stage needs it.
+#
+# MEASURED, from the largest cell in the array.
+#
+#   task 146  FNP_UNP agb_lemma Moderate severity, 2,919,078 rows after the
+#             cohort filter, 108,114 units, 27 cohorts, 676 group-time cells.
+#             att_gt 2 minutes, aggte group 22 seconds, aggte dynamic 42
+#             seconds, 3 minutes total. The heaviest cells seen run 15 to 20
+#             minutes inside 100 GB.
+#
+# So att_gt is the cheap half of stage 10 and emfx is the expensive one, which
+# is the reverse of what the split was sized for, and is why the ecoregions
+# were moved inside these tasks rather than given tasks of their own. An
+# ecoregion cell is a fraction of its statewide parent, so a task holding a
+# statewide cell and six ecoregions costs well under an hour even at the top
+# of the array. The wall clocks above carry a wide margin anyway, since the
+# Almanac cells run 41 years against LEMMA's 27 and the bootstrap scales on
+# periods.
+#
+# 10a and 10b run in parallel. They read the same panels, write to different
+# files, and hold different manifest locks.
+#
+# ONE TASK FIRST, on the largest cell, which is task 146.
+#
+#   sbatch --time=04:00:00 --array=146 10a_did_attgt.sub
+#
+# IF A STATEWIDE FIRE OR THINNING CELL WILL NOT FINISH
+#
+# Raise the wall clock. Do not subsample. The submitted 50,000 subclass draw at
+# 10_2 L69 is the thing this revision removed, and reintroducing it would put
+# the fire arm back on a sample size rule no other arm uses.
+#
+# WHAT THE MANIFEST CARRIES THAT THE SUBMITTED RUN DID NOT
+#
+#   task               the array task that computed this cell
+#   n_pre              pre-treatment event times in the dynamic aggregation
+#   n_pre_sig          how many of them have a simultaneous band excluding zero
+#   max_abs_pre        the largest pre-treatment estimate in absolute value
+#   n_gt_na            group-time cells removed by na.rm = TRUE
+#   n_unbalanced_drop  units removed to balance the panel
+#   n_cohorts_dropped  cohorts starting after the last year of this outcome
+#   wald_pval          NA by construction, see the script header
+#
+#   Rscript -e 'm <- read.csv("/projects/mich9173/CA_carbon/meta/did_attgt_manifest.csv"); m[, c("run_id","status","wald_pval","n_gt_na")]'
+#
+# WHAT DID NOT FINISH
+#
+#   Rscript $HOME/10a_did_attgt.R missing
+#
+# prints an sbatch array string of the TASKS holding a cell with no output
+# file. Feed it back with a longer wall clock rather than resubmitting the
+# whole range. The task recomputes only its missing cells.
+#
+# AFTER THE ARRAY
+#
+#   Rscript $HOME/10a_did_attgt.R archive
+
+module purge
+module load "${CA_CONDA_MODULE:-anaconda}" 2>/dev/null || \
+  echo "Module load skipped, falling back to a direct conda.sh source"
+
+if ! command -v conda >/dev/null 2>&1; then
+  for CONDA_HOME in "$HOME/miniconda3" "$HOME/anaconda3" "$HOME/miniforge3" \
+                    "$HOME/mambaforge" /curc/sw/anaconda3/latest; do
+    if [ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]; then
+      source "$CONDA_HOME/etc/profile.d/conda.sh"
+      break
+    fi
+  done
+fi
+
+command -v conda >/dev/null 2>&1 || {
+  echo "conda not found. Run 'module -t avail' and 'conda info --base' on a"
+  echo "login node and set CA_CONDA_MODULE or add the base path above."
+  exit 1
+}
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+command -v Rscript >/dev/null 2>&1 || {
+  echo "Rscript not on PATH after activating MC0617"
+  exit 1
+}
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+Rscript "$HOME/10a_did_attgt.R" ${CA_MODE:-run}

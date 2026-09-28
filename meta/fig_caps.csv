@@ -1,0 +1,587 @@
+"pairing","arm","outcome","stratum","ecoregion","estimator","aggregation","year_first","year_last","n_treated","share_at_0","cap","cap_lo","bind","cap_ci","bind_ci","n_units","n_cohorts","retention","cohort_first","cohort_last","ci_ref","ci_at_cap","cap_use","cap_lo_use","cap_ci_use"
+"UP_UNP","pa","agb_almanac","","","attgt","dynamic",1985,2025,89153,1,37,-15,"n_cohorts",9,"ci_width",87752,3,0.9843,1985,1988,0.9797,17.7691,37,-15,9
+"UP_UNP","pa","agb_almanac","","","etwfe","event",1985,2025,89153,1,37,-15,"n_cohorts",37,"n_cohorts",87752,3,0.9843,1985,1988,0.502,0.6104,37,-15,9
+"UP_UNP","pa","gpp","","","attgt","dynamic",1985,2025,89153,1,37,-15,"n_cohorts",22,"ci_width",87752,3,0.9843,1985,1988,20.4547,131.3889,37,-15,22
+"UP_UNP","pa","gpp","","","etwfe","event",1985,2025,89153,1,37,-15,"n_cohorts",37,"n_cohorts+ci_width",87752,3,0.9843,1985,1988,1.6399,2.9371,37,-15,22
+"UP_UNP","pa","npp_tree","","","attgt","dynamic",1985,2021,89153,0.9994,33,-15,"n_cohorts",19,"ci_width",87752,3,0.9848,1985,1988,21.3269,154.9874,33,-15,19
+"UP_UNP","pa","npp_tree","","","etwfe","event",1985,2021,89153,0.9994,33,-15,"n_cohorts",33,"n_cohorts",87752,3,0.9848,1985,1988,4.1308,3.7437,33,-15,19
+"UP_UNP","pa","nep","","","attgt","dynamic",1985,2021,89153,0.9994,33,-15,"n_cohorts",21,"ci_width",87752,3,0.9848,1985,1988,26.813,182.8707,33,-15,21
+"UP_UNP","pa","nep","","","etwfe","event",1985,2021,89153,0.9994,33,-15,"n_cohorts",33,"n_cohorts",87752,3,0.9848,1985,1988,4.787,4.5811,33,-15,21
+"UP_UNP","pa","agb_emapr","","","attgt","dynamic",1990,2017,89153,0.0145,26,-15,"end_of_data",8,"ci_width",87818,5,0.9868,1985,1991,1.0977,39.6694,26,-15,8
+"UP_UNP","pa","agb_lemma","","","attgt","dynamic",1990,2016,89153,0.0145,25,-15,"end_of_data",10,"ci_width",87818,5,0.9868,1985,1991,3.9503,35.8696,25,-15,10
+"ONP_UNP","offset","agb_almanac","","","attgt","dynamic",1985,2025,30331,1,11,-15,"n_cohorts",7,"ci_width",10738,3,0.354,2012,2014,0.179,0.7752,11,-15,7
+"ONP_UNP","offset","agb_almanac","","","etwfe","event",1985,2025,30331,1,11,-15,"n_cohorts",7,"ci_width",10738,3,0.354,2012,2014,0.1129,0.4866,11,-15,7
+"ONP_UNP","offset","agb_almanac","","01","attgt","dynamic",1985,2025,13815,1,11,-15,"n_cohorts+retention",5,"ci_width",1439,3,0.1042,2012,2014,0.2735,1.7033,11,-15,5
+"ONP_UNP","offset","agb_almanac","","01","etwfe","event",1985,2025,13815,1,11,-15,"n_cohorts+retention",5,"ci_width",1439,3,0.1042,2012,2014,0.1632,1.0339,11,-15,5
+"ONP_UNP","offset","agb_almanac","","04","attgt","dynamic",1985,2025,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1.2801,NA,NA,NA,NA
+"ONP_UNP","offset","agb_almanac","","04","etwfe","event",1985,2025,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0.8157,NA,NA,NA,NA
+"ONP_UNP","offset","agb_almanac","","78","attgt","dynamic",1985,2025,15178,1,11,-15,"n_cohorts",7,"ci_width",8246,3,0.5433,2012,2014,0.2663,0.907,11,-15,7
+"ONP_UNP","offset","agb_almanac","","78","etwfe","event",1985,2025,15178,1,11,-15,"n_cohorts",7,"ci_width",8246,3,0.5433,2012,2014,0.1661,0.5537,11,-15,7
+"ONP_UNP","offset","gpp","","","attgt","dynamic",1985,2025,30331,1,11,-15,"n_cohorts",9,"ci_width",10738,3,0.354,2012,2014,4.8512,13.1715,11,-15,9
+"ONP_UNP","offset","gpp","","","etwfe","event",1985,2025,30331,1,11,-15,"n_cohorts",10,"ci_width",10738,3,0.354,2012,2014,2.9332,7.5568,11,-15,9
+"ONP_UNP","offset","gpp","","01","attgt","dynamic",1985,2025,13815,1,11,-15,"n_cohorts+retention",10,"ci_width",1439,3,0.1042,2012,2014,7.0307,33.3719,11,-15,10
+"ONP_UNP","offset","gpp","","01","etwfe","event",1985,2025,13815,1,11,-15,"n_cohorts+retention",10,"ci_width",1439,3,0.1042,2012,2014,4.3238,19.8934,11,-15,10
+"ONP_UNP","offset","gpp","","04","attgt","dynamic",1985,2025,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,27.0023,NA,NA,NA,NA
+"ONP_UNP","offset","gpp","","04","etwfe","event",1985,2025,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,16.551,NA,NA,NA,NA
+"ONP_UNP","offset","gpp","","78","attgt","dynamic",1985,2025,15178,1,11,-15,"n_cohorts",10,"ci_width",8246,3,0.5433,2012,2014,6.9261,14.2128,11,-15,10
+"ONP_UNP","offset","gpp","","78","etwfe","event",1985,2025,15178,1,11,-15,"n_cohorts",10,"ci_width",8246,3,0.5433,2012,2014,4.2142,8.5238,11,-15,10
+"ONP_UNP","offset","npp_tree","","","attgt","dynamic",1985,2021,30331,1,7,-15,"n_cohorts",7,"n_cohorts+ci_width",10738,3,0.354,2012,2014,8.6427,14.1864,7,-15,7
+"ONP_UNP","offset","npp_tree","","","etwfe","event",1985,2021,30331,1,7,-15,"n_cohorts",7,"n_cohorts+ci_width",10738,3,0.354,2012,2014,5.2247,8.7677,7,-15,7
+"ONP_UNP","offset","npp_tree","","01","attgt","dynamic",1985,2021,13815,1,7,-15,"n_cohorts+retention",6,"ci_width",1439,3,0.1042,2012,2014,12.974,43.4959,7,-15,6
+"ONP_UNP","offset","npp_tree","","01","etwfe","event",1985,2021,13815,1,7,-15,"n_cohorts+retention",6,"ci_width",1439,3,0.1042,2012,2014,7.5589,25.5092,7,-15,6
+"ONP_UNP","offset","npp_tree","","04","attgt","dynamic",1985,2021,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,51.0598,NA,NA,NA,NA
+"ONP_UNP","offset","npp_tree","","04","etwfe","event",1985,2021,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,32.8708,NA,NA,NA,NA
+"ONP_UNP","offset","npp_tree","","78","attgt","dynamic",1985,2021,15178,1,7,-15,"n_cohorts",7,"n_cohorts+ci_width",8246,3,0.5433,2012,2014,11.737,14.4526,7,-15,7
+"ONP_UNP","offset","npp_tree","","78","etwfe","event",1985,2021,15178,1,7,-15,"n_cohorts",7,"n_cohorts+ci_width",8246,3,0.5433,2012,2014,7.3326,9.1362,7,-15,7
+"ONP_UNP","offset","nep","","","attgt","dynamic",1985,2021,30331,1,7,-15,"n_cohorts",7,"n_cohorts+ci_width",10738,3,0.354,2012,2014,10.3783,17.7957,7,-15,7
+"ONP_UNP","offset","nep","","","etwfe","event",1985,2021,30331,1,7,-15,"n_cohorts",7,"n_cohorts+ci_width",10738,3,0.354,2012,2014,6.2128,10.5513,7,-15,7
+"ONP_UNP","offset","nep","","01","attgt","dynamic",1985,2021,13815,1,7,-15,"n_cohorts+retention",6,"ci_width",1439,3,0.1042,2012,2014,15.238,48.2096,7,-15,6
+"ONP_UNP","offset","nep","","01","etwfe","event",1985,2021,13815,1,7,-15,"n_cohorts+retention",6,"ci_width",1439,3,0.1042,2012,2014,9.096,29.7023,7,-15,6
+"ONP_UNP","offset","nep","","04","attgt","dynamic",1985,2021,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,58.2591,NA,NA,NA,NA
+"ONP_UNP","offset","nep","","04","etwfe","event",1985,2021,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,36.6385,NA,NA,NA,NA
+"ONP_UNP","offset","nep","","78","attgt","dynamic",1985,2021,15178,1,7,-15,"n_cohorts",7,"n_cohorts+ci_width",8246,3,0.5433,2012,2014,13.71,17.6974,7,-15,7
+"ONP_UNP","offset","nep","","78","etwfe","event",1985,2021,15178,1,7,-15,"n_cohorts",7,"n_cohorts+ci_width",8246,3,0.5433,2012,2014,8.7011,10.8111,7,-15,7
+"ONP_UNP","offset","agb_emapr","","","attgt","dynamic",1990,2017,30331,0.7686,3,-15,"n_cohorts",3,"n_cohorts+ci_width",10738,3,0.4606,2012,2014,0.37,0.4724,3,-15,3
+"ONP_UNP","offset","agb_emapr","","","etwfe","event",1990,2017,30331,0.7686,3,-15,"n_cohorts",3,"n_cohorts+ci_width",10738,3,0.4606,2012,2014,0.236,0.3062,3,-15,3
+"ONP_UNP","offset","agb_emapr","","01","attgt","dynamic",1990,2017,13815,0.6576,3,-15,"n_cohorts",3,"n_cohorts+ci_width",1439,3,0.1584,2012,2014,0.6778,0.988,3,-15,3
+"ONP_UNP","offset","agb_emapr","","01","etwfe","event",1990,2017,13815,0.6576,3,-15,"n_cohorts",3,"n_cohorts+ci_width",1439,3,0.1584,2012,2014,0.4261,0.6209,3,-15,3
+"ONP_UNP","offset","agb_emapr","","04","attgt","dynamic",1990,2017,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1.5959,NA,NA,NA,NA
+"ONP_UNP","offset","agb_emapr","","04","etwfe","event",1990,2017,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1.0357,NA,NA,NA,NA
+"ONP_UNP","offset","agb_emapr","","78","attgt","dynamic",1990,2017,15178,0.8492,3,-15,"n_cohorts",3,"n_cohorts+ci_width",8246,3,0.6398,2012,2014,0.4867,0.6006,3,-15,3
+"ONP_UNP","offset","agb_emapr","","78","etwfe","event",1990,2017,15178,0.8492,3,-15,"n_cohorts",3,"n_cohorts+ci_width",8246,3,0.6398,2012,2014,0.2983,0.3608,3,-15,3
+"ONP_UNP","offset","agb_lemma","","","attgt","dynamic",1990,2016,30331,0.7686,2,-15,"n_cohorts",2,"n_cohorts",10738,3,0.4606,2012,2014,1.7271,1.7271,2,-15,2
+"ONP_UNP","offset","agb_lemma","","","etwfe","event",1990,2016,30331,0.7686,2,-15,"n_cohorts",2,"n_cohorts",10738,3,0.4606,2012,2014,1.0531,1.0531,2,-15,2
+"ONP_UNP","offset","agb_lemma","","01","attgt","dynamic",1990,2016,13815,0.6576,2,-15,"n_cohorts",2,"n_cohorts",1439,3,0.1584,2012,2014,3.4932,3.4932,2,-15,2
+"ONP_UNP","offset","agb_lemma","","01","etwfe","event",1990,2016,13815,0.6576,2,-15,"n_cohorts",2,"n_cohorts",1439,3,0.1584,2012,2014,2.1943,2.1943,2,-15,2
+"ONP_UNP","offset","agb_lemma","","04","attgt","dynamic",1990,2016,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,5.0687,NA,NA,NA,NA
+"ONP_UNP","offset","agb_lemma","","04","etwfe","event",1990,2016,1053,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3.5151,NA,NA,NA,NA
+"ONP_UNP","offset","agb_lemma","","78","attgt","dynamic",1990,2016,15178,0.8492,2,-15,"n_cohorts",2,"n_cohorts",8246,3,0.6398,2012,2014,2.1064,2.1064,2,-15,2
+"ONP_UNP","offset","agb_lemma","","78","etwfe","event",1990,2016,15178,0.8492,2,-15,"n_cohorts",2,"n_cohorts",8246,3,0.6398,2012,2014,1.315,1.315,2,-15,2
+"FP_UP","fire","agb_almanac","High severity","","attgt","dynamic",1985,2025,96696,1,22,-15,"retention",10,"ci_width",8401,14,0.0869,1990,2003,0.3714,3.1758,22,-15,10
+"FP_UP","fire","agb_almanac","High severity","","etwfe","event",1985,2025,96696,1,22,-15,"retention",10,"ci_width",8401,14,0.0869,1990,2003,0.2158,1.8093,22,-15,10
+"FP_UP","fire","agb_almanac","High severity","01","etwfe","event",1985,2025,967,1,19,-15,"n_cohorts",7,"ci_width",272,3,0.2813,1995,2006,2.0021,8.2012,19,-15,7
+"FP_UP","fire","agb_almanac","High severity","04","etwfe","event",1985,2025,5393,1,17,-15,"n_units+retention",4,"ci_width",274,5,0.0508,1992,2008,0.9323,4.9963,17,-15,4
+"FP_UP","fire","agb_almanac","High severity","05","etwfe","event",1985,2025,29693,1,23,-15,"retention",7,"ci_width",1904,12,0.0641,1990,2002,0.3743,2.8102,23,-15,7
+"FP_UP","fire","agb_almanac","High severity","08","etwfe","event",1985,2025,22364,1,23,-15,"retention",0,"ci_width",1270,9,0.0568,1990,2002,0.4699,4.3077,23,-15,0
+"FP_UP","fire","agb_almanac","High severity","09","etwfe","event",1985,2025,1449,1,24,-15,"n_units+retention",9,"ci_width",189,4,0.1304,1994,2001,1.8006,6.421,24,-15,9
+"FP_UP","fire","agb_almanac","High severity","78","etwfe","event",1985,2025,30562,1,17,-15,"retention",8,"ci_width",1939,8,0.0634,1992,2008,0.2723,1.9793,17,-15,8
+"FP_UP","fire","agb_almanac","Low severity","","attgt","dynamic",1985,2025,97353,1,23,-15,"retention",10,"ci_width",5080,13,0.0522,1990,2002,0.7001,4.8454,23,-15,10
+"FP_UP","fire","agb_almanac","Low severity","","etwfe","event",1985,2025,97353,1,23,-15,"retention",10,"ci_width",5080,13,0.0522,1990,2002,0.3896,2.6474,23,-15,10
+"FP_UP","fire","agb_almanac","Low severity","01","etwfe","event",1985,2025,1209,1,22,-15,"n_cohorts",22,"n_cohorts+ci_width",465,3,0.3846,1990,2003,2.0333,3.9875,22,-15,22
+"FP_UP","fire","agb_almanac","Low severity","04","etwfe","event",1985,2025,5680,1,17,-15,"retention",9,"ci_width",459,8,0.0808,1990,2008,1.4126,3.6751,17,-15,9
+"FP_UP","fire","agb_almanac","Low severity","05","etwfe","event",1985,2025,37407,1,23,-15,"retention",8,"ci_width",2197,13,0.0587,1990,2002,0.6004,3.9723,23,-15,8
+"FP_UP","fire","agb_almanac","Low severity","08","etwfe","event",1985,2025,12371,1,23,-15,"retention",18,"ci_width",1267,9,0.1024,1990,2002,1.188,5.6112,23,-15,18
+"FP_UP","fire","agb_almanac","Low severity","09","etwfe","event",1985,2025,2551,1,24,-15,"n_units+retention",16,"ci_width",492,8,0.1929,1990,2001,1.7105,4.2096,24,-15,16
+"FP_UP","fire","agb_almanac","Low severity","78","etwfe","event",1985,2025,32033,1,17,-15,"retention",10,"ci_width",3500,9,0.1093,1990,2008,0.4699,1.2705,17,-15,10
+"FP_UP","fire","agb_almanac","Moderate severity","","attgt","dynamic",1985,2025,96813,1,23,-15,"retention",8,"ci_width",5137,13,0.0531,1990,2002,0.5272,4.4664,23,-15,8
+"FP_UP","fire","agb_almanac","Moderate severity","","etwfe","event",1985,2025,96813,1,23,-15,"retention",10,"ci_width",5137,13,0.0531,1990,2002,0.3175,2.6073,23,-15,8
+"FP_UP","fire","agb_almanac","Moderate severity","01","etwfe","event",1985,2025,975,1,22,-15,"n_cohorts",22,"n_cohorts+ci_width",371,3,0.3805,1990,2003,2.9654,5.779,22,-15,22
+"FP_UP","fire","agb_almanac","Moderate severity","04","etwfe","event",1985,2025,5668,1,17,-15,"n_units+retention",4,"ci_width",366,7,0.0646,1990,2008,1.0883,4.0113,17,-15,4
+"FP_UP","fire","agb_almanac","Moderate severity","05","etwfe","event",1985,2025,33812,1,23,-15,"retention",7,"ci_width",2236,13,0.0661,1990,2002,0.5204,3.4521,23,-15,7
+"FP_UP","fire","agb_almanac","Moderate severity","08","etwfe","event",1985,2025,17801,1,23,-15,"retention",16,"ci_width",1422,9,0.0799,1990,2002,0.7243,5.2117,23,-15,16
+"FP_UP","fire","agb_almanac","Moderate severity","09","etwfe","event",1985,2025,2274,1,24,-15,"n_units+retention",13,"ci_width",349,5,0.1535,1994,2001,1.6737,4.4343,24,-15,13
+"FP_UP","fire","agb_almanac","Moderate severity","78","etwfe","event",1985,2025,28795,1,17,-15,"retention",10,"ci_width",2664,10,0.0925,1990,2008,0.4355,1.6744,17,-15,10
+"FP_UP","fire","gpp","High severity","","attgt","dynamic",1985,2025,96696,1,22,-15,"retention",19,"ci_width",8401,14,0.0869,1990,2003,8.7832,20.6084,22,-15,19
+"FP_UP","fire","gpp","High severity","","etwfe","event",1985,2025,96696,1,22,-15,"retention",19,"ci_width",8401,14,0.0869,1990,2003,4.5174,11.3849,22,-15,19
+"FP_UP","fire","gpp","High severity","01","etwfe","event",1985,2025,967,1,19,-15,"n_cohorts",19,"n_cohorts+ci_width",272,3,0.2813,1995,2006,39.6306,72.7196,19,-15,19
+"FP_UP","fire","gpp","High severity","04","etwfe","event",1985,2025,5393,1,17,-15,"n_units+retention",4,"ci_width",274,5,0.0508,1992,2008,15.1074,71.3464,17,-15,4
+"FP_UP","fire","gpp","High severity","05","etwfe","event",1985,2025,29693,1,23,-15,"retention",15,"ci_width",1904,12,0.0641,1990,2002,7.832,21.2525,23,-15,15
+"FP_UP","fire","gpp","High severity","08","etwfe","event",1985,2025,22364,1,23,-15,"retention",22,"ci_width",1270,9,0.0568,1990,2002,8.2797,25.2809,23,-15,22
+"FP_UP","fire","gpp","High severity","09","etwfe","event",1985,2025,1449,1,24,-15,"n_units+retention",7,"ci_width",189,4,0.1304,1994,2001,19.1616,103.2511,24,-15,7
+"FP_UP","fire","gpp","High severity","78","etwfe","event",1985,2025,30562,1,17,-15,"retention",8,"ci_width",1939,8,0.0634,1992,2008,7.5299,26.0289,17,-15,8
+"FP_UP","fire","gpp","Low severity","","attgt","dynamic",1985,2025,97353,1,23,-15,"retention",14,"ci_width",5080,13,0.0522,1990,2002,5.5718,22.4965,23,-15,14
+"FP_UP","fire","gpp","Low severity","","etwfe","event",1985,2025,97353,1,23,-15,"retention",16,"ci_width",5080,13,0.0522,1990,2002,3.2641,12.7736,23,-15,14
+"FP_UP","fire","gpp","Low severity","01","etwfe","event",1985,2025,1209,1,22,-15,"n_cohorts",22,"n_cohorts+ci_width",465,3,0.3846,1990,2003,28.3284,42.2144,22,-15,22
+"FP_UP","fire","gpp","Low severity","04","etwfe","event",1985,2025,5680,1,17,-15,"retention",14,"ci_width",459,8,0.0808,1990,2008,11.4599,32.7546,17,-15,14
+"FP_UP","fire","gpp","Low severity","05","etwfe","event",1985,2025,37407,1,23,-15,"retention",12,"ci_width",2197,13,0.0587,1990,2002,4.9394,17.4495,23,-15,12
+"FP_UP","fire","gpp","Low severity","08","etwfe","event",1985,2025,12371,1,23,-15,"retention",19,"ci_width",1267,9,0.1024,1990,2002,9.0487,24.9672,23,-15,19
+"FP_UP","fire","gpp","Low severity","09","etwfe","event",1985,2025,2551,1,24,-15,"n_units+retention",9,"ci_width",492,8,0.1929,1990,2001,11.2119,44.6076,24,-15,9
+"FP_UP","fire","gpp","Low severity","78","etwfe","event",1985,2025,32033,1,17,-15,"retention",10,"ci_width",3500,9,0.1093,1990,2008,5.2266,14.8997,17,-15,10
+"FP_UP","fire","gpp","Moderate severity","","attgt","dynamic",1985,2025,96813,1,23,-15,"retention",18,"ci_width",5137,13,0.0531,1990,2002,6.854,21.742,23,-15,18
+"FP_UP","fire","gpp","Moderate severity","","etwfe","event",1985,2025,96813,1,23,-15,"retention",18,"ci_width",5137,13,0.0531,1990,2002,3.904,13.1167,23,-15,18
+"FP_UP","fire","gpp","Moderate severity","01","etwfe","event",1985,2025,975,1,22,-15,"n_cohorts",22,"n_cohorts+ci_width",371,3,0.3805,1990,2003,39.6177,57.9945,22,-15,22
+"FP_UP","fire","gpp","Moderate severity","04","etwfe","event",1985,2025,5668,1,17,-15,"n_units+retention",8,"ci_width",366,7,0.0646,1990,2008,12.6784,45.9305,17,-15,8
+"FP_UP","fire","gpp","Moderate severity","05","etwfe","event",1985,2025,33812,1,23,-15,"retention",15,"ci_width",2236,13,0.0661,1990,2002,6.0881,18.0746,23,-15,15
+"FP_UP","fire","gpp","Moderate severity","08","etwfe","event",1985,2025,17801,1,23,-15,"retention",21,"ci_width",1422,9,0.0799,1990,2002,8.4708,23.095,23,-15,21
+"FP_UP","fire","gpp","Moderate severity","09","etwfe","event",1985,2025,2274,1,24,-15,"n_units+retention",7,"ci_width",349,5,0.1535,1994,2001,13.9238,68.1231,24,-15,7
+"FP_UP","fire","gpp","Moderate severity","78","etwfe","event",1985,2025,28795,1,17,-15,"retention",10,"ci_width",2664,10,0.0925,1990,2008,6.5459,18.8578,17,-15,10
+"FP_UP","fire","npp_tree","High severity","","attgt","dynamic",1985,2021,96696,0.9413,18,-15,"retention",18,"ci_width",8401,14,0.0923,1990,2003,11.4585,19.1418,18,-15,18
+"FP_UP","fire","npp_tree","High severity","","etwfe","event",1985,2021,96696,0.9413,18,-15,"retention",18,"ci_width",8401,14,0.0923,1990,2003,6.3311,10.9696,18,-15,18
+"FP_UP","fire","npp_tree","High severity","01","etwfe","event",1985,2021,967,1,15,-15,"n_cohorts",15,"n_cohorts",272,3,0.2813,1995,2006,84.9126,113.6951,15,-15,15
+"FP_UP","fire","npp_tree","High severity","04","etwfe","event",1985,2021,5393,0.9025,13,-15,"n_units+retention",13,"n_units+ci_width",274,5,0.0563,1992,2008,34.7798,61.0344,13,-15,13
+"FP_UP","fire","npp_tree","High severity","05","etwfe","event",1985,2021,29693,0.9545,19,-15,"retention",19,"ci_width",1904,12,0.0672,1990,2002,12.4334,20.2678,19,-15,19
+"FP_UP","fire","npp_tree","High severity","08","etwfe","event",1985,2021,22364,0.9512,19,-15,"retention",18,"ci_width",1270,9,0.0597,1990,2002,7.9708,23.9103,19,-15,18
+"FP_UP","fire","npp_tree","High severity","09","etwfe","event",1985,2021,1449,0.9772,20,-15,"n_units+retention",9,"ci_width",189,4,0.1335,1994,2001,24.6256,86.8175,20,-15,9
+"FP_UP","fire","npp_tree","High severity","78","etwfe","event",1985,2021,30562,0.9141,13,-15,"retention",9,"ci_width",1939,8,0.0694,1992,2008,12.552,25.4305,13,-15,9
+"FP_UP","fire","npp_tree","Low severity","","attgt","dynamic",1985,2021,97353,0.9563,19,-15,"retention",18,"ci_width",5080,13,0.0546,1990,2002,9.8546,20.4104,19,-15,18
+"FP_UP","fire","npp_tree","Low severity","","etwfe","event",1985,2021,97353,0.9563,19,-15,"retention",18,"ci_width",5080,13,0.0546,1990,2002,5.5059,11.3593,19,-15,18
+"FP_UP","fire","npp_tree","Low severity","01","etwfe","event",1985,2021,1209,1,18,-15,"n_cohorts",18,"n_cohorts+ci_width",465,3,0.3846,1990,2003,50.6113,56.3507,18,-15,18
+"FP_UP","fire","npp_tree","Low severity","04","etwfe","event",1985,2021,5680,0.9618,13,-15,"retention",13,"ci_width",459,8,0.084,1990,2008,21.597,42.6181,13,-15,13
+"FP_UP","fire","npp_tree","Low severity","05","etwfe","event",1985,2021,37407,0.9657,19,-15,"retention",19,"ci_width",2197,13,0.0608,1990,2002,8.6924,16.6088,19,-15,19
+"FP_UP","fire","npp_tree","Low severity","08","etwfe","event",1985,2021,12371,0.9492,19,-15,"retention",18,"ci_width",1267,9,0.1079,1990,2002,9.038,20.3043,19,-15,18
+"FP_UP","fire","npp_tree","Low severity","09","etwfe","event",1985,2021,2551,0.9686,20,-15,"n_units+retention",13,"ci_width",492,8,0.1991,1990,2001,15.1095,34.3322,20,-15,13
+"FP_UP","fire","npp_tree","Low severity","78","etwfe","event",1985,2021,32033,0.9369,13,-15,"retention",13,"ci_width",3500,9,0.1166,1990,2008,9.5743,17.6672,13,-15,13
+"FP_UP","fire","npp_tree","Moderate severity","","attgt","dynamic",1985,2021,96813,0.9461,19,-15,"retention",18,"ci_width",5137,13,0.0561,1990,2002,10.3962,22.3483,19,-15,18
+"FP_UP","fire","npp_tree","Moderate severity","","etwfe","event",1985,2021,96813,0.9461,19,-15,"retention",18,"ci_width",5137,13,0.0561,1990,2002,5.847,12.9501,19,-15,18
+"FP_UP","fire","npp_tree","Moderate severity","01","etwfe","event",1985,2021,975,1,18,-15,"n_cohorts",18,"n_cohorts",371,3,0.3805,1990,2003,64.6534,61.3123,18,-15,18
+"FP_UP","fire","npp_tree","Moderate severity","04","etwfe","event",1985,2021,5668,0.948,13,-15,"n_units+retention",13,"n_units+ci_width",366,7,0.0681,1990,2008,26.78,47.1957,13,-15,13
+"FP_UP","fire","npp_tree","Moderate severity","05","etwfe","event",1985,2021,33812,0.9608,19,-15,"retention",19,"ci_width",2236,13,0.0688,1990,2002,9.735,16.6489,19,-15,19
+"FP_UP","fire","npp_tree","Moderate severity","08","etwfe","event",1985,2021,17801,0.9342,19,-15,"retention",18,"ci_width",1422,9,0.0855,1990,2002,7.9237,20.1315,19,-15,18
+"FP_UP","fire","npp_tree","Moderate severity","09","etwfe","event",1985,2021,2274,0.9758,20,-15,"n_units+retention",13,"ci_width",349,5,0.1573,1994,2001,20.1871,67.4055,20,-15,13
+"FP_UP","fire","npp_tree","Moderate severity","78","etwfe","event",1985,2021,28795,0.9192,13,-15,"retention",13,"ci_width",2664,10,0.1007,1990,2008,11.1419,20.8431,13,-15,13
+"FP_UP","fire","nep","High severity","","attgt","dynamic",1985,2021,96696,0.9413,18,-15,"retention",19,"ci_width",8401,14,0.0923,1990,2003,20.6909,21.1999,18,-15,19
+"FP_UP","fire","nep","High severity","","etwfe","event",1985,2021,96696,0.9413,18,-15,"retention",19,"ci_width",8401,14,0.0923,1990,2003,11.3846,12.4191,18,-15,19
+"FP_UP","fire","nep","High severity","01","etwfe","event",1985,2021,967,1,15,-15,"n_cohorts",15,"n_cohorts",272,3,0.2813,1995,2006,165.682,128.3016,15,-15,15
+"FP_UP","fire","nep","High severity","04","etwfe","event",1985,2021,5393,0.9025,13,-15,"n_units+retention",13,"n_units",274,5,0.0563,1992,2008,69.3335,72.8254,13,-15,13
+"FP_UP","fire","nep","High severity","05","etwfe","event",1985,2021,29693,0.9545,19,-15,"retention",19,"ci_width",1904,12,0.0672,1990,2002,21.5787,22.7717,19,-15,19
+"FP_UP","fire","nep","High severity","08","etwfe","event",1985,2021,22364,0.9512,19,-15,"retention",19,"ci_width",1270,9,0.0597,1990,2002,15.6618,26.5356,19,-15,19
+"FP_UP","fire","nep","High severity","09","etwfe","event",1985,2021,1449,0.9772,20,-15,"n_units+retention",13,"ci_width",189,4,0.1335,1994,2001,46.395,104.642,20,-15,13
+"FP_UP","fire","nep","High severity","78","etwfe","event",1985,2021,30562,0.9141,13,-15,"retention",15,"ci_width",1939,8,0.0694,1992,2008,24.104,30.9696,13,-15,15
+"FP_UP","fire","nep","Low severity","","attgt","dynamic",1985,2021,97353,0.9563,19,-15,"retention",19,"ci_width",5080,13,0.0546,1990,2002,18.5746,25.0515,19,-15,19
+"FP_UP","fire","nep","Low severity","","etwfe","event",1985,2021,97353,0.9563,19,-15,"retention",19,"ci_width",5080,13,0.0546,1990,2002,10.4471,14.3734,19,-15,19
+"FP_UP","fire","nep","Low severity","01","etwfe","event",1985,2021,1209,1,18,-15,"n_cohorts",18,"n_cohorts",465,3,0.3846,1990,2003,96.0131,64.002,18,-15,18
+"FP_UP","fire","nep","Low severity","04","etwfe","event",1985,2021,5680,0.9618,13,-15,"retention",13,"ci_width",459,8,0.084,1990,2008,42.7387,53.439,13,-15,13
+"FP_UP","fire","nep","Low severity","05","etwfe","event",1985,2021,37407,0.9657,19,-15,"retention",19,"ci_width",2197,13,0.0608,1990,2002,16.5445,20.9891,19,-15,19
+"FP_UP","fire","nep","Low severity","08","etwfe","event",1985,2021,12371,0.9492,19,-15,"retention",19,"ci_width",1267,9,0.1079,1990,2002,17.7782,25.4349,19,-15,19
+"FP_UP","fire","nep","Low severity","09","etwfe","event",1985,2021,2551,0.9686,20,-15,"n_units+retention",20,"n_units",492,8,0.1991,1990,2001,27.9357,43.2906,20,-15,20
+"FP_UP","fire","nep","Low severity","78","etwfe","event",1985,2021,32033,0.9369,13,-15,"retention",15,"ci_width",3500,9,0.1166,1990,2008,18.9854,21.8578,13,-15,15
+"FP_UP","fire","nep","Moderate severity","","attgt","dynamic",1985,2021,96813,0.9461,19,-15,"retention",19,"ci_width",5137,13,0.0561,1990,2002,19.3644,30.069,19,-15,19
+"FP_UP","fire","nep","Moderate severity","","etwfe","event",1985,2021,96813,0.9461,19,-15,"retention",19,"ci_width",5137,13,0.0561,1990,2002,11.0208,16.4869,19,-15,19
+"FP_UP","fire","nep","Moderate severity","01","etwfe","event",1985,2021,975,1,18,-15,"n_cohorts",18,"n_cohorts",371,3,0.3805,1990,2003,124.8218,69.9662,18,-15,18
+"FP_UP","fire","nep","Moderate severity","04","etwfe","event",1985,2021,5668,0.948,13,-15,"n_units+retention",13,"n_units",366,7,0.0681,1990,2008,50.8399,55.5344,13,-15,13
+"FP_UP","fire","nep","Moderate severity","05","etwfe","event",1985,2021,33812,0.9608,19,-15,"retention",20,"ci_width",2236,13,0.0688,1990,2002,18.4064,21.0963,19,-15,20
+"FP_UP","fire","nep","Moderate severity","08","etwfe","event",1985,2021,17801,0.9342,19,-15,"retention",19,"ci_width",1422,9,0.0855,1990,2002,15.5954,23.9562,19,-15,19
+"FP_UP","fire","nep","Moderate severity","09","etwfe","event",1985,2021,2274,0.9758,20,-15,"n_units+retention",15,"ci_width",349,5,0.1573,1994,2001,34.6253,86.5259,20,-15,15
+"FP_UP","fire","nep","Moderate severity","78","etwfe","event",1985,2021,28795,0.9192,13,-15,"retention",15,"ci_width",2664,10,0.1007,1990,2008,22.3202,25.8036,13,-15,15
+"FP_UP","fire","agb_emapr","High severity","","attgt","dynamic",1990,2017,96696,0.4384,15,-15,"retention",11,"ci_width",4131,13,0.0974,1990,2002,1.0637,3.6534,15,-15,11
+"FP_UP","fire","agb_emapr","High severity","","etwfe","event",1990,2017,96696,0.4384,15,-15,"retention",11,"ci_width",4131,13,0.0974,1990,2002,0.6288,2.1606,15,-15,11
+"FP_UP","fire","agb_emapr","High severity","01","etwfe","event",1990,2017,967,0.3537,11,-15,"n_cohorts",11,"n_cohorts",272,3,0.7953,1995,2006,9.645,12.697,11,-15,11
+"FP_UP","fire","agb_emapr","High severity","04","etwfe","event",1990,2017,5393,0.1717,9,-15,"n_units+retention",9,"n_units+ci_width",274,5,0.2959,1992,2008,3.9509,5.6164,9,-15,9
+"FP_UP","fire","agb_emapr","High severity","05","etwfe","event",1990,2017,29693,0.308,16,-15,"retention",15,"ci_width",678,11,0.0741,1990,2001,1.3207,4.4717,16,-15,15
+"FP_UP","fire","agb_emapr","High severity","08","etwfe","event",1990,2017,22364,0.856,15,-15,"retention",11,"ci_width",1270,9,0.0663,1990,2002,0.8021,4.0239,15,-15,11
+"FP_UP","fire","agb_emapr","High severity","09","etwfe","event",1990,2017,1449,0.5597,16,-15,"n_units+retention",16,"n_units+ci_width",189,4,0.233,1994,2001,5.0552,8.0832,16,-15,16
+"FP_UP","fire","agb_emapr","High severity","78","etwfe","event",1990,2017,30562,0.2785,11,-15,"retention",9,"ci_width",596,6,0.07,1992,2006,1.4092,4.0687,11,-15,9
+"FP_UP","fire","agb_emapr","Low severity","","attgt","dynamic",1990,2017,97353,0.4105,16,-15,"retention",11,"ci_width",2683,12,0.0671,1990,2001,0.9797,4.9015,16,-15,11
+"FP_UP","fire","agb_emapr","Low severity","","etwfe","event",1990,2017,97353,0.4105,16,-15,"retention",11,"ci_width",2683,12,0.0671,1990,2001,0.5855,2.5243,16,-15,11
+"FP_UP","fire","agb_emapr","Low severity","01","etwfe","event",1990,2017,1209,0.5848,14,-15,"n_cohorts",14,"n_cohorts+ci_width",465,3,0.6577,1990,2003,2.8587,4.7123,14,-15,14
+"FP_UP","fire","agb_emapr","Low severity","04","etwfe","event",1990,2017,5680,0.2324,9,-15,"retention",9,"ci_width",459,8,0.3477,1990,2008,2.9076,4.4617,9,-15,9
+"FP_UP","fire","agb_emapr","Low severity","05","etwfe","event",1990,2017,37407,0.3165,17,-15,"retention",14,"ci_width",723,11,0.0611,1990,2000,0.8963,3.1071,17,-15,14
+"FP_UP","fire","agb_emapr","Low severity","08","etwfe","event",1990,2017,12371,0.7851,15,-15,"retention",12,"ci_width",1267,9,0.1305,1990,2002,1.2067,4.0746,15,-15,12
+"FP_UP","fire","agb_emapr","Low severity","09","etwfe","event",1990,2017,2551,0.5468,16,-15,"n_units+retention",16,"n_units+ci_width",492,8,0.3527,1990,2001,3.8173,5.7491,16,-15,16
+"FP_UP","fire","agb_emapr","Low severity","78","etwfe","event",1990,2017,32033,0.376,11,-15,"retention",9,"ci_width",1215,7,0.1009,1990,2006,0.9354,2.455,11,-15,9
+"FP_UP","fire","agb_emapr","Moderate severity","","attgt","dynamic",1990,2017,96813,0.4285,16,-15,"retention",11,"ci_width",2145,12,0.0517,1990,2001,1.0677,5.7378,16,-15,11
+"FP_UP","fire","agb_emapr","Moderate severity","","etwfe","event",1990,2017,96813,0.4285,16,-15,"retention",11,"ci_width",2145,12,0.0517,1990,2001,0.641,3.0177,16,-15,11
+"FP_UP","fire","agb_emapr","Moderate severity","01","etwfe","event",1990,2017,975,0.5405,14,-15,"n_cohorts",14,"n_cohorts+ci_width",371,3,0.704,1990,2003,4.6258,6.0375,14,-15,14
+"FP_UP","fire","agb_emapr","Moderate severity","04","etwfe","event",1990,2017,5668,0.204,9,-15,"n_units+retention",9,"n_units+ci_width",366,7,0.3166,1990,2008,3.2287,5.2633,9,-15,9
+"FP_UP","fire","agb_emapr","Moderate severity","05","etwfe","event",1990,2017,33812,0.3189,17,-15,"retention",15,"ci_width",579,11,0.0537,1990,2000,1.1484,3.4726,17,-15,15
+"FP_UP","fire","agb_emapr","Moderate severity","08","etwfe","event",1990,2017,17801,0.7939,15,-15,"retention",11,"ci_width",1422,9,0.1006,1990,2002,1.0351,4.0627,15,-15,11
+"FP_UP","fire","agb_emapr","Moderate severity","09","etwfe","event",1990,2017,2274,0.5409,16,-15,"n_units+retention",16,"n_units+ci_width",349,5,0.2837,1994,2001,4.0352,6.2434,16,-15,16
+"FP_UP","fire","agb_emapr","Moderate severity","78","etwfe","event",1990,2017,28795,0.3525,11,-15,"retention",9,"ci_width",917,8,0.0903,1990,2006,1.2696,3.3996,11,-15,9
+"FP_UP","fire","agb_lemma","High severity","","attgt","dynamic",1990,2016,96696,0.4037,14,-15,"retention",10,"ci_width",4131,13,0.1058,1990,2002,2.1028,5.5911,14,-15,10
+"FP_UP","fire","agb_lemma","High severity","","etwfe","event",1990,2016,96696,0.4037,14,-15,"retention",10,"ci_width",4131,13,0.1058,1990,2002,1.2818,3.4615,14,-15,10
+"FP_UP","fire","agb_lemma","High severity","01","etwfe","event",1990,2016,967,0.3537,10,-15,"n_cohorts",10,"n_cohorts",272,3,0.7953,1995,2006,5.364,9.292,10,-15,10
+"FP_UP","fire","agb_lemma","High severity","04","etwfe","event",1990,2016,5393,0.1717,8,-15,"n_units+retention",8,"n_units+ci_width",274,5,0.2959,1992,2008,5.2404,7.9409,8,-15,8
+"FP_UP","fire","agb_lemma","High severity","05","etwfe","event",1990,2016,29693,0.2882,15,-15,"retention",14,"ci_width",678,11,0.0792,1990,2001,2.3071,7.4846,15,-15,14
+"FP_UP","fire","agb_lemma","High severity","08","etwfe","event",1990,2016,22364,0.8366,14,-15,"retention",9,"ci_width",1270,9,0.0679,1990,2002,2.1412,9.7414,14,-15,9
+"FP_UP","fire","agb_lemma","High severity","09","etwfe","event",1990,2016,1449,0.3513,15,-15,"n_units+retention",15,"n_units+ci_width",189,4,0.3713,1994,2001,6.2915,5.7675,15,-15,15
+"FP_UP","fire","agb_lemma","High severity","78","etwfe","event",1990,2016,30562,0.2154,10,-15,"retention",14,"n_units+ci_width",596,6,0.0905,1992,2006,2.3921,3.363,10,-15,14
+"FP_UP","fire","agb_lemma","Low severity","","attgt","dynamic",1990,2016,97353,0.3398,16,-15,"retention",12,"ci_width",1693,11,0.0512,1990,2000,2.4039,8.8399,16,-15,12
+"FP_UP","fire","agb_lemma","Low severity","","etwfe","event",1990,2016,97353,0.3398,16,-15,"retention",12,"ci_width",1693,11,0.0512,1990,2000,1.4253,5.3946,16,-15,12
+"FP_UP","fire","agb_lemma","Low severity","01","etwfe","event",1990,2016,1209,0.5848,13,-15,"n_cohorts",13,"n_cohorts+ci_width",465,3,0.6577,1990,2003,5.8519,8.4014,13,-15,13
+"FP_UP","fire","agb_lemma","Low severity","04","etwfe","event",1990,2016,5680,0.2324,8,-15,"retention",8,"ci_width",459,8,0.3477,1990,2008,6.3927,9.1359,8,-15,8
+"FP_UP","fire","agb_lemma","Low severity","05","etwfe","event",1990,2016,37407,0.2799,16,-15,"retention",14,"ci_width",723,11,0.069,1990,2000,2.5851,8.324,16,-15,14
+"FP_UP","fire","agb_lemma","Low severity","08","etwfe","event",1990,2016,12371,0.6968,14,-15,"retention",10,"ci_width",1267,9,0.147,1990,2002,3.072,9.9816,14,-15,10
+"FP_UP","fire","agb_lemma","Low severity","09","etwfe","event",1990,2016,2551,0.3363,15,-15,"n_units",15,"n_units+ci_width",492,8,0.5734,1990,2001,5.2238,8.7857,15,-15,15
+"FP_UP","fire","agb_lemma","Low severity","78","etwfe","event",1990,2016,32033,0.2624,14,-15,"retention",10,"ci_width",460,5,0.0547,1990,2002,2.6523,8.6519,14,-15,10
+"FP_UP","fire","agb_lemma","Moderate severity","","attgt","dynamic",1990,2016,96813,0.3662,15,-15,"retention",12,"ci_width",2145,12,0.0605,1990,2001,2.5486,9.4504,15,-15,12
+"FP_UP","fire","agb_lemma","Moderate severity","","etwfe","event",1990,2016,96813,0.3662,15,-15,"retention",12,"ci_width",2145,12,0.0605,1990,2001,1.4666,5.029,15,-15,12
+"FP_UP","fire","agb_lemma","Moderate severity","01","etwfe","event",1990,2016,975,0.5405,13,-15,"n_cohorts",13,"n_cohorts+ci_width",371,3,0.704,1990,2003,6.076,10.6124,13,-15,13
+"FP_UP","fire","agb_lemma","Moderate severity","04","etwfe","event",1990,2016,5668,0.204,8,-15,"n_units+retention",8,"n_units+ci_width",366,7,0.3166,1990,2008,6.3476,10.2695,8,-15,8
+"FP_UP","fire","agb_lemma","Moderate severity","05","etwfe","event",1990,2016,33812,0.2892,16,-15,"retention",14,"ci_width",579,11,0.0592,1990,2000,2.3865,9.0843,16,-15,14
+"FP_UP","fire","agb_lemma","Moderate severity","08","etwfe","event",1990,2016,17801,0.7065,14,-15,"retention",10,"ci_width",1422,9,0.1131,1990,2002,2.8941,9.5555,14,-15,10
+"FP_UP","fire","agb_lemma","Moderate severity","09","etwfe","event",1990,2016,2274,0.2999,15,-15,"n_units+retention",15,"n_units+ci_width",349,5,0.5117,1994,2001,5.1616,6.8172,15,-15,15
+"FP_UP","fire","agb_lemma","Moderate severity","78","etwfe","event",1990,2016,28795,0.2576,12,-15,"retention",10,"ci_width",399,7,0.0538,1990,2004,2.8047,7.5966,12,-15,10
+"FNP_UNP","fire","agb_almanac","High severity","","attgt","dynamic",1985,2025,93388,1,22,-15,"retention",7,"ci_width",7535,13,0.0807,1990,2003,0.3905,2.9743,22,-15,7
+"FNP_UNP","fire","agb_almanac","High severity","","etwfe","event",1985,2025,93388,1,22,-15,"retention",8,"ci_width",7535,13,0.0807,1990,2003,0.2389,1.8248,22,-15,7
+"FNP_UNP","fire","agb_almanac","High severity","01","etwfe","event",1985,2025,3429,1,17,-15,"retention",5,"ci_width",352,5,0.1027,1990,2008,1.1501,6.0067,17,-15,5
+"FNP_UNP","fire","agb_almanac","High severity","04","etwfe","event",1985,2025,8711,1,17,-15,"retention",13,"ci_width",556,5,0.0638,1990,2008,0.6451,2.9177,17,-15,13
+"FNP_UNP","fire","agb_almanac","High severity","05","etwfe","event",1985,2025,23794,1,21,-15,"retention",9,"ci_width",1207,11,0.0507,1990,2004,0.361,3.7171,21,-15,9
+"FNP_UNP","fire","agb_almanac","High severity","08","etwfe","event",1985,2025,7082,1,23,-15,"n_units+retention",15,"ci_width",535,4,0.0755,1990,2002,0.957,7.4435,23,-15,15
+"FNP_UNP","fire","agb_almanac","High severity","09","etwfe","event",1985,2025,1800,1,19,-15,"n_units+retention",13,"ci_width",108,5,0.06,1994,2006,1.888,6.2211,19,-15,13
+"FNP_UNP","fire","agb_almanac","High severity","78","etwfe","event",1985,2025,17892,1,17,-15,"retention",8,"ci_width",952,8,0.0532,1990,2008,0.4244,2.998,17,-15,8
+"FNP_UNP","fire","agb_almanac","Low severity","","attgt","dynamic",1985,2025,96112,1,23,-15,"retention",10,"ci_width",5588,13,0.0581,1990,2002,0.7052,3.5821,23,-15,10
+"FNP_UNP","fire","agb_almanac","Low severity","","etwfe","event",1985,2025,96112,1,23,-15,"retention",10,"ci_width",5588,13,0.0581,1990,2002,0.4102,2.214,23,-15,10
+"FNP_UNP","fire","agb_almanac","Low severity","01","etwfe","event",1985,2025,4911,1,23,-15,"n_cohorts",17,"ci_width",345,3,0.0703,1990,2002,1.3904,5.417,23,-15,17
+"FNP_UNP","fire","agb_almanac","Low severity","04","etwfe","event",1985,2025,7364,1,29,-15,"n_cohorts",13,"ci_width",764,3,0.1037,1990,1996,1.5281,6.6074,29,-15,13
+"FNP_UNP","fire","agb_almanac","Low severity","05","etwfe","event",1985,2025,16444,1,24,-15,"retention",11,"ci_width",1281,8,0.0779,1990,2001,1.0396,4.0586,24,-15,11
+"FNP_UNP","fire","agb_almanac","Low severity","08","etwfe","event",1985,2025,4492,1,23,-15,"retention",16,"ci_width",439,8,0.0977,1990,2002,1.8786,8.8036,23,-15,16
+"FNP_UNP","fire","agb_almanac","Low severity","09","etwfe","event",1985,2025,2090,1,24,-15,"retention",13,"ci_width",110,5,0.0526,1990,2001,3.134,7.0067,24,-15,13
+"FNP_UNP","fire","agb_almanac","Low severity","78","etwfe","event",1985,2025,15817,1,17,-15,"retention",10,"ci_width",1482,12,0.0937,1990,2008,0.9384,2.7643,17,-15,10
+"FNP_UNP","fire","agb_almanac","Moderate severity","","attgt","dynamic",1985,2025,94466,1,22,-15,"retention",8,"ci_width",6351,14,0.0672,1990,2003,0.573,3.5843,22,-15,8
+"FNP_UNP","fire","agb_almanac","Moderate severity","","etwfe","event",1985,2025,94466,1,22,-15,"retention",9,"ci_width",6351,14,0.0672,1990,2003,0.3213,2.1194,22,-15,8
+"FNP_UNP","fire","agb_almanac","Moderate severity","01","etwfe","event",1985,2025,3764,1,19,-15,"retention",5,"ci_width",194,6,0.0515,1990,2006,1.4072,6.9133,19,-15,5
+"FNP_UNP","fire","agb_almanac","Moderate severity","04","etwfe","event",1985,2025,7776,1,29,-15,"n_cohorts",12,"ci_width",558,3,0.0718,1990,1996,1.0228,6.6253,29,-15,12
+"FNP_UNP","fire","agb_almanac","Moderate severity","05","etwfe","event",1985,2025,18297,1,24,-15,"retention",10,"ci_width",1112,9,0.0608,1990,2001,0.6743,4.6207,24,-15,10
+"FNP_UNP","fire","agb_almanac","Moderate severity","08","etwfe","event",1985,2025,5922,1,23,-15,"retention",15,"ci_width",483,8,0.0816,1990,2002,1.382,8.54,23,-15,15
+"FNP_UNP","fire","agb_almanac","Moderate severity","09","etwfe","event",1985,2025,2118,1,19,-15,"n_units+retention",13,"ci_width",114,7,0.0538,1990,2006,2.4503,12.1148,19,-15,13
+"FNP_UNP","fire","agb_almanac","Moderate severity","78","etwfe","event",1985,2025,16012,1,17,-15,"retention",9,"ci_width",1220,12,0.0762,1990,2008,0.7073,3.3371,17,-15,9
+"FNP_UNP","fire","gpp","High severity","","attgt","dynamic",1985,2025,93388,1,22,-15,"retention",17,"ci_width",7535,13,0.0807,1990,2003,8.7902,22.1691,22,-15,17
+"FNP_UNP","fire","gpp","High severity","","etwfe","event",1985,2025,93388,1,22,-15,"retention",17,"ci_width",7535,13,0.0807,1990,2003,4.8606,12.1182,22,-15,17
+"FNP_UNP","fire","gpp","High severity","01","etwfe","event",1985,2025,3429,1,17,-15,"retention",5,"ci_width",352,5,0.1027,1990,2008,25.008,56.4696,17,-15,5
+"FNP_UNP","fire","gpp","High severity","04","etwfe","event",1985,2025,8711,1,17,-15,"retention",13,"ci_width",556,5,0.0638,1990,2008,11.9218,36.558,17,-15,13
+"FNP_UNP","fire","gpp","High severity","05","etwfe","event",1985,2025,23794,1,21,-15,"retention",11,"ci_width",1207,11,0.0507,1990,2004,9.1055,36.5795,21,-15,11
+"FNP_UNP","fire","gpp","High severity","08","etwfe","event",1985,2025,7082,1,23,-15,"n_units+retention",22,"ci_width",535,4,0.0755,1990,2002,13.7903,40.5385,23,-15,22
+"FNP_UNP","fire","gpp","High severity","09","etwfe","event",1985,2025,1800,1,19,-15,"n_units+retention",16,"ci_width",108,5,0.06,1994,2006,17.2861,61.438,19,-15,16
+"FNP_UNP","fire","gpp","High severity","78","etwfe","event",1985,2025,17892,1,17,-15,"retention",8,"ci_width",952,8,0.0532,1990,2008,10.3269,36.5646,17,-15,8
+"FNP_UNP","fire","gpp","Low severity","","attgt","dynamic",1985,2025,96112,1,23,-15,"retention",10,"ci_width",5588,13,0.0581,1990,2002,6.0415,23.5679,23,-15,10
+"FNP_UNP","fire","gpp","Low severity","","etwfe","event",1985,2025,96112,1,23,-15,"retention",10,"ci_width",5588,13,0.0581,1990,2002,3.5356,13.9964,23,-15,10
+"FNP_UNP","fire","gpp","Low severity","01","etwfe","event",1985,2025,4911,1,23,-15,"n_cohorts",17,"ci_width",345,3,0.0703,1990,2002,14.2947,57.6244,23,-15,17
+"FNP_UNP","fire","gpp","Low severity","04","etwfe","event",1985,2025,7364,1,29,-15,"n_cohorts",11,"ci_width",764,3,0.1037,1990,1996,10.0403,35.3529,29,-15,11
+"FNP_UNP","fire","gpp","Low severity","05","etwfe","event",1985,2025,16444,1,24,-15,"retention",13,"ci_width",1281,8,0.0779,1990,2001,8.3021,29.6348,24,-15,13
+"FNP_UNP","fire","gpp","Low severity","08","etwfe","event",1985,2025,4492,1,23,-15,"retention",21,"ci_width",439,8,0.0977,1990,2002,13.9329,47.2108,23,-15,21
+"FNP_UNP","fire","gpp","Low severity","09","etwfe","event",1985,2025,2090,1,24,-15,"retention",13,"ci_width",110,5,0.0526,1990,2001,12.8302,39.8497,24,-15,13
+"FNP_UNP","fire","gpp","Low severity","78","etwfe","event",1985,2025,15817,1,17,-15,"retention",9,"ci_width",1482,12,0.0937,1990,2008,8.3059,23.1207,17,-15,9
+"FNP_UNP","fire","gpp","Moderate severity","","attgt","dynamic",1985,2025,94466,1,22,-15,"retention",13,"ci_width",6351,14,0.0672,1990,2003,7.2609,24.1613,22,-15,13
+"FNP_UNP","fire","gpp","Moderate severity","","etwfe","event",1985,2025,94466,1,22,-15,"retention",13,"ci_width",6351,14,0.0672,1990,2003,4.1844,13.7009,22,-15,13
+"FNP_UNP","fire","gpp","Moderate severity","01","etwfe","event",1985,2025,3764,1,19,-15,"retention",17,"ci_width",194,6,0.0515,1990,2006,20.8623,67.6023,19,-15,17
+"FNP_UNP","fire","gpp","Moderate severity","04","etwfe","event",1985,2025,7776,1,29,-15,"n_cohorts",11,"ci_width",558,3,0.0718,1990,1996,10.4846,42.5371,29,-15,11
+"FNP_UNP","fire","gpp","Moderate severity","05","etwfe","event",1985,2025,18297,1,24,-15,"retention",13,"ci_width",1112,9,0.0608,1990,2001,8.864,33.4492,24,-15,13
+"FNP_UNP","fire","gpp","Moderate severity","08","etwfe","event",1985,2025,5922,1,23,-15,"retention",22,"ci_width",483,8,0.0816,1990,2002,14.1562,44.6871,23,-15,22
+"FNP_UNP","fire","gpp","Moderate severity","09","etwfe","event",1985,2025,2118,1,19,-15,"n_units+retention",13,"ci_width",114,7,0.0538,1990,2006,14.5327,51.8238,19,-15,13
+"FNP_UNP","fire","gpp","Moderate severity","78","etwfe","event",1985,2025,16012,1,17,-15,"retention",9,"ci_width",1220,12,0.0762,1990,2008,9.2513,29.2333,17,-15,9
+"FNP_UNP","fire","npp_tree","High severity","","attgt","dynamic",1985,2021,93388,0.9213,18,-15,"retention",18,"ci_width",7535,13,0.0876,1990,2003,12.3438,21.0798,18,-15,18
+"FNP_UNP","fire","npp_tree","High severity","","etwfe","event",1985,2021,93388,0.9213,18,-15,"retention",18,"ci_width",7535,13,0.0876,1990,2003,6.7393,11.8711,18,-15,18
+"FNP_UNP","fire","npp_tree","High severity","01","etwfe","event",1985,2021,3429,1,13,-15,"retention",18,"n_cohorts",352,5,0.1027,1990,2008,71.7232,77.3095,13,-15,18
+"FNP_UNP","fire","npp_tree","High severity","04","etwfe","event",1985,2021,8711,0.6767,16,-15,"retention",9,"ci_width",351,4,0.0595,1990,2005,16.0452,48.5296,16,-15,9
+"FNP_UNP","fire","npp_tree","High severity","05","etwfe","event",1985,2021,23794,0.9133,17,-15,"retention",13,"ci_width",1207,11,0.0555,1990,2004,12.0375,37.0279,17,-15,13
+"FNP_UNP","fire","npp_tree","High severity","08","etwfe","event",1985,2021,7082,0.9708,19,-15,"n_units+retention",18,"ci_width",535,4,0.0778,1990,2002,14.1833,47.1736,19,-15,18
+"FNP_UNP","fire","npp_tree","High severity","09","etwfe","event",1985,2021,1800,0.9656,15,-15,"n_units+retention",13,"ci_width",108,5,0.0621,1994,2006,19.3497,54.2697,15,-15,13
+"FNP_UNP","fire","npp_tree","High severity","78","etwfe","event",1985,2021,17892,0.9065,13,-15,"retention",7,"ci_width",952,8,0.0587,1990,2008,13.8373,42.5319,13,-15,7
+"FNP_UNP","fire","npp_tree","Low severity","","attgt","dynamic",1985,2021,96112,0.9526,20,-15,"retention",15,"ci_width",4725,12,0.0516,1990,2001,9.1969,23.7271,20,-15,15
+"FNP_UNP","fire","npp_tree","Low severity","","etwfe","event",1985,2021,96112,0.9526,20,-15,"retention",15,"ci_width",4725,12,0.0516,1990,2001,5.2468,15.0295,20,-15,15
+"FNP_UNP","fire","npp_tree","Low severity","01","etwfe","event",1985,2021,4911,1,19,-15,"n_cohorts",13,"ci_width",345,3,0.0703,1990,2002,29.121,69.086,19,-15,13
+"FNP_UNP","fire","npp_tree","Low severity","04","etwfe","event",1985,2021,7364,0.7811,25,-15,"n_cohorts",17,"ci_width",764,3,0.1328,1990,1996,15.7652,38.1288,25,-15,17
+"FNP_UNP","fire","npp_tree","Low severity","05","etwfe","event",1985,2021,16444,0.9308,22,-15,"retention",16,"ci_width",791,6,0.0517,1990,1999,12.4056,35.6223,22,-15,16
+"FNP_UNP","fire","npp_tree","Low severity","08","etwfe","event",1985,2021,4492,0.9639,19,-15,"retention",18,"ci_width",439,8,0.1014,1990,2002,14.6009,40.2428,19,-15,18
+"FNP_UNP","fire","npp_tree","Low severity","09","etwfe","event",1985,2021,2090,0.966,25,-15,"retention",10,"ci_width",102,4,0.0505,1990,1996,14.2191,44.6106,25,-15,10
+"FNP_UNP","fire","npp_tree","Low severity","78","etwfe","event",1985,2021,15817,0.9271,13,-15,"retention",7,"ci_width",1482,12,0.1011,1990,2008,12.0764,26.8621,13,-15,7
+"FNP_UNP","fire","npp_tree","Moderate severity","","attgt","dynamic",1985,2021,94466,0.9381,18,-15,"retention",17,"ci_width",6351,14,0.0717,1990,2003,10.4246,22.0911,18,-15,17
+"FNP_UNP","fire","npp_tree","Moderate severity","","etwfe","event",1985,2021,94466,0.9381,18,-15,"retention",17,"ci_width",6351,14,0.0717,1990,2003,5.975,12.3108,18,-15,17
+"FNP_UNP","fire","npp_tree","Moderate severity","01","etwfe","event",1985,2021,3764,1,15,-15,"retention",13,"ci_width",194,6,0.0515,1990,2006,47.7508,106.2984,15,-15,13
+"FNP_UNP","fire","npp_tree","Moderate severity","04","etwfe","event",1985,2021,7776,0.76,25,-15,"n_cohorts",12,"ci_width",558,3,0.0944,1990,1996,15.0799,48.1616,25,-15,12
+"FNP_UNP","fire","npp_tree","Moderate severity","05","etwfe","event",1985,2021,18297,0.914,20,-15,"retention",14,"ci_width",1112,9,0.0665,1990,2001,12.1781,32.1005,20,-15,14
+"FNP_UNP","fire","npp_tree","Moderate severity","08","etwfe","event",1985,2021,5922,0.9554,19,-15,"retention",18,"ci_width",483,8,0.0854,1990,2002,13.8459,41.4944,19,-15,18
+"FNP_UNP","fire","npp_tree","Moderate severity","09","etwfe","event",1985,2021,2118,0.9608,15,-15,"n_units+retention",11,"ci_width",114,7,0.056,1990,2006,16.2476,49.6774,15,-15,11
+"FNP_UNP","fire","npp_tree","Moderate severity","78","etwfe","event",1985,2021,16012,0.9036,13,-15,"retention",7,"ci_width",1220,12,0.0843,1990,2008,13.0521,32.798,13,-15,7
+"FNP_UNP","fire","nep","High severity","","attgt","dynamic",1985,2021,93388,0.9213,18,-15,"retention",19,"ci_width",7535,13,0.0876,1990,2003,24.7922,24.406,18,-15,19
+"FNP_UNP","fire","nep","High severity","","etwfe","event",1985,2021,93388,0.9213,18,-15,"retention",19,"ci_width",7535,13,0.0876,1990,2003,13.3086,13.9445,18,-15,19
+"FNP_UNP","fire","nep","High severity","01","etwfe","event",1985,2021,3429,1,13,-15,"retention",18,"n_cohorts",352,5,0.1027,1990,2008,130.9727,95.3536,13,-15,18
+"FNP_UNP","fire","nep","High severity","04","etwfe","event",1985,2021,8711,0.6767,16,-15,"retention",19,"n_cohorts",351,4,0.0595,1990,2005,39.2807,56.0931,16,-15,19
+"FNP_UNP","fire","nep","High severity","05","etwfe","event",1985,2021,23794,0.9133,17,-15,"retention",15,"ci_width",1207,11,0.0555,1990,2004,24.364,50.8392,17,-15,15
+"FNP_UNP","fire","nep","High severity","08","etwfe","event",1985,2021,7082,0.9708,19,-15,"n_units+retention",19,"n_units+ci_width",535,4,0.0778,1990,2002,27.9019,49.3735,19,-15,19
+"FNP_UNP","fire","nep","High severity","09","etwfe","event",1985,2021,1800,0.9656,15,-15,"n_units+retention",15,"n_units+ci_width",108,5,0.0621,1994,2006,35.8972,68.2866,15,-15,15
+"FNP_UNP","fire","nep","High severity","78","etwfe","event",1985,2021,17892,0.9065,13,-15,"retention",13,"ci_width",952,8,0.0587,1990,2008,28.7579,47.7503,13,-15,13
+"FNP_UNP","fire","nep","Low severity","","attgt","dynamic",1985,2021,96112,0.9526,20,-15,"retention",20,"ci_width",4725,12,0.0516,1990,2001,18.0305,29.3149,20,-15,20
+"FNP_UNP","fire","nep","Low severity","","etwfe","event",1985,2021,96112,0.9526,20,-15,"retention",21,"ci_width",4725,12,0.0516,1990,2001,10.5458,19.8655,20,-15,20
+"FNP_UNP","fire","nep","Low severity","01","etwfe","event",1985,2021,4911,1,19,-15,"n_cohorts",19,"n_cohorts",345,3,0.0703,1990,2002,56.4389,73.5986,19,-15,19
+"FNP_UNP","fire","nep","Low severity","04","etwfe","event",1985,2021,7364,0.7811,25,-15,"n_cohorts",25,"n_cohorts",764,3,0.1328,1990,1996,40.3305,51.2431,25,-15,25
+"FNP_UNP","fire","nep","Low severity","05","etwfe","event",1985,2021,16444,0.9308,22,-15,"retention",23,"ci_width",791,6,0.0517,1990,1999,24.9903,48.3244,22,-15,23
+"FNP_UNP","fire","nep","Low severity","08","etwfe","event",1985,2021,4492,0.9639,19,-15,"retention",19,"ci_width",439,8,0.1014,1990,2002,31.2378,49.1565,19,-15,19
+"FNP_UNP","fire","nep","Low severity","09","etwfe","event",1985,2021,2090,0.966,25,-15,"retention",13,"ci_width",102,4,0.0505,1990,1996,27.6088,69.9081,25,-15,13
+"FNP_UNP","fire","nep","Low severity","78","etwfe","event",1985,2021,15817,0.9271,13,-15,"retention",19,"ci_width",1482,12,0.1011,1990,2008,25.7747,34.8734,13,-15,19
+"FNP_UNP","fire","nep","Moderate severity","","attgt","dynamic",1985,2021,94466,0.9381,18,-15,"retention",19,"ci_width",6351,14,0.0717,1990,2003,20.0928,29.1525,18,-15,19
+"FNP_UNP","fire","nep","Moderate severity","","etwfe","event",1985,2021,94466,0.9381,18,-15,"retention",19,"ci_width",6351,14,0.0717,1990,2003,12.008,15.7667,18,-15,19
+"FNP_UNP","fire","nep","Moderate severity","01","etwfe","event",1985,2021,3764,1,15,-15,"retention",19,"n_cohorts+ci_width",194,6,0.0515,1990,2006,87.5951,120.4991,15,-15,19
+"FNP_UNP","fire","nep","Moderate severity","04","etwfe","event",1985,2021,7776,0.76,25,-15,"n_cohorts",25,"n_cohorts",558,3,0.0944,1990,1996,38.7083,68.5077,25,-15,25
+"FNP_UNP","fire","nep","Moderate severity","05","etwfe","event",1985,2021,18297,0.914,20,-15,"retention",20,"ci_width",1112,9,0.0665,1990,2001,24.0081,47.4773,20,-15,20
+"FNP_UNP","fire","nep","Moderate severity","08","etwfe","event",1985,2021,5922,0.9554,19,-15,"retention",19,"ci_width",483,8,0.0854,1990,2002,28.3477,48.4554,19,-15,19
+"FNP_UNP","fire","nep","Moderate severity","09","etwfe","event",1985,2021,2118,0.9608,15,-15,"n_units+retention",13,"ci_width",114,7,0.056,1990,2006,28.817,60.1709,15,-15,13
+"FNP_UNP","fire","nep","Moderate severity","78","etwfe","event",1985,2021,16012,0.9036,13,-15,"retention",13,"ci_width",1220,12,0.0843,1990,2008,27.2722,43.1325,13,-15,13
+"FNP_UNP","fire","agb_emapr","High severity","","attgt","dynamic",1990,2017,93388,0.405,16,-15,"retention",13,"ci_width",2208,11,0.0584,1990,2001,1.5489,5.3898,16,-15,12
+"FNP_UNP","fire","agb_emapr","High severity","","etwfe","event",1990,2017,93388,0.405,16,-15,"retention",12,"ci_width",2208,11,0.0584,1990,2001,0.849,2.5849,16,-15,12
+"FNP_UNP","fire","agb_emapr","High severity","01","etwfe","event",1990,2017,3429,0.1169,14,-15,"n_cohorts",11,"ci_width",124,3,0.3092,1990,2003,9.5307,23.993,14,-15,11
+"FNP_UNP","fire","agb_emapr","High severity","04","etwfe","event",1990,2017,8711,0.2858,15,-15,"n_cohorts",5,"ci_width",268,3,0.1076,1990,2002,1.4312,4.7405,15,-15,5
+"FNP_UNP","fire","agb_emapr","High severity","05","etwfe","event",1990,2017,23794,0.3353,16,-15,"retention",13,"ci_width",862,8,0.108,1990,2001,1.3386,3.6046,16,-15,13
+"FNP_UNP","fire","agb_emapr","High severity","08","etwfe","event",1990,2017,7082,0.8354,15,-15,"n_units+retention",14,"ci_width",535,4,0.0904,1990,2002,1.7322,8.2162,15,-15,14
+"FNP_UNP","fire","agb_emapr","High severity","09","etwfe","event",1990,2017,1800,0.5639,11,-15,"n_units+retention",9,"ci_width",108,5,0.1064,1994,2006,4.0084,11.493,11,-15,9
+"FNP_UNP","fire","agb_emapr","High severity","78","etwfe","event",1990,2017,17892,0.3005,13,-15,"retention",9,"ci_width",275,5,0.0512,1990,2004,2.1034,9.723,13,-15,9
+"FNP_UNP","fire","agb_emapr","Low severity","","attgt","dynamic",1990,2017,96112,0.4394,25,-15,"n_cohorts+retention",14,"ci_width",2352,3,0.0557,1990,1992,1.7355,8.4825,25,-15,14
+"FNP_UNP","fire","agb_emapr","Low severity","","etwfe","event",1990,2017,96112,0.4394,25,-15,"n_cohorts+retention",14,"ci_width",2352,3,0.0557,1990,1992,1.0114,3.5261,25,-15,14
+"FNP_UNP","fire","agb_emapr","Low severity","01","etwfe","event",1990,2017,4911,0.3382,15,-15,"n_cohorts",15,"n_cohorts",345,3,0.2077,1990,2002,2.8017,4.8156,15,-15,15
+"FNP_UNP","fire","agb_emapr","Low severity","04","etwfe","event",1990,2017,7364,0.2558,21,-15,"n_cohorts",21,"n_cohorts",764,3,0.4055,1990,1996,3.5735,6.0215,21,-15,21
+"FNP_UNP","fire","agb_emapr","Low severity","05","etwfe","event",1990,2017,16444,0.388,23,-15,"n_cohorts",21,"ci_width",551,3,0.0864,1990,1994,1.9811,4.3693,23,-15,21
+"FNP_UNP","fire","agb_emapr","Low severity","08","etwfe","event",1990,2017,4492,0.7965,15,-15,"retention",14,"ci_width",439,8,0.1227,1990,2002,2.4021,7.4863,15,-15,14
+"FNP_UNP","fire","agb_emapr","Low severity","09","etwfe","event",1990,2017,2090,0.5038,23,-15,"n_units+n_cohorts+retention",5,"ci_width",96,3,0.0912,1990,1994,4.4567,7.9415,23,-15,5
+"FNP_UNP","fire","agb_emapr","Low severity","78","etwfe","event",1990,2017,15817,0.3489,25,-15,"n_cohorts+retention",9,"ci_width",380,3,0.0689,1990,1992,2.4622,6.0172,25,-15,9
+"FNP_UNP","fire","agb_emapr","Moderate severity","","attgt","dynamic",1990,2017,94466,0.4263,23,-15,"retention",14,"ci_width",2037,5,0.0506,1990,1994,1.8348,6.4712,23,-15,14
+"FNP_UNP","fire","agb_emapr","Moderate severity","","etwfe","event",1990,2017,94466,0.4263,23,-15,"retention",14,"ci_width",2037,5,0.0506,1990,1994,0.9996,3.3064,23,-15,14
+"FNP_UNP","fire","agb_emapr","Moderate severity","01","etwfe","event",1990,2017,3764,0.2298,15,-15,"n_cohorts",15,"n_cohorts",144,3,0.1665,1990,2002,5.2973,8.9216,15,-15,15
+"FNP_UNP","fire","agb_emapr","Moderate severity","04","etwfe","event",1990,2017,7776,0.2832,21,-15,"n_cohorts",9,"ci_width",558,3,0.2534,1990,1996,2.2873,6.5147,21,-15,9
+"FNP_UNP","fire","agb_emapr","Moderate severity","05","etwfe","event",1990,2017,18297,0.3876,23,-15,"n_cohorts",16,"ci_width",435,3,0.0613,1990,1994,1.8749,5.5322,23,-15,16
+"FNP_UNP","fire","agb_emapr","Moderate severity","08","etwfe","event",1990,2017,5922,0.772,15,-15,"retention",14,"ci_width",483,8,0.1056,1990,2002,2.1138,7.9983,15,-15,14
+"FNP_UNP","fire","agb_emapr","Moderate severity","09","etwfe","event",1990,2017,2118,0.4863,11,-15,"n_units+retention",10,"ci_width",114,7,0.1107,1990,2006,4.5802,13.6506,11,-15,10
+"FNP_UNP","fire","agb_emapr","Moderate severity","78","etwfe","event",1990,2017,16012,0.3303,15,-15,"retention",9,"ci_width",349,7,0.066,1990,2002,2.439,8.7166,15,-15,9
+"FNP_UNP","fire","agb_lemma","High severity","","attgt","dynamic",1990,2016,93388,0.34,15,-15,"retention",8,"ci_width",2208,11,0.0695,1990,2001,2.0671,8.933,15,-15,8
+"FNP_UNP","fire","agb_lemma","High severity","","etwfe","event",1990,2016,93388,0.34,15,-15,"retention",8,"ci_width",2208,11,0.0695,1990,2001,1.2505,5.2235,15,-15,8
+"FNP_UNP","fire","agb_lemma","High severity","01","etwfe","event",1990,2016,3429,0.1169,13,-15,"n_cohorts",8,"ci_width",124,3,0.3092,1990,2003,5.3279,17.4818,13,-15,8
+"FNP_UNP","fire","agb_lemma","High severity","04","etwfe","event",1990,2016,8711,0.2858,14,-15,"n_cohorts",4,"ci_width",268,3,0.1076,1990,2002,1.5329,6.9383,14,-15,4
+"FNP_UNP","fire","agb_lemma","High severity","05","etwfe","event",1990,2016,23794,0.3296,15,-15,"retention",10,"ci_width",862,8,0.1099,1990,2001,2.0143,6.2036,15,-15,10
+"FNP_UNP","fire","agb_lemma","High severity","08","etwfe","event",1990,2016,7082,0.8253,14,-15,"n_units+retention",13,"ci_width",535,4,0.0915,1990,2002,4.2879,16.5185,14,-15,13
+"FNP_UNP","fire","agb_lemma","High severity","09","etwfe","event",1990,2016,1800,0.5439,10,-15,"n_units+retention",8,"ci_width",108,5,0.1103,1994,2006,3.9364,13.6778,10,-15,8
+"FNP_UNP","fire","agb_lemma","High severity","78","etwfe","event",1990,2016,17892,0.2027,12,-15,"retention",8,"ci_width",275,5,0.0758,1990,2004,2.3373,7.4149,12,-15,8
+"FNP_UNP","fire","agb_lemma","Low severity","","attgt","dynamic",1990,2016,96112,0.3027,24,-15,"n_cohorts+retention",12,"ci_width",2352,3,0.0808,1990,1992,2.672,9.7537,24,-15,12
+"FNP_UNP","fire","agb_lemma","Low severity","","etwfe","event",1990,2016,96112,0.3027,24,-15,"n_cohorts+retention",13,"ci_width",2352,3,0.0808,1990,1992,1.5217,5.3245,24,-15,12
+"FNP_UNP","fire","agb_lemma","Low severity","01","etwfe","event",1990,2016,4911,0.3382,14,-15,"n_cohorts",10,"ci_width",345,3,0.2077,1990,2002,4.0904,8.9191,14,-15,10
+"FNP_UNP","fire","agb_lemma","Low severity","04","etwfe","event",1990,2016,7364,0.2558,20,-15,"n_cohorts",19,"ci_width",764,3,0.4055,1990,1996,4.3228,8.855,20,-15,19
+"FNP_UNP","fire","agb_lemma","Low severity","05","etwfe","event",1990,2016,16444,0.3784,22,-15,"n_cohorts",15,"ci_width",551,3,0.0886,1990,1994,3.4491,11.4531,22,-15,15
+"FNP_UNP","fire","agb_lemma","Low severity","08","etwfe","event",1990,2016,4492,0.6454,14,-15,"retention",12,"ci_width",439,8,0.1514,1990,2002,5.8623,20.1211,14,-15,12
+"FNP_UNP","fire","agb_lemma","Low severity","09","etwfe","event",1990,2016,2090,0.4493,22,-15,"n_units+n_cohorts+retention",8,"ci_width",96,3,0.1022,1990,1994,5.5961,14.9184,22,-15,8
+"FNP_UNP","fire","agb_lemma","Low severity","78","etwfe","event",1990,2016,15817,0.2595,24,-15,"n_cohorts+retention",8,"ci_width",380,3,0.0926,1990,1992,3.1086,10.5057,24,-15,8
+"FNP_UNP","fire","agb_lemma","Moderate severity","","attgt","dynamic",1990,2016,94466,0.3149,23,-15,"retention",11,"ci_width",1669,4,0.0561,1990,1993,2.6076,11.4034,23,-15,10
+"FNP_UNP","fire","agb_lemma","Moderate severity","","etwfe","event",1990,2016,94466,0.3149,23,-15,"retention",10,"ci_width",1669,4,0.0561,1990,1993,1.4916,5.8799,23,-15,10
+"FNP_UNP","fire","agb_lemma","Moderate severity","01","etwfe","event",1990,2016,3764,0.2298,14,-15,"n_cohorts",8,"ci_width",144,3,0.1665,1990,2002,4.718,13.184,14,-15,8
+"FNP_UNP","fire","agb_lemma","Moderate severity","04","etwfe","event",1990,2016,7776,0.2832,20,-15,"n_cohorts",7,"ci_width",558,3,0.2534,1990,1996,2.6288,8.9661,20,-15,7
+"FNP_UNP","fire","agb_lemma","Moderate severity","05","etwfe","event",1990,2016,18297,0.3779,22,-15,"n_cohorts",12,"ci_width",435,3,0.0629,1990,1994,2.6763,13.5599,22,-15,12
+"FNP_UNP","fire","agb_lemma","Moderate severity","08","etwfe","event",1990,2016,5922,0.6724,14,-15,"retention",12,"ci_width",483,8,0.1213,1990,2002,5.1155,20.6986,14,-15,12
+"FNP_UNP","fire","agb_lemma","Moderate severity","09","etwfe","event",1990,2016,2118,0.449,10,-15,"n_units+retention",8,"ci_width",114,7,0.1199,1990,2006,4.6381,13.9689,10,-15,8
+"FNP_UNP","fire","agb_lemma","Moderate severity","78","etwfe","event",1990,2016,16012,0.2323,24,-15,"n_cohorts+retention",10,"ci_width",198,3,0.0532,1990,1992,3.0562,12.1291,24,-15,10
+"TP_UP","thin","agb_almanac","High intensity","","attgt","dynamic",1985,2025,6429,1,34,-15,"n_cohorts",34,"n_cohorts",3396,3,0.5282,1989,1991,2.1651,3.554,34,-15,34
+"TP_UP","thin","agb_almanac","High intensity","","etwfe","event",1985,2025,6429,1,34,-15,"n_cohorts",34,"n_cohorts+ci_width",3396,3,0.5282,1989,1991,1.274,2.2995,34,-15,34
+"TP_UP","thin","agb_almanac","High intensity","01","etwfe","event",1985,2025,243,1,26,-14,"n_cohorts",26,"n_cohorts",197,3,0.8107,1997,1999,5.4652,5.6671,26,-14,26
+"TP_UP","thin","agb_almanac","High intensity","04","etwfe","event",1985,2025,2242,1,34,-15,"n_cohorts",32,"ci_width",959,3,0.4277,1989,1991,2.0557,4.9995,34,-15,32
+"TP_UP","thin","agb_almanac","High intensity","05","etwfe","event",1985,2025,1975,1,34,-15,"n_cohorts",34,"n_cohorts+ci_width",1223,3,0.6192,1989,1991,2.1765,3.8637,34,-15,34
+"TP_UP","thin","agb_almanac","High intensity","09","etwfe","event",1985,2025,497,1,34,-11,"n_cohorts",32,"ci_width",312,3,0.6278,1989,1991,3.2934,7.3393,34,-11,32
+"TP_UP","thin","agb_almanac","High intensity","78","etwfe","event",1985,2025,1471,1,34,-15,"n_cohorts",34,"n_cohorts",902,3,0.6132,1989,1991,2.2055,3.6228,34,-15,34
+"TP_UP","thin","agb_almanac","Low intensity","","attgt","dynamic",1985,2025,1784,1,34,-15,"n_cohorts",32,"ci_width",514,3,0.2881,1989,1991,4.0296,8.3129,34,-15,32
+"TP_UP","thin","agb_almanac","Low intensity","","etwfe","event",1985,2025,1784,1,34,-15,"n_cohorts",33,"ci_width",514,3,0.2881,1989,1991,2.4957,5.1057,34,-15,32
+"TP_UP","thin","agb_almanac","Low intensity","04","etwfe","event",1985,2025,393,1,34,-15,"n_cohorts",34,"n_cohorts+ci_width",96,3,0.2443,1989,1991,5.9756,8.5871,34,-15,34
+"TP_UP","thin","agb_almanac","Low intensity","05","etwfe","event",1985,2025,293,1,34,-15,"n_cohorts",27,"ci_width",77,3,0.2628,1989,1991,4.8741,13.6451,34,-15,27
+"TP_UP","thin","agb_almanac","Low intensity","08","etwfe","event",1985,2025,330,1,20,-15,"n_cohorts",20,"n_cohorts",107,3,0.3242,2003,2005,6.5314,9.4287,20,-15,20
+"TP_UP","thin","agb_almanac","Low intensity","09","etwfe","event",1985,2025,519,1,34,-15,"n_cohorts",34,"n_cohorts+ci_width",265,3,0.5106,1989,1991,3.5346,6.7677,34,-15,34
+"TP_UP","thin","agb_almanac","Low intensity","78","etwfe","event",1985,2025,244,1,34,-15,"n_units+n_cohorts",33,"ci_width",76,3,0.3115,1989,1991,4.9641,13.2695,34,-15,33
+"TP_UP","thin","agb_almanac","Medium intensity","","attgt","dynamic",1985,2025,20406,1,29,-15,"retention",26,"ci_width",1545,8,0.0757,1989,1996,1.2841,3.5518,29,-15,26
+"TP_UP","thin","agb_almanac","Medium intensity","","etwfe","event",1985,2025,20406,1,29,-15,"retention",26,"ci_width",1545,8,0.0757,1989,1996,0.738,2.1553,29,-15,26
+"TP_UP","thin","agb_almanac","Medium intensity","01","etwfe","event",1985,2025,716,1,26,-15,"n_units+n_cohorts",25,"ci_width",101,3,0.1411,1997,1999,2.6601,8.3142,26,-15,25
+"TP_UP","thin","agb_almanac","Medium intensity","04","etwfe","event",1985,2025,10254,1,29,-15,"retention",27,"ci_width",682,8,0.0665,1989,1996,1.0882,2.8249,29,-15,27
+"TP_UP","thin","agb_almanac","Medium intensity","05","etwfe","event",1985,2025,7032,1,29,-15,"retention",25,"ci_width",529,7,0.0752,1989,1996,1.1501,4.5934,29,-15,25
+"TP_UP","thin","agb_almanac","Medium intensity","08","etwfe","event",1985,2025,48,1,2,-15,"n_units",0,"ci_width",48,8,1,2004,2023,18.3146,27.2043,2,-15,0
+"TP_UP","thin","agb_almanac","Medium intensity","09","etwfe","event",1985,2025,1323,1,29,-15,"n_units+retention",0,"ci_width",192,4,0.1451,1993,1996,1.7078,3.9352,29,-15,0
+"TP_UP","thin","agb_almanac","Medium intensity","78","etwfe","event",1985,2025,1028,1,31,-15,"n_units+retention",26,"ci_width",73,6,0.071,1989,1994,2.5907,8.6781,31,-15,26
+"TP_UP","thin","gpp","High intensity","","attgt","dynamic",1985,2025,6429,1,34,-15,"n_cohorts",33,"ci_width",3396,3,0.5282,1989,1991,16.4785,35.043,34,-15,33
+"TP_UP","thin","gpp","High intensity","","etwfe","event",1985,2025,6429,1,34,-15,"n_cohorts",33,"ci_width",3396,3,0.5282,1989,1991,9.8873,21.0744,34,-15,33
+"TP_UP","thin","gpp","High intensity","01","etwfe","event",1985,2025,243,1,26,-14,"n_cohorts",26,"n_cohorts",197,3,0.8107,1997,1999,72.7842,92.8983,26,-14,26
+"TP_UP","thin","gpp","High intensity","04","etwfe","event",1985,2025,2242,1,34,-15,"n_cohorts",33,"ci_width",959,3,0.4277,1989,1991,11.6851,25.0482,34,-15,33
+"TP_UP","thin","gpp","High intensity","05","etwfe","event",1985,2025,1975,1,34,-15,"n_cohorts",33,"ci_width",1223,3,0.6192,1989,1991,16.4351,35.6077,34,-15,33
+"TP_UP","thin","gpp","High intensity","09","etwfe","event",1985,2025,497,1,34,-11,"n_cohorts",28,"ci_width",312,3,0.6278,1989,1991,20.5916,65.5752,34,-11,28
+"TP_UP","thin","gpp","High intensity","78","etwfe","event",1985,2025,1471,1,34,-15,"n_cohorts",34,"n_cohorts+ci_width",902,3,0.6132,1989,1991,24.7824,47.2369,34,-15,34
+"TP_UP","thin","gpp","Low intensity","","attgt","dynamic",1985,2025,1784,1,34,-15,"n_cohorts",32,"ci_width",514,3,0.2881,1989,1991,22.0066,57.4326,34,-15,31
+"TP_UP","thin","gpp","Low intensity","","etwfe","event",1985,2025,1784,1,34,-15,"n_cohorts",31,"ci_width",514,3,0.2881,1989,1991,12.6904,31.9978,34,-15,31
+"TP_UP","thin","gpp","Low intensity","04","etwfe","event",1985,2025,393,1,34,-15,"n_cohorts",21,"ci_width",96,3,0.2443,1989,1991,19.3348,55.8629,34,-15,21
+"TP_UP","thin","gpp","Low intensity","05","etwfe","event",1985,2025,293,1,34,-15,"n_cohorts",24,"ci_width",77,3,0.2628,1989,1991,29.1349,141.8043,34,-15,24
+"TP_UP","thin","gpp","Low intensity","08","etwfe","event",1985,2025,330,1,20,-15,"n_cohorts",19,"ci_width",107,3,0.3242,2003,2005,33.4467,67.8239,20,-15,19
+"TP_UP","thin","gpp","Low intensity","09","etwfe","event",1985,2025,519,1,34,-15,"n_cohorts",34,"n_cohorts",265,3,0.5106,1989,1991,12.8237,23.5551,34,-15,34
+"TP_UP","thin","gpp","Low intensity","78","etwfe","event",1985,2025,244,1,34,-15,"n_units+n_cohorts",31,"ci_width",76,3,0.3115,1989,1991,39.2016,105.9603,34,-15,31
+"TP_UP","thin","gpp","Medium intensity","","attgt","dynamic",1985,2025,20406,1,29,-15,"retention",22,"ci_width",1545,8,0.0757,1989,1996,7.3944,34.2351,29,-15,22
+"TP_UP","thin","gpp","Medium intensity","","etwfe","event",1985,2025,20406,1,29,-15,"retention",22,"ci_width",1545,8,0.0757,1989,1996,4.2299,18.948,29,-15,22
+"TP_UP","thin","gpp","Medium intensity","01","etwfe","event",1985,2025,716,1,26,-15,"n_units+n_cohorts",15,"ci_width",101,3,0.1411,1997,1999,33.6563,107.0923,26,-15,15
+"TP_UP","thin","gpp","Medium intensity","04","etwfe","event",1985,2025,10254,1,29,-15,"retention",21,"ci_width",682,8,0.0665,1989,1996,4.5295,18.3116,29,-15,21
+"TP_UP","thin","gpp","Medium intensity","05","etwfe","event",1985,2025,7032,1,29,-15,"retention",22,"ci_width",529,7,0.0752,1989,1996,7.9917,34.4801,29,-15,22
+"TP_UP","thin","gpp","Medium intensity","08","etwfe","event",1985,2025,48,1,2,-15,"n_units",2,"n_units",48,8,1,2004,2023,90.5725,91.8888,2,-15,2
+"TP_UP","thin","gpp","Medium intensity","09","etwfe","event",1985,2025,1323,1,29,-15,"n_units+retention",22,"ci_width",192,4,0.1451,1993,1996,10.6021,51.6205,29,-15,22
+"TP_UP","thin","gpp","Medium intensity","78","etwfe","event",1985,2025,1028,1,31,-15,"n_units+retention",22,"ci_width",73,6,0.071,1989,1994,22.6107,120.4503,31,-15,22
+"TP_UP","thin","npp_tree","High intensity","","attgt","dynamic",1985,2021,6429,0.997,30,-15,"n_cohorts",30,"n_cohorts",3396,3,0.5298,1989,1991,21.3672,36.2697,30,-15,30
+"TP_UP","thin","npp_tree","High intensity","","etwfe","event",1985,2021,6429,0.997,30,-15,"n_cohorts",30,"n_cohorts+ci_width",3396,3,0.5298,1989,1991,12.3936,21.1848,30,-15,30
+"TP_UP","thin","npp_tree","High intensity","01","etwfe","event",1985,2021,243,0.9959,22,-14,"n_cohorts",22,"n_cohorts",197,3,0.814,1997,1999,116.3919,132.6976,22,-14,22
+"TP_UP","thin","npp_tree","High intensity","04","etwfe","event",1985,2021,2242,0.9951,30,-15,"n_cohorts",28,"ci_width",959,3,0.4299,1989,1991,14.3414,32.4723,30,-15,28
+"TP_UP","thin","npp_tree","High intensity","05","etwfe","event",1985,2021,1975,0.998,30,-15,"n_cohorts",30,"n_cohorts+ci_width",1223,3,0.6205,1989,1991,20.2986,34.2502,30,-15,30
+"TP_UP","thin","npp_tree","High intensity","09","etwfe","event",1985,2021,497,1,30,-11,"n_cohorts",20,"ci_width",312,3,0.6278,1989,1991,23.1319,58.8985,30,-11,20
+"TP_UP","thin","npp_tree","High intensity","78","etwfe","event",1985,2021,1471,0.998,30,-15,"n_cohorts",30,"n_cohorts",902,3,0.6144,1989,1991,29.4216,48.1748,30,-15,30
+"TP_UP","thin","npp_tree","Low intensity","","attgt","dynamic",1985,2021,1784,0.9602,30,-15,"n_cohorts",24,"ci_width",514,3,0.3001,1989,1991,27.7716,50.528,30,-15,24
+"TP_UP","thin","npp_tree","Low intensity","","etwfe","event",1985,2021,1784,0.9602,30,-15,"n_cohorts",24,"ci_width",514,3,0.3001,1989,1991,16.2364,30.773,30,-15,24
+"TP_UP","thin","npp_tree","Low intensity","04","etwfe","event",1985,2021,393,0.9517,30,-15,"n_cohorts",17,"ci_width",96,3,0.2567,1989,1991,27.909,63.8588,30,-15,17
+"TP_UP","thin","npp_tree","Low intensity","05","etwfe","event",1985,2021,293,0.9829,30,-15,"n_cohorts",23,"ci_width",77,3,0.2674,1989,1991,41.8029,92.4797,30,-15,23
+"TP_UP","thin","npp_tree","Low intensity","08","etwfe","event",1985,2021,330,0.903,16,-15,"n_cohorts",16,"n_cohorts+ci_width",107,3,0.3591,2003,2005,38.2617,65.9751,16,-15,16
+"TP_UP","thin","npp_tree","Low intensity","09","etwfe","event",1985,2021,519,1,30,-15,"n_cohorts",30,"n_cohorts+ci_width",265,3,0.5106,1989,1991,15.8786,31.0184,30,-15,30
+"TP_UP","thin","npp_tree","Low intensity","78","etwfe","event",1985,2021,244,0.959,30,-15,"n_units+n_cohorts",24,"ci_width",76,3,0.3248,1989,1991,55.0883,105.6291,30,-15,24
+"TP_UP","thin","npp_tree","Medium intensity","","attgt","dynamic",1985,2021,20406,0.9387,25,-15,"retention",19,"ci_width",1545,8,0.0807,1989,1996,10.6627,37.5472,25,-15,19
+"TP_UP","thin","npp_tree","Medium intensity","","etwfe","event",1985,2021,20406,0.9387,25,-15,"retention",19,"ci_width",1545,8,0.0807,1989,1996,6.1425,20.3416,25,-15,19
+"TP_UP","thin","npp_tree","Medium intensity","01","etwfe","event",1985,2021,716,0.9344,22,-15,"n_units+n_cohorts",13,"ci_width",101,3,0.151,1997,1999,52.6879,163.9374,22,-15,13
+"TP_UP","thin","npp_tree","Medium intensity","04","etwfe","event",1985,2021,10254,0.9604,26,-15,"retention",18,"ci_width",500,7,0.0508,1989,1995,6.6226,25.7377,26,-15,18
+"TP_UP","thin","npp_tree","Medium intensity","05","etwfe","event",1985,2021,7032,0.9152,25,-15,"retention",19,"ci_width",529,7,0.0822,1989,1996,10.7781,38.1566,25,-15,19
+"TP_UP","thin","npp_tree","Medium intensity","08","etwfe","event",1985,2021,48,0.9167,NA,-15,NA,NA,NA,NA,NA,NA,NA,NA,83.9876,NA,NA,-15,NA
+"TP_UP","thin","npp_tree","Medium intensity","09","etwfe","event",1985,2021,1323,0.9531,25,-15,"n_units+retention",17,"ci_width",192,4,0.1523,1993,1996,12.9727,57.8681,25,-15,17
+"TP_UP","thin","npp_tree","Medium intensity","78","etwfe","event",1985,2021,1028,0.8687,27,-15,"n_units+retention",21,"ci_width",73,6,0.0817,1989,1994,33.4802,106.2647,27,-15,21
+"TP_UP","thin","nep","High intensity","","attgt","dynamic",1985,2021,6429,0.997,30,-15,"n_cohorts",30,"n_cohorts",3396,3,0.5298,1989,1991,44.2838,42.2324,30,-15,30
+"TP_UP","thin","nep","High intensity","","etwfe","event",1985,2021,6429,0.997,30,-15,"n_cohorts",30,"n_cohorts",3396,3,0.5298,1989,1991,26.3093,24.8549,30,-15,30
+"TP_UP","thin","nep","High intensity","01","etwfe","event",1985,2021,243,0.9959,22,-14,"n_cohorts",22,"n_cohorts",197,3,0.814,1997,1999,186.8179,155.7535,22,-14,22
+"TP_UP","thin","nep","High intensity","04","etwfe","event",1985,2021,2242,0.9951,30,-15,"n_cohorts",30,"n_cohorts",959,3,0.4299,1989,1991,36.4388,34.4577,30,-15,30
+"TP_UP","thin","nep","High intensity","05","etwfe","event",1985,2021,1975,0.998,30,-15,"n_cohorts",30,"n_cohorts",1223,3,0.6205,1989,1991,48.2602,42.6213,30,-15,30
+"TP_UP","thin","nep","High intensity","09","etwfe","event",1985,2021,497,1,30,-11,"n_cohorts",30,"n_cohorts",312,3,0.6278,1989,1991,82.3339,67.2539,30,-11,30
+"TP_UP","thin","nep","High intensity","78","etwfe","event",1985,2021,1471,0.998,30,-15,"n_cohorts",30,"n_cohorts",902,3,0.6144,1989,1991,56.19,56.8115,30,-15,30
+"TP_UP","thin","nep","Low intensity","","attgt","dynamic",1985,2021,1784,0.9602,30,-15,"n_cohorts",30,"n_cohorts",514,3,0.3001,1989,1991,64.1675,57.2156,30,-15,30
+"TP_UP","thin","nep","Low intensity","","etwfe","event",1985,2021,1784,0.9602,30,-15,"n_cohorts",30,"n_cohorts",514,3,0.3001,1989,1991,37.4681,35.1903,30,-15,30
+"TP_UP","thin","nep","Low intensity","04","etwfe","event",1985,2021,393,0.9517,30,-15,"n_cohorts",30,"n_cohorts",96,3,0.2567,1989,1991,72.3949,75.1722,30,-15,30
+"TP_UP","thin","nep","Low intensity","05","etwfe","event",1985,2021,293,0.9829,30,-15,"n_cohorts",30,"n_cohorts",77,3,0.2674,1989,1991,93.0188,111.5451,30,-15,30
+"TP_UP","thin","nep","Low intensity","08","etwfe","event",1985,2021,330,0.903,16,-15,"n_cohorts",16,"n_cohorts",107,3,0.3591,2003,2005,96.1732,101.2221,16,-15,16
+"TP_UP","thin","nep","Low intensity","09","etwfe","event",1985,2021,519,1,30,-15,"n_cohorts",30,"n_cohorts",265,3,0.5106,1989,1991,35.1938,31.2674,30,-15,30
+"TP_UP","thin","nep","Low intensity","78","etwfe","event",1985,2021,244,0.959,30,-15,"n_units+n_cohorts",30,"n_units+n_cohorts",76,3,0.3248,1989,1991,116.2966,111.7219,30,-15,30
+"TP_UP","thin","nep","Medium intensity","","attgt","dynamic",1985,2021,20406,0.9387,25,-15,"retention",24,"ci_width",1545,8,0.0807,1989,1996,23.0093,50.6399,25,-15,24
+"TP_UP","thin","nep","Medium intensity","","etwfe","event",1985,2021,20406,0.9387,25,-15,"retention",24,"ci_width",1545,8,0.0807,1989,1996,12.8605,29.559,25,-15,24
+"TP_UP","thin","nep","Medium intensity","01","etwfe","event",1985,2021,716,0.9344,22,-15,"n_units+n_cohorts",22,"n_units+n_cohorts",101,3,0.151,1997,1999,114.1078,188.4959,22,-15,22
+"TP_UP","thin","nep","Medium intensity","04","etwfe","event",1985,2021,10254,0.9604,26,-15,"retention",23,"ci_width",500,7,0.0508,1989,1995,13.9612,53.0742,26,-15,23
+"TP_UP","thin","nep","Medium intensity","05","etwfe","event",1985,2021,7032,0.9152,25,-15,"retention",24,"ci_width",529,7,0.0822,1989,1996,24.662,49.915,25,-15,24
+"TP_UP","thin","nep","Medium intensity","08","etwfe","event",1985,2021,48,0.9167,NA,-15,NA,NA,NA,NA,NA,NA,NA,NA,218.9449,NA,NA,-15,NA
+"TP_UP","thin","nep","Medium intensity","09","etwfe","event",1985,2021,1323,0.9531,25,-15,"n_units+retention",22,"ci_width",192,4,0.1523,1993,1996,32.3682,75.5051,25,-15,22
+"TP_UP","thin","nep","Medium intensity","78","etwfe","event",1985,2021,1028,0.8687,27,-15,"n_units+retention",27,"n_units+ci_width",73,6,0.0817,1989,1994,70.875,119.0995,27,-15,27
+"TP_UP","thin","agb_emapr","High intensity","","attgt","dynamic",1990,2017,6429,0.7623,26,-15,"end_of_data",26,"end_of_data",3396,3,0.5396,1989,1991,3.6433,7.0241,26,-15,26
+"TP_UP","thin","agb_emapr","High intensity","","etwfe","event",1990,2017,6429,0.7623,26,-15,"n_cohorts",26,"n_cohorts+ci_width",3396,3,0.5396,1989,1991,2.6556,4.9686,26,-15,26
+"TP_UP","thin","agb_emapr","High intensity","01","etwfe","event",1990,2017,243,0.9877,18,-9,"n_cohorts",18,"n_cohorts",197,3,0.8208,1997,1999,9.301,9.332,18,-9,18
+"TP_UP","thin","agb_emapr","High intensity","04","etwfe","event",1990,2017,2242,0.7739,26,-15,"n_cohorts",26,"n_cohorts",959,3,0.4456,1989,1991,2.9732,4.4783,26,-15,26
+"TP_UP","thin","agb_emapr","High intensity","05","etwfe","event",1990,2017,1975,0.7397,26,-15,"n_cohorts",26,"n_cohorts",1223,3,0.6259,1989,1991,2.5648,2.8688,26,-15,26
+"TP_UP","thin","agb_emapr","High intensity","09","etwfe","event",1990,2017,497,0.7404,26,-6,"n_cohorts",26,"n_cohorts",312,3,0.6329,1989,1991,5.7503,5.6591,26,-6,26
+"TP_UP","thin","agb_emapr","High intensity","78","etwfe","event",1990,2017,1471,0.7451,26,-15,"n_cohorts",26,"n_cohorts",902,3,0.6204,1989,1991,3.7502,3.8879,26,-15,26
+"TP_UP","thin","agb_emapr","Low intensity","","attgt","dynamic",1990,2017,1784,0.7108,26,-15,"end_of_data",19,"ci_width",514,3,0.3268,1989,1991,4.8999,17.2236,26,-15,19
+"TP_UP","thin","agb_emapr","Low intensity","","etwfe","event",1990,2017,1784,0.7108,26,-15,"n_cohorts",26,"n_cohorts",514,3,0.3268,1989,1991,2.7543,4.17,26,-15,19
+"TP_UP","thin","agb_emapr","Low intensity","04","etwfe","event",1990,2017,393,0.8626,26,-15,"n_cohorts",26,"n_cohorts",96,3,0.2567,1989,1991,5.3236,7.2602,26,-15,26
+"TP_UP","thin","agb_emapr","Low intensity","05","etwfe","event",1990,2017,293,0.6177,26,-15,"n_cohorts",26,"n_cohorts",77,3,0.3392,1989,1991,6.1385,10.4893,26,-15,26
+"TP_UP","thin","agb_emapr","Low intensity","08","etwfe","event",1990,2017,330,0.7758,12,-15,"n_cohorts",12,"n_cohorts+ci_width",107,3,0.418,2003,2005,6.2469,10.305,12,-15,12
+"TP_UP","thin","agb_emapr","Low intensity","09","etwfe","event",1990,2017,519,0.6146,26,-14,"n_cohorts",26,"n_cohorts",265,3,0.5106,1989,1991,4.9741,1.5522,26,-14,26
+"TP_UP","thin","agb_emapr","Low intensity","78","etwfe","event",1990,2017,244,0.709,26,-15,"n_units+n_cohorts",26,"n_units+n_cohorts",76,3,0.3725,1989,1991,8.2885,8.7937,26,-15,26
+"TP_UP","thin","agb_emapr","Medium intensity","","attgt","dynamic",1990,2017,20406,0.843,22,-15,"retention",20,"ci_width",898,7,0.0522,1989,1995,1.3633,4.9515,22,-15,19
+"TP_UP","thin","agb_emapr","Medium intensity","","etwfe","event",1990,2017,20406,0.843,22,-15,"retention",19,"ci_width",898,7,0.0522,1989,1995,0.7858,2.5274,22,-15,19
+"TP_UP","thin","agb_emapr","Medium intensity","01","etwfe","event",1990,2017,716,0.8841,18,-15,"n_units+n_cohorts",16,"ci_width",101,3,0.1596,1997,1999,4.0742,13.81,18,-15,16
+"TP_UP","thin","agb_emapr","Medium intensity","04","etwfe","event",1990,2017,10254,0.8892,22,-15,"retention",20,"ci_width",500,7,0.0548,1989,1995,1.0872,2.7626,22,-15,20
+"TP_UP","thin","agb_emapr","Medium intensity","05","etwfe","event",1990,2017,7032,0.8016,21,-15,"retention",18,"ci_width",529,7,0.0938,1989,1996,1.1643,3.3941,21,-15,18
+"TP_UP","thin","agb_emapr","Medium intensity","08","etwfe","event",1990,2017,48,0.8958,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,12.7865,NA,NA,NA,NA
+"TP_UP","thin","agb_emapr","Medium intensity","09","etwfe","event",1990,2017,1323,0.7468,21,-15,"n_units+retention",21,"n_units+ci_width",192,4,0.1943,1993,1996,3.08,4.0628,21,-15,21
+"TP_UP","thin","agb_emapr","Medium intensity","78","etwfe","event",1990,2017,1028,0.7568,23,-15,"n_units",21,"ci_width",73,6,0.0926,1989,1994,3.5726,11.7556,23,-15,21
+"TP_UP","thin","agb_lemma","High intensity","","attgt","dynamic",1990,2016,6429,0.7542,25,-15,"end_of_data",23,"ci_width",3396,3,0.5415,1989,1991,4.3665,11.0335,25,-15,23
+"TP_UP","thin","agb_lemma","High intensity","","etwfe","event",1990,2016,6429,0.7542,25,-15,"n_cohorts",25,"n_cohorts",3396,3,0.5415,1989,1991,2.5149,2.818,25,-15,23
+"TP_UP","thin","agb_lemma","High intensity","01","etwfe","event",1990,2016,243,0.9835,17,-9,"n_cohorts",17,"n_cohorts+ci_width",197,3,0.8243,1997,1999,10.9551,21.6347,17,-9,17
+"TP_UP","thin","agb_lemma","High intensity","04","etwfe","event",1990,2016,2242,0.7533,25,-15,"n_cohorts",25,"n_cohorts",959,3,0.4471,1989,1991,3.9171,6.8728,25,-15,25
+"TP_UP","thin","agb_lemma","High intensity","05","etwfe","event",1990,2016,1975,0.7392,25,-15,"n_cohorts",25,"n_cohorts+ci_width",1223,3,0.6262,1989,1991,4.2276,7.383,25,-15,25
+"TP_UP","thin","agb_lemma","High intensity","09","etwfe","event",1990,2016,497,0.7404,25,-6,"n_cohorts",25,"n_cohorts",312,3,0.6329,1989,1991,11.5366,11.6794,25,-6,25
+"TP_UP","thin","agb_lemma","High intensity","78","etwfe","event",1990,2016,1471,0.7424,25,-15,"n_cohorts",25,"n_cohorts+ci_width",902,3,0.6234,1989,1991,4.5697,8.3095,25,-15,25
+"TP_UP","thin","agb_lemma","Low intensity","","attgt","dynamic",1990,2016,1784,0.7007,25,-15,"end_of_data",19,"ci_width",514,3,0.3299,1989,1991,8.987,26.8744,25,-15,19
+"TP_UP","thin","agb_lemma","Low intensity","","etwfe","event",1990,2016,1784,0.7007,25,-15,"n_cohorts",25,"n_cohorts",514,3,0.3299,1989,1991,5.1632,6.7412,25,-15,19
+"TP_UP","thin","agb_lemma","Low intensity","04","etwfe","event",1990,2016,393,0.8626,25,-15,"n_cohorts",25,"n_cohorts",96,3,0.2567,1989,1991,9.1629,12.5389,25,-15,25
+"TP_UP","thin","agb_lemma","Low intensity","05","etwfe","event",1990,2016,293,0.5802,25,-15,"n_cohorts",25,"n_cohorts",77,3,0.35,1989,1991,13.2754,13.487,25,-15,25
+"TP_UP","thin","agb_lemma","Low intensity","08","etwfe","event",1990,2016,330,0.7545,11,-15,"n_cohorts",11,"n_cohorts",107,3,0.4297,2003,2005,12.6187,17.8878,11,-15,11
+"TP_UP","thin","agb_lemma","Low intensity","09","etwfe","event",1990,2016,519,0.6146,25,-14,"n_cohorts",25,"n_cohorts",265,3,0.5106,1989,1991,8.9369,8.126,25,-14,25
+"TP_UP","thin","agb_lemma","Low intensity","78","etwfe","event",1990,2016,244,0.709,25,-15,"n_units+n_cohorts",25,"n_units+n_cohorts",76,3,0.3725,1989,1991,13.5399,17.342,25,-15,25
+"TP_UP","thin","agb_lemma","Medium intensity","","attgt","dynamic",1990,2016,20406,0.8128,21,-15,"retention",16,"ci_width",898,7,0.0541,1989,1995,2.1833,10.4449,21,-15,16
+"TP_UP","thin","agb_lemma","Medium intensity","","etwfe","event",1990,2016,20406,0.8128,21,-15,"retention",16,"ci_width",898,7,0.0541,1989,1995,1.3024,5.2298,21,-15,16
+"TP_UP","thin","agb_lemma","Medium intensity","01","etwfe","event",1990,2016,716,0.8841,17,-15,"n_units+n_cohorts",16,"ci_width",101,3,0.1596,1997,1999,7.0463,19.8842,17,-15,16
+"TP_UP","thin","agb_lemma","Medium intensity","04","etwfe","event",1990,2016,10254,0.8614,21,-15,"retention",16,"ci_width",500,7,0.0566,1989,1995,1.7172,6.6002,21,-15,16
+"TP_UP","thin","agb_lemma","Medium intensity","05","etwfe","event",1990,2016,7032,0.7553,20,-15,"retention",16,"ci_width",529,7,0.0996,1989,1996,2.3335,6.8085,20,-15,16
+"TP_UP","thin","agb_lemma","Medium intensity","08","etwfe","event",1990,2016,48,0.8542,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,52.8039,NA,NA,NA,NA
+"TP_UP","thin","agb_lemma","Medium intensity","09","etwfe","event",1990,2016,1323,0.7468,20,-15,"n_units+retention",17,"ci_width",192,4,0.1943,1993,1996,5.5815,16.815,20,-15,17
+"TP_UP","thin","agb_lemma","Medium intensity","78","etwfe","event",1990,2016,1028,0.7529,22,-15,"n_units",16,"ci_width",73,6,0.0943,1989,1994,5.8233,20.5042,22,-15,16
+"TNP_UNP","thin","agb_almanac","High intensity","","attgt","dynamic",1985,2025,36329,1,27,-15,"retention",25,"ci_width",2450,10,0.0674,1989,1998,1.4276,4.0937,27,-15,24
+"TNP_UNP","thin","agb_almanac","High intensity","","etwfe","event",1985,2025,36329,1,27,-15,"retention",24,"ci_width",2450,10,0.0674,1989,1998,0.784,2.5763,27,-15,24
+"TNP_UNP","thin","agb_almanac","High intensity","01","etwfe","event",1985,2025,16238,1,27,-15,"n_cohorts+retention",25,"ci_width",1460,3,0.0899,1996,1998,1.018,2.5643,27,-15,25
+"TNP_UNP","thin","agb_almanac","High intensity","04","etwfe","event",1985,2025,7383,1,25,-15,"retention",16,"ci_width",402,11,0.0544,1989,2000,1.21,6.394,25,-15,16
+"TNP_UNP","thin","agb_almanac","High intensity","05","etwfe","event",1985,2025,4425,1,27,-15,"retention",24,"ci_width",376,7,0.085,1989,1998,2.6288,12.9654,27,-15,24
+"TNP_UNP","thin","agb_almanac","High intensity","09","etwfe","event",1985,2025,852,1,26,-15,"n_units+retention",21,"ci_width",50,5,0.0587,1993,1999,4.0858,11.7038,26,-15,21
+"TNP_UNP","thin","agb_almanac","High intensity","78","etwfe","event",1985,2025,7331,1,27,-15,"retention",21,"ci_width",408,7,0.0557,1989,1998,1.3786,4.8621,27,-15,21
+"TNP_UNP","thin","agb_almanac","Low intensity","","attgt","dynamic",1985,2025,219,1,21,-15,"n_units",21,"n_units",136,12,0.621,1989,2004,9.8268,16.1241,21,-15,15
+"TNP_UNP","thin","agb_almanac","Low intensity","","etwfe","event",1985,2025,219,1,21,-15,"n_units",15,"ci_width",136,12,0.621,1989,2004,5.9625,11.033,21,-15,15
+"TNP_UNP","thin","agb_almanac","Low intensity","05","etwfe","event",1985,2025,112,1,21,-15,"n_units",15,"ci_width",78,4,0.6964,1990,2004,8.7064,17.3192,21,-15,15
+"TNP_UNP","thin","agb_almanac","Low intensity","78","etwfe","event",1985,2025,51,1,6,-9,"n_units",6,"n_units",50,11,0.9804,1990,2019,11.0383,14.1749,6,-9,6
+"TNP_UNP","thin","agb_almanac","Medium intensity","","attgt","dynamic",1985,2025,23797,1,26,-15,"retention",19,"ci_width",1944,10,0.0817,1990,1999,1.1826,6.5497,26,-15,19
+"TNP_UNP","thin","agb_almanac","Medium intensity","","etwfe","event",1985,2025,23797,1,26,-15,"retention",19,"ci_width",1944,10,0.0817,1990,1999,0.679,3.9262,26,-15,19
+"TNP_UNP","thin","agb_almanac","Medium intensity","01","etwfe","event",1985,2025,9374,1,27,-15,"n_cohorts+retention",20,"ci_width",494,3,0.0527,1996,1998,0.8915,3.7468,27,-15,20
+"TNP_UNP","thin","agb_almanac","Medium intensity","04","etwfe","event",1985,2025,4778,1,24,-15,"retention",14,"ci_width",300,6,0.0628,1996,2001,1.3648,6.8757,24,-15,14
+"TNP_UNP","thin","agb_almanac","Medium intensity","05","etwfe","event",1985,2025,5476,1,27,-15,"retention",18,"ci_width",465,9,0.0849,1990,1998,1.5204,13.9944,27,-15,18
+"TNP_UNP","thin","agb_almanac","Medium intensity","09","etwfe","event",1985,2025,761,1,24,-15,"n_units",13,"ci_width",94,5,0.1235,1997,2001,2.8857,8.3095,24,-15,13
+"TNP_UNP","thin","agb_almanac","Medium intensity","78","etwfe","event",1985,2025,3287,1,26,-15,"retention",22,"ci_width",201,6,0.0611,1994,1999,2.1307,9.3385,26,-15,22
+"TNP_UNP","thin","gpp","High intensity","","attgt","dynamic",1985,2025,36329,1,27,-15,"retention",23,"ci_width",2450,10,0.0674,1989,1998,12.0389,50.5562,27,-15,23
+"TNP_UNP","thin","gpp","High intensity","","etwfe","event",1985,2025,36329,1,27,-15,"retention",23,"ci_width",2450,10,0.0674,1989,1998,7.1681,29.857,27,-15,23
+"TNP_UNP","thin","gpp","High intensity","01","etwfe","event",1985,2025,16238,1,27,-15,"n_cohorts+retention",24,"ci_width",1460,3,0.0899,1996,1998,11.8673,39.2994,27,-15,24
+"TNP_UNP","thin","gpp","High intensity","04","etwfe","event",1985,2025,7383,1,25,-15,"retention",23,"ci_width",402,11,0.0544,1989,2000,11.6047,41.485,25,-15,23
+"TNP_UNP","thin","gpp","High intensity","05","etwfe","event",1985,2025,4425,1,27,-15,"retention",23,"ci_width",376,7,0.085,1989,1998,18.1266,64.1963,27,-15,23
+"TNP_UNP","thin","gpp","High intensity","09","etwfe","event",1985,2025,852,1,26,-15,"n_units+retention",21,"ci_width",50,5,0.0587,1993,1999,16.2305,51.5105,26,-15,21
+"TNP_UNP","thin","gpp","High intensity","78","etwfe","event",1985,2025,7331,1,27,-15,"retention",21,"ci_width",408,7,0.0557,1989,1998,14.7547,77.5058,27,-15,21
+"TNP_UNP","thin","gpp","Low intensity","","attgt","dynamic",1985,2025,219,1,21,-15,"n_units",21,"n_units+ci_width",136,12,0.621,1989,2004,107.3176,169.3412,21,-15,21
+"TNP_UNP","thin","gpp","Low intensity","","etwfe","event",1985,2025,219,1,21,-15,"n_units",21,"n_units+ci_width",136,12,0.621,1989,2004,58.0062,99.2733,21,-15,21
+"TNP_UNP","thin","gpp","Low intensity","05","etwfe","event",1985,2025,112,1,21,-15,"n_units",15,"ci_width",78,4,0.6964,1990,2004,80.3393,128.9449,21,-15,15
+"TNP_UNP","thin","gpp","Low intensity","78","etwfe","event",1985,2025,51,1,6,-9,"n_units",6,"n_units",50,11,0.9804,1990,2019,115.24,125.4686,6,-9,6
+"TNP_UNP","thin","gpp","Medium intensity","","attgt","dynamic",1985,2025,23797,1,26,-15,"retention",20,"ci_width",1944,10,0.0817,1990,1999,11.2781,50.326,26,-15,20
+"TNP_UNP","thin","gpp","Medium intensity","","etwfe","event",1985,2025,23797,1,26,-15,"retention",20,"ci_width",1944,10,0.0817,1990,1999,6.5553,30.0929,26,-15,20
+"TNP_UNP","thin","gpp","Medium intensity","01","etwfe","event",1985,2025,9374,1,27,-15,"n_cohorts+retention",20,"ci_width",494,3,0.0527,1996,1998,12.1558,55.13,27,-15,20
+"TNP_UNP","thin","gpp","Medium intensity","04","etwfe","event",1985,2025,4778,1,24,-15,"retention",18,"ci_width",300,6,0.0628,1996,2001,9.5427,58.3708,24,-15,18
+"TNP_UNP","thin","gpp","Medium intensity","05","etwfe","event",1985,2025,5476,1,27,-15,"retention",19,"ci_width",465,9,0.0849,1990,1998,11.7281,63.4048,27,-15,19
+"TNP_UNP","thin","gpp","Medium intensity","09","etwfe","event",1985,2025,761,1,24,-15,"n_units",20,"ci_width",94,5,0.1235,1997,2001,14.3593,49.0167,24,-15,20
+"TNP_UNP","thin","gpp","Medium intensity","78","etwfe","event",1985,2025,3287,1,26,-15,"retention",21,"ci_width",201,6,0.0611,1994,1999,17.7161,113.1378,26,-15,21
+"TNP_UNP","thin","npp_tree","High intensity","","attgt","dynamic",1985,2021,36329,0.9613,23,-15,"retention",19,"ci_width",2450,10,0.0702,1989,1998,15.7204,66.0037,23,-15,19
+"TNP_UNP","thin","npp_tree","High intensity","","etwfe","event",1985,2021,36329,0.9613,23,-15,"retention",19,"ci_width",2450,10,0.0702,1989,1998,8.9755,33.5048,23,-15,19
+"TNP_UNP","thin","npp_tree","High intensity","01","etwfe","event",1985,2021,16238,0.9572,23,-15,"n_cohorts+retention",20,"ci_width",1460,3,0.0939,1996,1998,15.1953,46.8065,23,-15,20
+"TNP_UNP","thin","npp_tree","High intensity","04","etwfe","event",1985,2021,7383,0.933,22,-15,"retention",19,"ci_width",361,10,0.0524,1989,1999,14.7604,49.458,22,-15,19
+"TNP_UNP","thin","npp_tree","High intensity","05","etwfe","event",1985,2021,4425,0.9846,23,-15,"retention",20,"ci_width",376,7,0.0863,1989,1998,20.7572,61.2028,23,-15,20
+"TNP_UNP","thin","npp_tree","High intensity","09","etwfe","event",1985,2021,852,1,22,-15,"n_units+retention",19,"ci_width",50,5,0.0587,1993,1999,17.8079,45.057,22,-15,19
+"TNP_UNP","thin","npp_tree","High intensity","78","etwfe","event",1985,2021,7331,0.9799,23,-15,"retention",16,"ci_width",408,7,0.0568,1989,1998,15.679,73.0241,23,-15,16
+"TNP_UNP","thin","npp_tree","Low intensity","","attgt","dynamic",1985,2021,219,0.9954,17,-15,"n_units",17,"n_units+ci_width",136,12,0.6239,1989,2004,136.3305,218.8484,17,-15,17
+"TNP_UNP","thin","npp_tree","Low intensity","","etwfe","event",1985,2021,219,0.9954,17,-15,"n_units",17,"n_units",136,12,0.6239,1989,2004,77.9891,142.8633,17,-15,17
+"TNP_UNP","thin","npp_tree","Low intensity","05","etwfe","event",1985,2021,112,1,17,-15,"n_units",17,"n_units",78,4,0.6964,1990,2004,111.3155,192.4054,17,-15,17
+"TNP_UNP","thin","npp_tree","Low intensity","78","etwfe","event",1985,2021,51,1,2,-9,"n_units",2,"n_units",50,11,0.9804,1990,2019,122.4425,121.3477,2,-9,2
+"TNP_UNP","thin","npp_tree","Medium intensity","","attgt","dynamic",1985,2021,23797,0.96,22,-15,"retention",17,"ci_width",1944,10,0.0851,1990,1999,15.1191,55.589,22,-15,17
+"TNP_UNP","thin","npp_tree","Medium intensity","","etwfe","event",1985,2021,23797,0.96,22,-15,"retention",17,"ci_width",1944,10,0.0851,1990,1999,9.1764,33.3551,22,-15,17
+"TNP_UNP","thin","npp_tree","Medium intensity","01","etwfe","event",1985,2021,9374,0.9443,23,-15,"n_cohorts+retention",16,"ci_width",494,3,0.0558,1996,1998,17.1977,70.494,23,-15,16
+"TNP_UNP","thin","npp_tree","Medium intensity","04","etwfe","event",1985,2021,4778,0.9709,20,-15,"retention",15,"ci_width",300,6,0.0647,1996,2001,12.4287,61.7782,20,-15,15
+"TNP_UNP","thin","npp_tree","Medium intensity","05","etwfe","event",1985,2021,5476,0.9775,23,-15,"retention",18,"ci_width",465,9,0.0869,1990,1998,14.3737,60.8787,23,-15,18
+"TNP_UNP","thin","npp_tree","Medium intensity","09","etwfe","event",1985,2021,761,1,20,-15,"n_units",15,"ci_width",94,5,0.1235,1997,2001,17.442,57.0496,20,-15,15
+"TNP_UNP","thin","npp_tree","Medium intensity","78","etwfe","event",1985,2021,3287,0.9519,22,-15,"retention",18,"ci_width",201,6,0.0642,1994,1999,22.775,108.0515,22,-15,18
+"TNP_UNP","thin","nep","High intensity","","attgt","dynamic",1985,2021,36329,0.9613,23,-15,"retention",22,"ci_width",2450,10,0.0702,1989,1998,32.7949,86.5251,23,-15,22
+"TNP_UNP","thin","nep","High intensity","","etwfe","event",1985,2021,36329,0.9613,23,-15,"retention",22,"ci_width",2450,10,0.0702,1989,1998,19.5215,47.1866,23,-15,22
+"TNP_UNP","thin","nep","High intensity","01","etwfe","event",1985,2021,16238,0.9572,23,-15,"n_cohorts+retention",22,"ci_width",1460,3,0.0939,1996,1998,33.6347,67.2837,23,-15,22
+"TNP_UNP","thin","nep","High intensity","04","etwfe","event",1985,2021,7383,0.933,22,-15,"retention",20,"ci_width",361,10,0.0524,1989,1999,35.2176,73.1917,22,-15,20
+"TNP_UNP","thin","nep","High intensity","05","etwfe","event",1985,2021,4425,0.9846,23,-15,"retention",23,"ci_width",376,7,0.0863,1989,1998,46.0777,79.4531,23,-15,23
+"TNP_UNP","thin","nep","High intensity","09","etwfe","event",1985,2021,852,1,22,-15,"n_units+retention",22,"n_units",50,5,0.0587,1993,1999,41.0687,50.8621,22,-15,22
+"TNP_UNP","thin","nep","High intensity","78","etwfe","event",1985,2021,7331,0.9799,23,-15,"retention",21,"ci_width",408,7,0.0568,1989,1998,32.792,88.977,23,-15,21
+"TNP_UNP","thin","nep","Low intensity","","attgt","dynamic",1985,2021,219,0.9954,17,-15,"n_units",17,"n_units",136,12,0.6239,1989,2004,325.5741,388.1243,17,-15,17
+"TNP_UNP","thin","nep","Low intensity","","etwfe","event",1985,2021,219,0.9954,17,-15,"n_units",17,"n_units",136,12,0.6239,1989,2004,189.2011,246.0778,17,-15,17
+"TNP_UNP","thin","nep","Low intensity","05","etwfe","event",1985,2021,112,1,17,-15,"n_units",17,"n_units+ci_width",78,4,0.6964,1990,2004,296.5313,376.8306,17,-15,17
+"TNP_UNP","thin","nep","Low intensity","78","etwfe","event",1985,2021,51,1,2,-9,"n_units",2,"n_units",50,11,0.9804,1990,2019,285.155,279.4456,2,-9,2
+"TNP_UNP","thin","nep","Medium intensity","","attgt","dynamic",1985,2021,23797,0.96,22,-15,"retention",20,"ci_width",1944,10,0.0851,1990,1999,29.3536,74.3149,22,-15,20
+"TNP_UNP","thin","nep","Medium intensity","","etwfe","event",1985,2021,23797,0.96,22,-15,"retention",20,"ci_width",1944,10,0.0851,1990,1999,17.4797,44.413,22,-15,20
+"TNP_UNP","thin","nep","Medium intensity","01","etwfe","event",1985,2021,9374,0.9443,23,-15,"n_cohorts+retention",22,"ci_width",494,3,0.0558,1996,1998,33.9213,87.7541,23,-15,22
+"TNP_UNP","thin","nep","Medium intensity","04","etwfe","event",1985,2021,4778,0.9709,20,-15,"retention",18,"ci_width",300,6,0.0647,1996,2001,26.2834,96.6608,20,-15,18
+"TNP_UNP","thin","nep","Medium intensity","05","etwfe","event",1985,2021,5476,0.9775,23,-15,"retention",20,"ci_width",465,9,0.0869,1990,1998,29.2009,101.3539,23,-15,20
+"TNP_UNP","thin","nep","Medium intensity","09","etwfe","event",1985,2021,761,1,20,-15,"n_units",20,"n_units+ci_width",94,5,0.1235,1997,2001,39.1814,68.4562,20,-15,20
+"TNP_UNP","thin","nep","Medium intensity","78","etwfe","event",1985,2021,3287,0.9519,22,-15,"retention",21,"ci_width",201,6,0.0642,1994,1999,44.6476,127.6382,22,-15,21
+"TNP_UNP","thin","agb_emapr","High intensity","","attgt","dynamic",1990,2017,36329,0.8942,19,-15,"retention",16,"ci_width",2450,10,0.0754,1989,1998,1.7771,4.9215,19,-15,16
+"TNP_UNP","thin","agb_emapr","High intensity","","etwfe","event",1990,2017,36329,0.8942,19,-15,"retention",16,"ci_width",2450,10,0.0754,1989,1998,1.0489,3.0405,19,-15,16
+"TNP_UNP","thin","agb_emapr","High intensity","01","etwfe","event",1990,2017,16238,0.8697,19,-15,"n_cohorts",17,"ci_width",1460,3,0.1034,1996,1998,1.5517,4.189,19,-15,17
+"TNP_UNP","thin","agb_emapr","High intensity","04","etwfe","event",1990,2017,7383,0.8846,18,-15,"retention",12,"ci_width",361,10,0.0553,1989,1999,2.1178,5.7672,18,-15,12
+"TNP_UNP","thin","agb_emapr","High intensity","05","etwfe","event",1990,2017,4425,0.936,19,-15,"retention",18,"ci_width",376,7,0.0908,1989,1998,2.4907,6.5677,19,-15,18
+"TNP_UNP","thin","agb_emapr","High intensity","09","etwfe","event",1990,2017,852,0.9777,18,-15,"n_units+retention",16,"ci_width",50,5,0.06,1993,1999,5.7374,17.1604,18,-15,16
+"TNP_UNP","thin","agb_emapr","High intensity","78","etwfe","event",1990,2017,7331,0.9221,19,-15,"retention",14,"ci_width",408,7,0.0604,1989,1998,2.2242,5.6313,19,-15,14
+"TNP_UNP","thin","agb_emapr","Low intensity","","attgt","dynamic",1990,2017,219,0.9269,13,-15,"n_units",13,"n_units",136,12,0.6634,1989,2004,14.2078,18.5727,13,-15,13
+"TNP_UNP","thin","agb_emapr","Low intensity","","etwfe","event",1990,2017,219,0.9269,13,-15,"n_units",13,"n_units",136,12,0.6634,1989,2004,9.4536,11.9166,13,-15,13
+"TNP_UNP","thin","agb_emapr","Low intensity","05","etwfe","event",1990,2017,112,0.9643,13,-14,"n_units",13,"n_units",78,4,0.7222,1990,2004,14.2029,17.2332,13,-14,13
+"TNP_UNP","thin","agb_emapr","Low intensity","78","etwfe","event",1990,2017,51,0.8627,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,14.5428,NA,NA,NA,NA
+"TNP_UNP","thin","agb_emapr","Medium intensity","","attgt","dynamic",1990,2017,23797,0.8377,19,-15,"retention",13,"ci_width",1104,9,0.0554,1990,1998,1.4924,6.1188,19,-15,13
+"TNP_UNP","thin","agb_emapr","Medium intensity","","etwfe","event",1990,2017,23797,0.8377,19,-15,"retention",13,"ci_width",1104,9,0.0554,1990,1998,0.8899,3.7472,19,-15,13
+"TNP_UNP","thin","agb_emapr","Medium intensity","01","etwfe","event",1990,2017,9374,0.7929,19,-15,"n_cohorts+retention",13,"ci_width",494,3,0.0665,1996,1998,1.3747,4.7603,19,-15,13
+"TNP_UNP","thin","agb_emapr","Medium intensity","04","etwfe","event",1990,2017,4778,0.8627,16,-15,"retention",10,"ci_width",300,6,0.0728,1996,2001,1.8365,9.5529,16,-15,10
+"TNP_UNP","thin","agb_emapr","Medium intensity","05","etwfe","event",1990,2017,5476,0.8758,19,-15,"retention",15,"ci_width",465,9,0.097,1990,1998,1.5234,6.3108,19,-15,15
+"TNP_UNP","thin","agb_emapr","Medium intensity","09","etwfe","event",1990,2017,761,0.9921,16,-15,"n_units",16,"n_units+ci_width",94,5,0.1245,1997,2001,3.8722,7.2046,16,-15,16
+"TNP_UNP","thin","agb_emapr","Medium intensity","78","etwfe","event",1990,2017,3287,0.8281,18,-15,"retention",15,"ci_width",201,6,0.0738,1994,1999,2.9144,9.2761,18,-15,15
+"TNP_UNP","thin","agb_lemma","High intensity","","attgt","dynamic",1990,2016,36329,0.8619,18,-15,"retention",11,"ci_width",2450,10,0.0782,1989,1998,1.5644,6.6473,18,-15,11
+"TNP_UNP","thin","agb_lemma","High intensity","","etwfe","event",1990,2016,36329,0.8619,18,-15,"retention",11,"ci_width",2450,10,0.0782,1989,1998,0.9664,4.1436,18,-15,11
+"TNP_UNP","thin","agb_lemma","High intensity","01","etwfe","event",1990,2016,16238,0.8426,18,-15,"n_cohorts",12,"ci_width",1460,3,0.1067,1996,1998,1.3061,5.3854,18,-15,12
+"TNP_UNP","thin","agb_lemma","High intensity","04","etwfe","event",1990,2016,7383,0.8357,17,-15,"retention",9,"ci_width",361,10,0.0585,1989,1999,2.0972,10.5073,17,-15,9
+"TNP_UNP","thin","agb_lemma","High intensity","05","etwfe","event",1990,2016,4425,0.8845,18,-15,"retention",15,"ci_width",376,7,0.0961,1989,1998,3.3485,10.6069,18,-15,15
+"TNP_UNP","thin","agb_lemma","High intensity","09","etwfe","event",1990,2016,852,0.9765,17,-15,"n_units+retention",11,"ci_width",50,5,0.0601,1993,1999,5.978,31.0807,17,-15,11
+"TNP_UNP","thin","agb_lemma","High intensity","78","etwfe","event",1990,2016,7331,0.9026,18,-15,"retention",10,"ci_width",408,7,0.0617,1989,1998,1.9222,10.3239,18,-15,10
+"TNP_UNP","thin","agb_lemma","Low intensity","","attgt","dynamic",1990,2016,219,0.9269,12,-15,"n_units",12,"n_units+ci_width",136,12,0.67,1989,2004,19.9806,27.4231,12,-15,12
+"TNP_UNP","thin","agb_lemma","Low intensity","","etwfe","event",1990,2016,219,0.9269,12,-15,"n_units",12,"n_units+ci_width",136,12,0.67,1989,2004,12.7174,18.103,12,-15,12
+"TNP_UNP","thin","agb_lemma","Low intensity","05","etwfe","event",1990,2016,112,0.9643,12,-14,"n_units",12,"n_units+ci_width",78,4,0.7222,1990,2004,18.776,27.5071,12,-14,12
+"TNP_UNP","thin","agb_lemma","Low intensity","78","etwfe","event",1990,2016,51,0.8627,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,20.5212,NA,NA,NA,NA
+"TNP_UNP","thin","agb_lemma","Medium intensity","","attgt","dynamic",1990,2016,23797,0.798,18,-15,"retention",13,"ci_width",1104,9,0.0581,1990,1998,2.2002,9.8344,18,-15,12
+"TNP_UNP","thin","agb_lemma","Medium intensity","","etwfe","event",1990,2016,23797,0.798,18,-15,"retention",12,"ci_width",1104,9,0.0581,1990,1998,1.3163,5.7957,18,-15,12
+"TNP_UNP","thin","agb_lemma","Medium intensity","01","etwfe","event",1990,2016,9374,0.7552,18,-15,"n_cohorts+retention",12,"ci_width",494,3,0.0698,1996,1998,2.0418,7.7351,18,-15,12
+"TNP_UNP","thin","agb_lemma","Medium intensity","04","etwfe","event",1990,2016,4778,0.8114,15,-15,"retention",10,"ci_width",300,6,0.0774,1996,2001,3.0627,11.8531,15,-15,10
+"TNP_UNP","thin","agb_lemma","Medium intensity","05","etwfe","event",1990,2016,5476,0.8373,18,-15,"retention",14,"ci_width",465,9,0.1014,1990,1998,2.7726,10.3841,18,-15,14
+"TNP_UNP","thin","agb_lemma","Medium intensity","09","etwfe","event",1990,2016,761,0.9671,15,-15,"n_units",11,"ci_width",94,5,0.1277,1997,2001,6.7237,17.8085,15,-15,11
+"TNP_UNP","thin","agb_lemma","Medium intensity","78","etwfe","event",1990,2016,3287,0.7931,17,-15,"retention",12,"ci_width",201,6,0.0771,1994,1999,3.5768,14.555,17,-15,12

@@ -1,0 +1,31 @@
+#!/bin/bash
+# CA carbon revision pipeline
+# Stage 3c probe. Alpine (CURC).
+#
+# Reads every vector layer and the first MTBS raster, reports fields and
+# matches thinning activity strings against Knight Tables S4 and S5.
+# Reads only, writes three small CSVs to /projects/mich9173/CA_carbon/meta.
+#
+# Before submitting:
+#   1. Copy knight_intensity_crosswalk.csv to /projects/mich9173/CA_carbon/meta/
+#   2. Stage the vector layers from /projects to scratch, see ca_stage()
+
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=24G
+#SBATCH --time=0-02:00:00
+#SBATCH --job-name=ca_3c_probe
+#SBATCH --output=/home/mich9173/log/ca_3c_probe_%j.qlog
+
+module purge
+module load anaconda/2023.09
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+cd /home/mich9173
+
+Rscript 3c_probe_vectors.R

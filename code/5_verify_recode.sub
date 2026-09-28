@@ -1,0 +1,47 @@
+#!/bin/bash
+#SBATCH --job-name=ca_5_verify
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=128G
+#SBATCH --time=06:00:00
+#SBATCH --array=1-4
+#SBATCH --output=/home/mich9173/log/5_verify_%A_%a.qlog
+
+
+# All four sections from one submission:
+#
+#   sbatch 5_verify_recode.sub
+#
+# An array rather than a loop inside one process. Each task gets a fresh R
+# process, which is the only thing that reliably returns Arrow's off-heap pool
+# to the OS, and the four run in parallel instead of in series. Same protection
+# as one-section-per-submission, one command instead of four.
+#
+# Single section, when iterating on one:
+#   sbatch --array=4 5_verify_recode.sub          exclusion only
+#   sbatch --array=1-4 --export=ALL,CLASS=Mixed 5_verify_recode.sub
+#
+# SECTION overrides the array mapping if set explicitly.
+
+module purge
+module load anaconda/2023.09
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+SECTIONS=(events offsets screen exclusion)
+
+if [ -z "${SECTION}" ]; then
+  IDX=${SLURM_ARRAY_TASK_ID:-1}
+  SECTION=${SECTIONS[$((IDX - 1))]}
+fi
+CLASS=${CLASS:-Everg}
+
+echo "Section: ${SECTION}   Class: ${CLASS}"
+Rscript "$HOME/5_verify_recode.R" "$SECTION" "$CLASS"

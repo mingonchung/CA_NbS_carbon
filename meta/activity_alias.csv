@@ -1,0 +1,20 @@
+table,observed_activity,observed_key,resolution,knight_activity,intensity,method,record_class,rationale
+S5,Clearcut,CLEARCUT,alias,Clear cut,High,mechanical,treatment_LMH,wording variant of the published activity
+S5,Fuelbreak/Defensible Space,FUELBREAK DEFENSIBLE SPACE,alias,Fuel break/Defensible Space,VariableML,mechanical,disturbance_only,wording variant of the published activity
+S4,Group Selection Method (UA/RH/FH),GROUP SELECTION METHOD UA RH FH,alias,Group Selection Cut (UA/RH/FH),VariableHML,mechanical,disturbance_only,Method and Cut used interchangeably in FACTS for the same silvicultural code
+S4,Single Tree Selection Method (UA/RH/FH),SINGLE TREE SELECTION METHOD UA RH FH,alias,Single-tree Selection Cut (UA/RH/FH),Low,mechanical,treatment_LMH,Method and Cut used interchangeably in FACTS for the same silvicultural code
+S4,Shelterwood Removal Cut (w/ leave trees) (EA/NRH/FH),SHELTERWOOD REMOVAL CUT W LEAVE TREES EA NRH FH,alias,Shelterwood Removal Cut (EA/NRH/FH),High,mechanical,treatment_LMH,"leave-tree variant of the published removal cut, same stage and stocking outcome"
+S4,Coppice Cut (EA/RH/FH),COPPICE CUT EA RH FH,alias,Coppice Cut (w/leave trees) (EA/RH/FH),High,mechanical,treatment_LMH,"variant without leave trees, removal is at least as complete"
+S4,Two-aged Stand Clearcut (w/res) (2A/RH/FH),TWO AGED STAND CLEARCUT W RES 2A RH FH,alias,Two-aged Patch Clearcut (w/res) (2A/RH/FH),High,mechanical,treatment_LMH,"stand and patch variants of the same two-aged clearcut, both High in S4"
+S4,Seed-tree Seed Cut (with and without leave trees) (EA/RH/NFH),SEED TREE SEED CUT WITH AND WITHOUT LEAVE TREES EA RH NFH,assigned,,High,mechanical,treatment_LMH,"seed cut removes the overstory leaving seed trees; S5 Seed Tree Seed Step is High and S4 Shelterwood Establishment Cut, the equivalent stage, is High"
+S4,Shelterwood Preparatory Cut (EA/NRH/NFH),SHELTERWOOD PREPARATORY CUT EA NRH NFH,assigned,,Low,mechanical,treatment_LMH,"preparatory stage, equivalent to S5 Shelterwood Prep Step, which is Low"
+S4,Seed-tree Preparatory Cut (EA/NRH/NFH),SEED TREE PREPARATORY CUT EA NRH NFH,assigned,,Low,mechanical,treatment_LMH,"preparatory stage, equivalent to S5 Shelterwood Prep Step, which is Low"
+S4,Two-aged Preparatory Cut (w/res) (2A/NRH/NFH),TWO AGED PREPARATORY CUT W RES 2A NRH NFH,assigned,,Low,mechanical,treatment_LMH,"preparatory stage, equivalent to S5 Shelterwood Prep Step, which is Low"
+S4,Liberation Cut,LIBERATION CUT,assigned,,Medium,mechanical,treatment_LMH,"intermediate release of a young stand from overstory competition, equivalent in stage and removal to S4 Improvement Cut, which is Medium"
+S4,Control of Understory Vegetation- Burning,CONTROL OF UNDERSTORY VEGETATION BURNING,assigned,,VariableML,fire,disturbance_only,"burning variant of S4 Control of Understory Vegetation, VariableML; prescribed fire is excluded from the treatment arm"
+S4,Landing Treated - Area Mitigated,LANDING TREATED AREA MITIGATED,assigned,,Unknown,mechanical,disturbance_only,"log landing rehabilitation, ground disturbance rather than stand treatment"
+S4,Permanent Flooding,PERMANENT FLOODING,assigned,,High,other,disturbance_only,"land-use change, no recovery trajectory, same rule as Permanent Land Clearing"
+S4,Administrative Changes,ADMINISTRATIVE CHANGES,assigned,,N/A,admin,non_disturbing,"record-keeping change, no ground activity"
+S4,No Treatment Matrix,NO TREATMENT MATRIX,assigned,,N/A,admin,non_disturbing,"designated no-treatment matrix, no ground activity"
+S5,Unevenaged Management,UNEVENAGED MANAGEMENT,assigned,,Variable,mechanical,disturbance_only,"silvicultural system rather than a specific entry, intensity depends on the individual cut and cannot be resolved to Low, Medium or High"
+S5,<MISSING>,<MISSING>,assigned,,Unknown,mechanical,disturbance_only,"THP polygon with no SILVI_1 recorded; matched by the explicit missing-value token, not by an empty string"

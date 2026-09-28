@@ -1,0 +1,34 @@
+#!/bin/bash
+# CA carbon revision pipeline
+# 3a_extract_carbon_2026. Alpine (CURC). Array job, one task per layer and year.
+#
+# Set --array from the task count reported by:
+#   Rscript 3a_extract_carbon_2026.R tasks
+# Run the probe first, once, before any extraction:
+#   Rscript 3a_extract_carbon_2026.R probe
+#
+# Memory is set by ca_extract_chunk in ca_config.R, currently 10 million points
+# per chunk, not by class size. Cores are billed in proportion to the memory
+# share requested, so --mem is sized rather than maximized.
+# %A is the array job id, %a the task index.
+
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=24G
+#SBATCH --time=0-06:00:00
+#SBATCH --job-name=ca_3a26
+#SBATCH --array=1-123%20
+#SBATCH --output=/home/mich9173/log/ca_3a26_%A_%a.qlog
+
+module purge
+module load anaconda/2023.09
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+cd /home/mich9173
+
+Rscript 3a_extract_carbon_2026.R

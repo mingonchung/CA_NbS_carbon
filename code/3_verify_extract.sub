@@ -1,0 +1,26 @@
+#!/bin/bash
+# CA carbon revision pipeline
+# Stage 3 verification. Alpine (CURC).
+#
+# Reads metadata from one raster per layer and the Decid extraction partition,
+# 2.2 million points, so memory stays modest.
+
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=24G
+#SBATCH --time=0-02:00:00
+#SBATCH --job-name=ca_3_verify
+#SBATCH --output=/home/mich9173/log/ca_3_verify_%j.qlog
+
+module purge
+module load anaconda/2023.09
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+cd /home/mich9173
+
+Rscript 3_verify_extract.R

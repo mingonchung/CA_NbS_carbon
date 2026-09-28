@@ -1,0 +1,92 @@
+#!/bin/bash
+#SBATCH --job-name=ca_9_verify
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=96G
+#SBATCH --time=06:00:00
+#SBATCH --array=1-9
+#SBATCH --output=/home/mich9173/log/9_verify_%A_%a.qlog
+
+
+# NINE SECTIONS, ONE PER ARRAY TASK.
+#
+# Separate processes rather than sequential sections in one, because Arrow
+# allocates outside the R heap and sections 5, 6, and 7 each read all 38 panels.
+# Same convention as the stage 3 to 6 verifiers.
+#
+#   1  units against the matched parquet and the stage 6 groups
+#   2  pair structure in the units files
+#   3  gvar recomputed independently from stage 6
+#   4  manifest completeness and per-outcome year coverage
+#   5  pair integrity inside each panel
+#   6  cohort viability inside each panel
+#   7  outcome distributions and the cross-product AGB comparison
+#   8  sentinel residue at the integer type limits
+#   9  control reuse and cohort concentration
+#
+#   sbatch 9_verify_did.sub
+#
+# Or one section, which is what to do while iterating.
+#
+#   sbatch --array=5 9_verify_did.sub
+#
+# WHAT IS EXPECTED TO FAIL, AND WHAT IS NOT
+#
+# Sections 1, 2, 3, and 4 are structural and must pass. A FAIL there is a bug
+# in 9a or 9b or an incomplete array, and stage 10 must not run on it.
+#
+# Sections 5, 6, and 7 report counts rather than faults. Section 5 will show
+# LEMMA breaking 7 to 14 percent of pairs and nothing else breaking any.
+# Section 6 will show the eMapR and LEMMA panels reaching only the cohorts that
+# predate 2017 and 2016, which on the fire pairings is a minority of the
+# treated sample. Both are removed at stage 10 by complete_pairs_only and
+# viable_cohorts_only, and both numbers belong in Table S3.
+#
+# Section 8 must pass. A non-zero count at the negative INT2S limit means
+# ca_sentinel_rules is missing an entry, and the fix is a config edit plus a
+# 9b rerun for the affected layer, not a stage 10 filter.
+#
+# MEMORY. Sections 5, 6, and 7 read every panel in turn, and the largest are
+# the fire pairings at roughly 24 million rows. Each is read with a narrow
+# column selection and released before the next, so 96 GB is comfortable.
+
+# Environment. The pinned module string is gone from Alpine, so the module name
+# comes from CA_CONDA_MODULE if the site renames it again, and a direct source
+# of conda.sh is the fallback. The block fails loudly rather than running R from
+# the system path in the wrong environment.
+
+module purge
+module load "${CA_CONDA_MODULE:-anaconda}" 2>/dev/null || \
+  echo "Module load skipped, falling back to a direct conda.sh source"
+
+if ! command -v conda >/dev/null 2>&1; then
+  for CONDA_HOME in "$HOME/miniconda3" "$HOME/anaconda3" "$HOME/miniforge3" \
+                    "$HOME/mambaforge" /curc/sw/anaconda3/latest; do
+    if [ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]; then
+      source "$CONDA_HOME/etc/profile.d/conda.sh"
+      break
+    fi
+  done
+fi
+
+command -v conda >/dev/null 2>&1 || {
+  echo "conda not found. Run 'module -t avail' and 'conda info --base' on a"
+  echo "login node and set CA_CONDA_MODULE or add the base path above."
+  exit 1
+}
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+command -v Rscript >/dev/null 2>&1 || {
+  echo "Rscript not on PATH after activating MC0617"
+  exit 1
+}
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+Rscript "$HOME/9_verify_did.R"

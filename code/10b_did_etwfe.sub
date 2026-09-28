@@ -1,0 +1,148 @@
+#!/bin/bash
+#SBATCH --job-name=ca_10b_etwfe
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=48G
+#SBATCH --time=08:00:00
+#SBATCH --array=1-1
+#SBATCH --output=/home/mich9173/log/10b_etwfe_%A_%a.qlog
+
+
+# THE CONDA NOISE IS HARMLESS
+#
+# The module block prints "CondaError: Run 'conda init' before 'conda
+# deactivate'" twice before R starts. That is module purge and module load
+# arguing over an already-active environment. The environment activates, R
+# runs, and nothing downstream is affected.
+#
+# BEFORE THE FIRST SUBMISSION
+#
+# The panel manifest must hold all 38 rows, and the levels table must exist.
+# The levels build reads the six stage 9 units files and takes a few minutes on
+# a login node.
+#
+#   wc -l /projects/mich9173/CA_carbon/meta/did_panel_manifest.csv
+#   Rscript $HOME/10b_did_etwfe.R levels
+#
+# Then read the array size and the tier ranges. They move whenever a level is
+# added or a panel is rebuilt, so take them from here rather than from this
+# comment.
+#
+#   Rscript $HOME/10b_did_etwfe.R tasks
+#
+# THE ARRAY
+#
+# One task is one run: one panel, one transform, one subset cell, one emfx
+# aggregation. Nothing loops inside a task, so a wall clock hit costs one cell.
+#
+#   pa and offset arms      statewide, and one run per ecoregion
+#   fire and thinning arms  one run per stratum, and one per stratum and
+#                           ecoregion
+#
+# Rows are ordered small, medium, large on estimated panel rows, so each tier
+# is a contiguous range and carries its own wall clock. The ecoregion cells are
+# the smallest runs in the whole pipeline and the statewide fire and thinning
+# cells are the largest.
+#
+# RANGES. Three tiers as of the 2026-08-12 build, cut on rows times cohorts.
+# They move whenever a level changes, so take them from the tasks mode rather
+# than from here. See THE THREE SUBMISSIONS below.
+#
+# MEASURED.
+#
+#   task 1     UP_UNP agb_almanac log1p eco01, 460,102 rows, 10 cohorts, 41
+#              calendar terms.  etwfe 45 seconds, emfx 24 minutes.
+#   task 71    UP_UNP agb_emapr log1p eco08, 358,484 rows, 4 cohorts.
+#              etwfe 4 seconds, emfx 3 minutes.
+#   task 1245  FNP_UNP agb_lemma Moderate severity, 2,919,362 rows, 27
+#              cohorts.  etwfe 6 minutes, emfx simple 3 hours 48 minutes,
+#              then OOM killed inside emfx event at 64 GB.
+#
+# emfx is the whole cost, in time and in memory, and it scales on rows times
+# parameters rather than on rows. marginaleffects builds a per-observation
+# jacobian, so a three million row cell with 27 cohorts over 27 periods is
+# tens of gigabytes and a statewide Almanac cell with 35 cohorts over 41 years
+# is worse.
+#
+# THE THREE SUBMISSIONS. Everything runs on acpu, which holds 240 GB and a
+# hard 24 hour partition limit. amem holds 995 GB over seven days but sits on
+# 22 nodes against acpu's several hundred, so it is where failures go, not
+# where the stage starts.
+#
+#   sbatch --time=08:00:00 --mem=48G  --array=1-905     10b_did_etwfe.sub
+#   sbatch --time=24:00:00 --mem=120G --array=906-1131  10b_did_etwfe.sub
+#   sbatch --time=24:00:00 --mem=240G --array=1132-1245 10b_did_etwfe.sub
+#
+# The memory line comes from the one OOM. A cell at 123 million cost exceeded
+# what it was given, which puts the peak near a gigabyte per million of cost.
+# On that ratio the tier ceilings are roughly 20, 78, and 287 GB, and the last
+# of those is the whole node. The largest cells may not fit and may not finish
+# inside 24 hours. That is fine, because they fail cheaply.
+#
+# RETRY ON amem, ONLY WHAT FAILED.
+#
+# A killed task writes neither an output file nor a manifest row, and a present
+# output is never recomputed, so the file system is the record.
+#
+#   Rscript $HOME/10b_did_etwfe.R missing
+#
+# That prints an sbatch array string. Feed it straight back.
+#
+#   sbatch --partition=amem --qos=mem-long --time=2-00:00:00 --mem=950G \
+#          --array=<the printed string> 10b_did_etwfe.sub
+#
+# mem-long is the seven day QoS. mem-normal caps at one day and, like cpu-long,
+# rejects anything at or under its floor.
+#
+# RERUNNING
+#
+# A present output file is not overwritten. The manifest row is replaced on
+# run_id rather than appended.
+#
+#   sbatch --export=ALL,CA_OVERWRITE=1 --array=1132-1245 10b_did_etwfe.sub
+#
+# A task that skips a cell or hits an estimator error still writes its manifest
+# row with status and message, so a short output directory is explained by the
+# manifest rather than by reading logs.
+#
+#   Rscript -e 'm <- read.csv("/projects/mich9173/CA_carbon/meta/did_etwfe_manifest.csv"); table(m$status)'
+#
+# AFTER THE ARRAY
+#
+#   Rscript $HOME/10b_did_etwfe.R archive
+
+module purge
+module load "${CA_CONDA_MODULE:-anaconda}" 2>/dev/null || \
+  echo "Module load skipped, falling back to a direct conda.sh source"
+
+if ! command -v conda >/dev/null 2>&1; then
+  for CONDA_HOME in "$HOME/miniconda3" "$HOME/anaconda3" "$HOME/miniforge3" \
+                    "$HOME/mambaforge" /curc/sw/anaconda3/latest; do
+    if [ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]; then
+      source "$CONDA_HOME/etc/profile.d/conda.sh"
+      break
+    fi
+  done
+fi
+
+command -v conda >/dev/null 2>&1 || {
+  echo "conda not found. Run 'module -t avail' and 'conda info --base' on a"
+  echo "login node and set CA_CONDA_MODULE or add the base path above."
+  exit 1
+}
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+command -v Rscript >/dev/null 2>&1 || {
+  echo "Rscript not on PATH after activating MC0617"
+  exit 1
+}
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+Rscript "$HOME/10b_did_etwfe.R" ${CA_MODE:-run}

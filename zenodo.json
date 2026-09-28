@@ -1,0 +1,30 @@
+{
+  "title": "Code and derived data for: Promoting long-term carbon durability in fire-prone forests requires reducing stocks",
+  "upload_type": "software",
+  "version": "2.0.0",
+  "description": "<p>Statistical matching and staggered difference-in-differences pipeline (stages 1 to 10) estimating carbon additionality and durability of protected areas, forest offsets, wildfire, and forest thinning in California forests, 1985 to 2025, at 30 m resolution. Includes input tables, data-derived decisions, matching balance, and all ATT estimates. Version 2.0.0 reproduces the revised manuscript submitted to Global Change Biology.</p>",
+  "creators": [
+    {"name": "Chung, Min Gon", "affiliation": "Cooperative Institute for Research in Environmental Sciences, University of Colorado Boulder"},
+    {"name": "Goulden, Michael L."},
+    {"name": "Balch, Jennifer K."},
+    {"name": "Yang, Hongbo"},
+    {"name": "Nagy, R. Chelsea"},
+    {"name": "Amaral, Cibele"},
+    {"name": "Ilangakoon, Nayani"},
+    {"name": "Guo, Han"},
+    {"name": "Bales, Roger C."}
+  ],
+  "license": "MIT",
+  "keywords": [
+    "nature-based solutions",
+    "carbon durability",
+    "carbon additionality",
+    "wildfire",
+    "forest thinning",
+    "protected areas",
+    "forest offsets",
+    "difference-in-differences",
+    "statistical matching",
+    "California"
+  ]
+}

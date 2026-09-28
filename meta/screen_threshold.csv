@@ -1,0 +1,5 @@
+"name","value","basis","class","n_reference","n_class2","year_stability_ratio","retention_pct_at_primary","sensitivity_at_primary","zero_share_reference","derived"
+"primary",0,"more conservative of youden and noise_p99","Everg",1000000,199593,NA,90.283,0.3302,99.681,"2026-08-02"
+"youden",0,"max Youden J against MTBS class 2","Everg",1000000,199593,NA,90.283,0.3302,99.681,"2026-08-02"
+"noise_p95",0,"reference pooled 95th percentile","Everg",1000000,199593,NA,90.283,0.3302,99.681,"2026-08-02"
+"noise_p99",0,"reference pooled 99th percentile","Everg",1000000,199593,NA,90.283,0.3302,99.681,"2026-08-02"

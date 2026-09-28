@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --job-name=ca_10b_etwfe
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --time=7-00:00:00
+#SBATCH --output=/home/chungmin/logs/%x_%A_%a.qlog
+#SBATCH --chdir=/home/chungmin
+
+module purge
+source /data001/projects/chungmin/miniconda3/etc/profile.d/conda.sh
+conda activate MC0617ca
+
+export CA_HOST=alderaan
+export TMPDIR=/data002/scratch/$USER/tmp
+mkdir -p /home/chungmin/logs "$TMPDIR"
+
+echo "host $(hostname)  task ${SLURM_ARRAY_TASK_ID}  mem ${SLURM_MEM_PER_NODE}  cpus ${SLURM_CPUS_PER_TASK}"
+
+Rscript $HOME/10b_did_etwfe.R run

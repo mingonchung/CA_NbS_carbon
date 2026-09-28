@@ -1,0 +1,33 @@
+#!/bin/bash
+# CA carbon revision pipeline
+# Almanac v2026.1 download. Alpine (CURC).
+#
+# Network and disk bound, not CPU bound. One core and low memory keeps the
+# service-unit charge minimal, since cores are billed in proportion to the
+# memory share requested.
+#
+# Walltime is set for roughly 100 GB across 245 files. The script skips files
+# already complete, so if the job hits the wall, resubmit and it resumes rather
+# than restarting.
+#
+# If the job fails with connection or DNS errors, the compute nodes have no
+# outbound route to data.source.coop. In that case run the same script
+# interactively on a compile node instead:
+#   acompile
+#   bash /home/mich9173/download_almanac.sh
+
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=4G
+#SBATCH --time=1-00:00:00
+#SBATCH --job-name=ca_dl_almanac
+#SBATCH --output=/home/mich9173/log/ca_dl_almanac_%j.qlog
+
+module purge
+
+cd /home/mich9173
+
+bash download_almanac.sh

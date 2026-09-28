@@ -1,0 +1,45 @@
+#!/bin/bash
+# CA carbon revision pipeline
+# 3b_extract_mtbs. Alpine (CURC). Array job, one task per layer and year.
+#
+# Same script and same engine as the screens run, selected by the mtbs
+# argument on the Rscript line. MTBS is a year-keyed raster with the identical
+# output schema, so it needs a registry row and a selector rather than a stage
+# of its own. It is not part of 3c, which handles polygons carrying an event
+# date.
+#
+# Set --array from the task count reported by:
+#   Rscript 3b_extract_screens_2026.R mtbs tasks
+# Run the probe first, once, before any extraction:
+#   Rscript 3b_extract_screens_2026.R mtbs probe
+#
+# The array below is 1-41, matching the 41 rasters the probe resolved for 1985
+# to 2025. See the note in ca_mtbs_layers. If the 1984 file is recovered the
+# registry first_year returns to 1984 and this becomes 1-42.
+#
+# Memory is set by ca_extract_chunk in ca_config.R, currently 10 million points
+# per chunk, not by class size. MTBS is INT1U single band, so it is lighter per
+# task than the screens, but the chunk size governs and 24G is kept for
+# consistency. Cores are billed in proportion to the memory share requested.
+# %A is the array job id, %a the task index.
+
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=24G
+#SBATCH --time=0-06:00:00
+#SBATCH --job-name=ca_3b_mtbs
+#SBATCH --array=1-41%20
+#SBATCH --output=/home/mich9173/log/ca_3b_mtbs_%A_%a.qlog
+
+module purge
+module load anaconda/2023.09
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+cd /home/mich9173
+
+Rscript 3b_extract_screens_2026.R mtbs

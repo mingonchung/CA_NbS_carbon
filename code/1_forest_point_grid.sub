@@ -1,0 +1,32 @@
+#!/bin/bash
+# CA carbon revision pipeline
+# Stage 1. Forest point grid. Alpine (CURC).
+#
+# Partition and QoS use the names that take effect on August 5, 2026.
+# 'amilan' becomes 'acpu' and its 'normal' QoS becomes 'cpu-normal'.
+# Both new names are accepted now, so no edit is needed after the rename.
+#
+# Memory is bounded by terra block size, not forest extent, so a standard CPU
+# node is sufficient and amem is not needed. Cores are billed in proportion to
+# the memory share requested, so --mem is sized rather than maximized.
+#
+# Submit from /home/mich9173. The log directory must exist before submission:
+#   mkdir -p /home/mich9173/log
+
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=32G
+#SBATCH --time=0-04:00:00
+#SBATCH --job-name=ca_grid
+#SBATCH --output=/home/mich9173/log/ca_grid_%j.qlog
+
+module purge
+module load anaconda/2023.09
+conda activate MC0617
+
+cd /home/mich9173
+
+Rscript 1_forest_point_grid.R

@@ -1,0 +1,126 @@
+#!/bin/bash
+#SBATCH --job-name=ca_9b_panel
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=96G
+#SBATCH --time=12:00:00
+#SBATCH --array=1-38
+#SBATCH --output=/home/mich9173/log/9b_panel_%A_%a.qlog
+
+
+# THE ARRAY
+#
+# Pairing crossed with outcome, from ca_did_tasks(). Confirm the size and the
+# order before submitting, since NBP runs on the two fire pairings only and the
+# index is therefore not a clean 6 by 7.
+#
+#   Rscript $HOME/9b_did_panel.R tasks
+#
+# Task order is pairing-major in ca_pairings order, then outcome in
+# ca_outcomes order.
+#
+#    1-7    UP_UNP    agb_almanac gpp npp_tree nep agb_emapr agb_lemma
+#                     (6 outcomes, NBP is fire-scoped)
+#    8-14   ONP_UNP
+#   15-22   FP_UP     (7 outcomes, NBP included)
+#   23-30   FNP_UNP   (7 outcomes, NBP included)
+#   31-36   TP_UP
+#   37-42   TNP_UNP
+#
+# The numbers above are illustrative. Take the real ones from the tasks mode
+# and set --array to match, rather than trusting this comment.
+#
+# The run.
+#
+#   sbatch --array=1-$(Rscript $HOME/9b_did_panel.R tasks | tail -1 | awk '{print $3}') 9b_did_panel.sub
+#
+# or simply read the number and write it in.
+#
+#   sbatch 9b_did_panel.sub
+#
+# RUNTIME AND MEMORY
+#
+# The cost is the shard reads, one per year per class per outcome. The panel
+# runs 1985 to 2025, so an Almanac task is 41 years times 3 classes, 123
+# filtered scans of a full-grid parquet. Almanac outcomes on the two fire
+# pairings are the largest, since the cap is per analysis group and FP_UP draws
+# up to 300,000 treated units across F2P, F3P, and F4P, giving 600,000 matched
+# rows and roughly 25 million panel rows.
+#
+# Peak memory is the expanded value matrix, matched rows times years times 8
+# bytes, plus one copy of the long frame. 600,000 by 41 is 197 MB for the
+# matrix and roughly 7 GB for the assembled frame with its factor columns, so
+# 96 GB is generous. Drop it to 48 GB if the queue is slow.
+#
+# The other panels are shorter and the manifest records the written range
+# against the expected one. NCSDA ends 2021, eMapR runs 1990 to 2017, LEMMA
+# 1990 to 2016, and NBP starts 1986. LEMMA additionally carries a 7.4 percent
+# static zero mask that arrives as NA, which lands in pct_missing.
+#
+# A SINGLE TASK, to check one panel before committing the array.
+#
+#   sbatch --array=1 9b_did_panel.sub
+#
+# REBUILDING
+#
+# A present panel is not overwritten. Delete the file or export CA_OVERWRITE=1.
+# The manifest row is replaced on key rather than appended, so a rerun does not
+# duplicate it, but the manifest column set is checked against the script and a
+# mismatch stops rather than rbinds. If this script changes its manifest
+# columns, delete meta/did_panel_manifest.csv before rerunning.
+#
+#   sbatch --export=ALL,CA_OVERWRITE=1 --array=15-22 9b_did_panel.sub
+#
+# AFTER THE ARRAY
+#
+# The manifest should hold one row per task. Anything short means a task failed
+# and the panel is absent, which stage 10 would otherwise discover by reading a
+# file that is not there.
+#
+#   wc -l /projects/mich9173/CA_carbon/meta/did_panel_manifest.csv
+#   Rscript $HOME/9_verify_did.R
+#
+# Then archive the whole stage 9 directory, from a login node.
+#
+#   Rscript $HOME/9b_did_panel.R archive
+
+# Environment. The pinned module string is gone from Alpine, so the module name
+# comes from CA_CONDA_MODULE if the site renames it again, and a direct source
+# of conda.sh is the fallback. The block fails loudly rather than running R from
+# the system path in the wrong environment.
+
+module purge
+module load "${CA_CONDA_MODULE:-anaconda}" 2>/dev/null || \
+  echo "Module load skipped, falling back to a direct conda.sh source"
+
+if ! command -v conda >/dev/null 2>&1; then
+  for CONDA_HOME in "$HOME/miniconda3" "$HOME/anaconda3" "$HOME/miniforge3" \
+                    "$HOME/mambaforge" /curc/sw/anaconda3/latest; do
+    if [ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]; then
+      source "$CONDA_HOME/etc/profile.d/conda.sh"
+      break
+    fi
+  done
+fi
+
+command -v conda >/dev/null 2>&1 || {
+  echo "conda not found. Run 'module -t avail' and 'conda info --base' on a"
+  echo "login node and set CA_CONDA_MODULE or add the base path above."
+  exit 1
+}
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+command -v Rscript >/dev/null 2>&1 || {
+  echo "Rscript not on PATH after activating MC0617"
+  exit 1
+}
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+Rscript "$HOME/9b_did_panel.R" ${CA_MODE:-run}

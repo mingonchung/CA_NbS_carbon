@@ -1,0 +1,99 @@
+#!/bin/bash
+#SBATCH --job-name=ca_5c_verify_intensity
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=64G
+#SBATCH --time=06:00:00
+#SBATCH --array=1-3
+#SBATCH --output=/home/mich9173/log/5c_verify_intensity_%A_%a.qlog
+
+
+# ONE ARRAY TASK PER LULC CLASS. Task 1 Decid, 2 Everg, 3 Mixed, the same
+# mapping as 5b_recode_screen.sub.
+#
+#   sbatch 5c_verify_intensity.sub
+#
+# Everg is the only task that needs the full allocation. It carries 17.5
+# million treatment events against roughly 10 million screen detections, and
+# Decid and Mixed together are under a tenth of that. Submitting only Everg
+# while iterating costs one queue slot instead of three.
+#
+#   sbatch --array=2 5c_verify_intensity.sub
+#
+# ONE SECTION AT A TIME, which is what to do while iterating on the script.
+# CA_SECTION is read by the R script and defaults to all.
+#
+#   CA_SECTION=layer sbatch --array=2 5c_verify_intensity.sub
+#
+# Sections: summary layer origin separation activity excluded lag
+#
+# MEMORY. The interactive run was killed, and the cause was the character key.
+# Building paste(pixel_id, year) allocated two seventeen-million-element
+# character vectors inside every lag iteration, and section 6 ran that loop nine
+# times. The script now keys on a double, pixel_id * 1e4 + year, which is exact
+# below 2^53 and advances by a scalar add per lag instead of a rebuild. Peak
+# resident memory is the event frame at roughly 0.6 GB plus the screen vectors,
+# so 256 GB is generous and 128 GB would also hold. The allocation is set high
+# because section 6 holds an accumulator alongside the frame and a second OOM
+# costs another queue wait.
+#
+# RUNTIME. The killed run reached section 3 in four minutes. Sections 4 and 6
+# dominate the total, and 6 hours is well clear for Everg.
+#
+# WHAT IS EXPECTED, AND WHAT IS NOT
+#
+# Nothing here is a PASS or FAIL check. Every section reports counts, and the
+# reading is in the monotonicity table rather than in an exit status.
+#
+# by_layer_intensity is the table that matters. Ordering is judged inside a
+# source_layer and never across, because Low is almost entirely FACTS while
+# Medium and High are dominated by CAL FIRE THP, and the two archives differ in
+# detection rate by roughly a factor of five. The pooled table in section 1 will
+# continue to look inverted for that reason and is context, not a result.
+#
+# cumulative_detection separates the two live explanations for the low overall
+# detection rate. A curve that climbs as the window widens means the archive
+# dates are early and the remedy is the window. A curve that stays flat means
+# the detections are absent rather than late, which points at THP polygons
+# covering plan area rather than harvest footprint, and that is a treatment
+# definition problem rather than an intensity problem.
+
+# The first run printed "CondaError: Run 'conda init' before 'conda deactivate'"
+# twice. Harmless, R still ran, but it comes from module purge tearing down a
+# conda shell function that the module file then tries to unwind. Sourcing
+# conda.sh before the purge takes effect removes the message.
+module purge 2>/dev/null
+module load "${CA_CONDA_MODULE:-anaconda}" 2>/dev/null || \
+  echo "Module load skipped, falling back to a direct conda.sh source"
+
+if ! command -v conda >/dev/null 2>&1; then
+  for CONDA_HOME in "$HOME/miniconda3" "$HOME/anaconda3" "$HOME/miniforge3" \
+                    "$HOME/mambaforge" /curc/sw/anaconda3/latest; do
+    if [ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]; then
+      source "$CONDA_HOME/etc/profile.d/conda.sh"
+      break
+    fi
+  done
+fi
+
+command -v conda >/dev/null 2>&1 || {
+  echo "conda not found. Run 'module -t avail' and 'conda info --base' on a"
+  echo "login node and set CA_CONDA_MODULE or add the base path above."
+  exit 1
+}
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+command -v Rscript >/dev/null 2>&1 || {
+  echo "Rscript not on PATH after activating MC0617"
+  exit 1
+}
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+Rscript "$HOME/5c_verify_intensity.R"

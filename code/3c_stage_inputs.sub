@@ -1,0 +1,26 @@
+#!/bin/bash
+# CA carbon revision pipeline
+# Stage 3c inputs from /projects to /scratch/alpine. Alpine (CURC).
+#
+# File copy only. Small layers, so this finishes in minutes.
+# Run before submitting the 3c extraction array.
+
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=8G
+#SBATCH --time=0-01:00:00
+#SBATCH --job-name=ca_3c_stage
+#SBATCH --output=/home/mich9173/log/ca_3c_stage_%j.qlog
+
+module purge
+module load anaconda/2023.09
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+cd /home/mich9173
+
+Rscript 3c_stage_inputs.R

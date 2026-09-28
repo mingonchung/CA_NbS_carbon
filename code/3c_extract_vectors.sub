@@ -1,0 +1,41 @@
+#!/bin/bash
+# CA carbon revision pipeline
+# 3c_extract_vectors. Alpine (CURC). Array job, one task per layer and class.
+#
+# Set --array from the task count reported by:
+#   Rscript 3c_extract_vectors.R tasks
+# Run the probe first, once, before any extraction:
+#   Rscript 3c_extract_vectors.R probe
+#
+# Memory. Stage 3c output is long, one row per pixel per intersecting polygon,
+# so the task holds the point coordinates plus the accumulated join result.
+# The probe's est_rows_everg sizes this. The heavy tasks are ownership and
+# cpad, which hit a third of Decid points and a larger share of Evergreen,
+# because national forest land is predominantly evergreen. 64G covers the
+# worst case with headroom. ca_vector_chunk in ca_config.R governs the working
+# set within a task and is currently 500,000 points.
+#
+# Concurrency is capped at 8 so the three classes of one layer never read the
+# same shapefile at once.
+# %A is the array job id, %a the task index.
+
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=64G
+#SBATCH --time=0-08:00:00
+#SBATCH --job-name=ca_3c
+#SBATCH --array=1-24%8
+#SBATCH --output=/home/mich9173/log/ca_3c_%A_%a.qlog
+
+module purge
+module load anaconda/2023.09
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+cd /home/mich9173
+
+Rscript 3c_extract_vectors.R

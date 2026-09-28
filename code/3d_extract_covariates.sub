@@ -1,0 +1,36 @@
+#!/bin/bash
+#SBATCH --job-name=3d_extract
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=64G
+#SBATCH --time=08:00:00
+#SBATCH --array=1-27%9
+#SBATCH --output=/home/%u/log/3d_extract_%A_%a.qlog
+
+# Nine layers by three forest classes. Confirm the array size with
+#   Rscript 3d_extract_covariates.R tasks
+# before submitting, since deactivating a layer shrinks the array rather than
+# leaving holes in it.
+#
+# The array is unbalanced by design. Evergreen carries 95.6 million points
+# against 2.2 million for deciduous, so the six Evergreen zone tasks set the
+# wall time and everything else finishes early. Concurrency is capped at 9 so
+# that the three classes of one layer never contend for the same file.
+#
+# Memory. A raster task holds one 95.6 million row coordinate matrix plus a
+# 10 million row extraction chunk. A zone task additionally builds a 2 million
+# point SpatVector per chunk. 64G covers both with headroom.
+
+set -euo pipefail
+
+mkdir -p /home/$USER/log
+
+source /curc/sw/anaconda3/latest
+conda activate MC0617
+
+cd /home/$USER
+
+Rscript 3d_extract_covariates.R

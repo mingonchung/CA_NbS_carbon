@@ -1,0 +1,162 @@
+#!/bin/bash
+#SBATCH --job-name=ca_8_match
+#SBATCH --partition=amem #amem #acpu
+#SBATCH --qos=mem-long #mem-normal #cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=24 #64; 32
+#SBATCH --mem=950G #128G
+#SBATCH --time=7-00:00:00
+#SBATCH --array=7-12 #1-6: baseline, 7-12: gpp+agb+ch, 13-18: gpp+agb
+#SBATCH --output=/home/mich9173/log/8_match_%A_%a.qlog
+
+
+# AUGUST 5 MAINTENANCE
+#
+# Reservation pm-8.5-amilan holds all 420 acpu nodes from 2026-08-05T06:30 to
+# 2026-08-06T06:30, and pm-8.5-amem holds all 24 amem nodes over the identical
+# window. Slurm will not start a job that cannot finish before a reservation
+# begins, so anything asking for more than the hours remaining until 06:30 on
+# August 5 sits at ReqNodeNotAvail until the window clears. Switching to amem
+# does not help, since amem is reserved too.
+#
+# Two options. Leave the job queued and it starts when the window ends, or make
+# the wait explicit so the estimated start time is visible.
+#
+#   sbatch --begin=2026-08-06T07:00 ...
+#
+# To use the hours before the window, run the small pairings under the normal
+# QoS with a wall clock short enough to finish first. ONP_UNP and UP_UNP take
+# about 1 and 4 hours for the nine non-bart configs.
+#
+#   export CA_CONFIGS="nn_exact_1to1,glm_nocal,glm_cal025,elastic_nocal,elastic_cal025,mahal_nocal,mahal_pscal,rmahal_nocal,rmahal_cal025"
+#   sbatch --qos=normal --time=12:00:00 --export=ALL --array=1,2 8_match_pairings.sub
+#
+# A pilot writes to the same two shared tables as the full run, and the run
+# guard only protects the matched parquet files, not the appends. Clear the
+# work directory before the full submission or the specs and balance tables
+# carry every pilot row twice.
+#
+# PARTITION AND QOS NAMES
+#
+# CURC renames amilan to acpu and the amilan long QoS to cpu-long on
+# August 5, 2026. Both new names are accepted now, and a 7 day job submitted
+# today runs straight through the rename, so the new names are used here rather
+# than the old ones. If sbatch rejects either name, check what this allocation
+# actually has before editing.
+#
+#   sinfo -o "%P"
+#   sacctmgr show assoc user=$USER format=partition,qos
+#
+# The probe line below uses the normal QoS. The rename notice named only the
+# long QoS, so normal may or may not have become cpu-normal. The sacctmgr line
+# above settles it.
+#
+# WHY amem AND mem-long
+#
+# bart is the binding constraint. It runs about 80 times slower than glm at the
+# same input and it is the distance Table S3 selected for the fire pairing, so
+# it stays in the sweep and gets its own submission rather than being dropped.
+#
+# amem requires the mem-normal or mem-long QoS and requires each job to request
+# at least 256 GB, so the 950 GB here is the node rather than an estimate of
+# need. mem-long allows a 7 day wall clock and caps a user at 185 cores, which
+# is why an 18 task array queues rather than running at once. amem bills at 4.0
+# per core against 1.0 on acpu, so this file is deliberately the smaller half of
+# the sweep and the nine cheap configs stay on acpu.
+#
+# MEMORY
+#
+# 950 GB is an amem node, not a measured requirement. The largest matching input
+# in the set is TP_UP augmented at level 1986_1990, 14.4 million rows, which
+# peaked at 14.6 GB under the non-bart configs. dbarts holds the design matrix
+# and the tree ensemble on top of that and nothing has measured what that adds
+# at 14 million rows, so the first completed bart task is what sizes any future
+# request. Read the "after bart_nocal" lines in the log.
+#
+# The 3 day wall clock is what this allocation permits. Estimated bart cost per
+# task runs from 3 hours on ONP_UNP to 114 hours on TP_UP, so TP_UP and TNP_UNP
+# are the two that may need splitting by level. See CA_LEVELS below.
+#
+# THE ARRAY
+#
+# Task index is pairing crossed with arm, from ca_match_tasks().
+#
+#    1-6   UP_UNP ONP_UNP FP_UP FNP_UNP TP_UP TNP_UNP   baseline
+#    7-12  same order                                   augmented
+#   13-18  same order                                   augmented_noch
+#
+#   Rscript $HOME/8_match_pairings.R tasks
+#
+# THIS FILE RUNS THE TWO BART CONFIGS, ONE PER SUBMISSION
+#
+#   sbatch --export=ALL,CA_CONFIGS=bart_nocal  --array=1-18 8_match_pairings_bart.sub
+#   sbatch --export=ALL,CA_CONFIGS=bart_cal025 --array=1-18 8_match_pairings_bart.sub
+#
+# A single value survives --export intact, so no shell export is needed here.
+# The nine non-bart configs go to 8_match_pairings.sub, where the list does need
+# exporting first.
+#
+# EXPORT THE VARIABLE FIRST. Do not put the list inside --export. sbatch splits
+# its own --export argument on commas, so
+#
+#   sbatch --export=ALL,CA_CONFIGS=a,b,c
+#
+# sets CA_CONFIGS to a and then tries to export variables named b and c. The
+# list arrives truncated to its first element with no error, which turns a nine
+# config sweep into a one config run. Colons survive if a one-liner is wanted.
+#
+#   sbatch --export=ALL,CA_CONFIGS=bart_nocal:bart_cal025 --array=1-18 8_match_pairings.sub
+#
+# Unset it before the next submission, since --export=ALL carries the whole
+# environment and a stale CA_CONFIGS will silently narrow the run.
+#
+#   unset CA_CONFIGS
+#
+# Estimated from the probe, hours per task, baseline arm. The augmented arms
+# add about 1 hour for the pre-treatment reads.
+#
+#   pairing    nine non-bart    one bart
+#   ONP_UNP          1              3
+#   UP_UNP           4              9
+#   FNP_UNP         12             25
+#   FP_UP           33             73
+#   TNP_UNP         41             89
+#   TP_UP           52            114
+#
+# If a bart task on TP_UP or TNP_UNP still hits the wall, split it by level.
+# Levels are independent and the matched filename carries the range.
+#
+#   export CA_CONFIGS="bart_nocal"; export CA_LEVELS="1-18"
+#   sbatch --export=ALL --array=5 8_match_pairings.sub
+#   export CA_LEVELS="19-36"
+#   sbatch --export=ALL --array=5 8_match_pairings.sub
+#
+# PROBE, on the normal QoS since it takes minutes rather than days. Not on
+# atesting, which caps at 1 hour, 5 jobs, and 2 nodes, so an array of six will
+# not fit.
+#
+#   sbatch --qos=normal --time=04:00:00 --export=ALL,CA_MODE=probe --array=1-6 8_match_pairings.sub
+#
+# Archive once every submission has finished, from a login node.
+#
+#   Rscript $HOME/8_match_pairings.R archive
+#
+# Then aggregate the per-level rows into the per-pairing table that Table S3 and
+# Figure S6 need. Stage 8 writes one row per cohort level, not one per pairing.
+#
+#   Rscript $HOME/8b_aggregate_match.R
+
+module purge
+module load anaconda
+conda activate MC0617
+
+command -v Rscript >/dev/null 2>&1 || {
+  echo "Rscript not on PATH after activating MC0617"
+  exit 1
+}
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+Rscript "$HOME/8_match_pairings.R" ${CA_MODE:-run}

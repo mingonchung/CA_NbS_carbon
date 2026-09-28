@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --job-name=ca_6a_probe
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=128G
+#SBATCH --time=04:00:00
+#SBATCH --output=/home/mich9173/log/6a_probe_%A.qlog
+
+
+# Runs once, on Evergreen, before the 6a array. Writes
+# meta/nondisturbing_decision.csv, which 6a run mode requires and will not
+# default around.
+
+module purge
+module load anaconda/2023.09
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+Rscript "$HOME/6a_group_codes.R" probe

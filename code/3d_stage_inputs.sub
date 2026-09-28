@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --job-name=3d_stage
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=8G
+#SBATCH --time=01:00:00
+#SBATCH --output=/home/%u/log/3d_stage_%j.qlog
+#SBATCH --error=/home/%u/log/3d_stage_%j.qlog
+#SBATCH --mail-type=END,FAIL
+
+# Stage 3d masters from /projects to /scratch/alpine. Single task, run once
+# before the extraction array. Copies twelve rasters and two shapefile sets.
+
+set -euo pipefail
+
+mkdir -p /home/$USER/log
+
+source /curc/sw/anaconda3/latest
+conda activate MC0617
+
+cd /home/$USER
+
+Rscript 3d_stage_inputs.R

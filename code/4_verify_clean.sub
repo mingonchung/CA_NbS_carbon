@@ -1,0 +1,48 @@
+#!/bin/bash
+#SBATCH --job-name=ca_4_verify
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=128G
+#SBATCH --time=12:00:00
+#SBATCH --array=1-7
+#SBATCH --output=/home/mich9173/log/4_verify_%A_%a.qlog
+
+
+# All six sections from one submission:
+#
+#   sbatch 4_verify_clean.sub
+#
+# An array rather than a loop inside one process. Each task gets a fresh R
+# process, which is the only thing that reliably returns Arrow's off-heap pool
+# to the OS. Running the six in one process is what exhausted a 128G node on
+# a 364 Mb allocation.
+#
+# Single section:
+#   sbatch --array=7 4_verify_clean.sub           threshold only
+#
+# cpus-per-task is 4 rather than 12 on purpose. ca_config calls
+# arrow::set_cpu_count(ca_threads()), and every extra Arrow thread carries its
+# own decompression buffers. These sections are read-bound, not compute-bound.
+
+module purge
+module load anaconda/2023.09
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate MC0617
+
+export CA_ARCHIVE=/projects/mich9173/CA_carbon
+export CA_SCRATCH=/scratch/alpine/mich9173/CA_carbon
+
+SECTIONS=(paths units sentinel rules covariates degradation threshold)
+
+if [ -z "${SECTION}" ]; then
+  IDX=${SLURM_ARRAY_TASK_ID:-1}
+  SECTION=${SECTIONS[$((IDX - 1))]}
+fi
+CLASS=${CLASS:-Everg}
+
+echo "Section: ${SECTION}   Class: ${CLASS}"
+Rscript "$HOME/4_verify_clean.R" "$SECTION" "$CLASS"
